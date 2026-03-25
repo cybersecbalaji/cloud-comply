@@ -6,6 +6,8 @@ Static React SPA — no backend, no auth, all data lives in `src/data/controls.j
 
 ## Getting Started
 
+ - N/A
+
 ### Prerequisites
 
 - Node.js 18+
