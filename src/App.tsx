@@ -5,6 +5,7 @@ import { MappingTable } from '@/pages/MappingTable';
 import { GapAnalysis } from '@/pages/GapAnalysis';
 import { CrossReference } from '@/pages/CrossReference';
 import { AIContainers } from '@/pages/AIContainers';
+import { About } from '@/pages/About';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="gap-analysis" element={<GapAnalysis />} />
           <Route path="cross-reference" element={<CrossReference />} />
           <Route path="ai-containers" element={<AIContainers />} />
+          <Route path="about" element={<About />} />
         </Route>
       </Routes>
     </BrowserRouter>
