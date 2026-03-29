@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import {
   LayoutDashboard,
   Table2,
-  AlertTriangle,
+  ShieldAlert,
   GitCompare,
   BrainCircuit,
   Shield,
@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils';
 const NAV_ITEMS = [
   { to: '/', label: 'Dashboard', icon: LayoutDashboard },
   { to: '/mapping', label: 'Mapping Table', icon: Table2 },
-  { to: '/gap-analysis', label: 'Gap Analysis', icon: AlertTriangle },
+  { to: '/csp-coverage', label: 'CSP Coverage', icon: ShieldAlert },
   { to: '/cross-reference', label: 'Cross-Reference', icon: GitCompare },
   { to: '/ai-containers', label: 'AI & Containers', icon: BrainCircuit },
 ];

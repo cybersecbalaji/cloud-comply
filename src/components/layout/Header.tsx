@@ -18,7 +18,7 @@ export function Header({ onMenuToggle }: { onMenuToggle: () => void }) {
           CloudComply
         </h1>
         <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300">
-          ISM: December 2025 | ISO 27001:2022
+          ISM: March 2026 | ISO 27001:2022
         </span>
       </div>
 

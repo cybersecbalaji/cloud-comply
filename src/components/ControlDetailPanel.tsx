@@ -64,6 +64,18 @@ export function ControlDetailPanel() {
         </div>
 
         <div className="px-5 py-4 space-y-5">
+          {/* ISM hierarchy */}
+          <div>
+            <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wide mb-1">
+              ISM Guideline
+            </p>
+            <p className="text-sm text-slate-700 dark:text-slate-300 font-medium">{c.ism_guideline}</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{c.ism_section}</p>
+            {c.ism_topic && c.ism_topic !== 'General' && (
+              <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5 italic">{c.ism_topic}</p>
+            )}
+          </div>
+
           {/* Description */}
           <div>
             <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wide mb-1">
@@ -76,13 +88,29 @@ export function ControlDetailPanel() {
 
           {/* Badges row */}
           <div className="flex flex-wrap gap-2">
-            <Badge className="bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-300 font-medium">
-              {c.ism_domain}
-            </Badge>
             <Badge className={ISO_THEME_COLOURS[c.iso_theme]}>{c.iso_theme}</Badge>
-            <Badge className={SERVICE_COLOURS[c.service_category]}>{c.service_category}</Badge>
+            <Badge className={SERVICE_COLOURS[c.service_category] || 'bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-300'}>{c.service_category}</Badge>
             <Badge className={RESPONSIBILITY_COLOURS[c.responsibility]}>{c.responsibility}</Badge>
           </div>
+
+          {/* Classification levels */}
+          {c.classification_levels && c.classification_levels.length > 0 && (
+            <div>
+              <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wide mb-1">
+                Classification Levels
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {c.classification_levels.map((level) => (
+                  <span
+                    key={level}
+                    className="px-2 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300"
+                  >
+                    {level}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* ISO Control */}
           <div>

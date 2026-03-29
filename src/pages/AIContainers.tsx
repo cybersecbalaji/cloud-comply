@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Download, Info, X } from 'lucide-react';
 import { downloadCSV } from '@/lib/utils';
-import { useStore } from '@/store/useStore';
+import { useStore, ISM_GUIDELINES } from '@/store/useStore';
 import { Badge } from '@/components/ui/Badge';
 import { ServiceChip } from '@/components/ServiceChip';
 import { EmptyState } from '@/components/ui/EmptyState';
@@ -16,6 +16,7 @@ const AI_CONTROL_AREAS = [
   { area: 'Data Residency', customer: 'Select AU regions, enforce via policy', aws: 'ap-southeast-2 endpoint configuration', azure: 'australiaeast region selection' },
   { area: 'Content Filtering', customer: 'Configure guardrails and content policies', aws: 'Bedrock Guardrails setup', azure: 'AI Content Safety policy configuration' },
   { area: 'Model Integrity', customer: 'Training data validation, SBOM, provenance', aws: 'SageMaker ML Lineage Tracking', azure: 'Azure ML Model Registry' },
+  { area: 'General-Purpose AI Usage Policy', customer: 'Document approved use cases, prohibited inputs', aws: 'AWS Organizations SCPs', azure: 'Azure Policy + Entra ID Conditional Access' },
   { area: 'Third-Party Model Risk', customer: 'Risk assess each model, document approvals', aws: 'Marketplace compliance reports via Artifact', azure: 'AI Foundry model cards review' },
   { area: 'Prompt Injection Defence', customer: 'Input validation, hardening, adversarial testing', aws: 'Bedrock Guardrails (partial)', azure: 'Content Safety (partial)' },
 ];
@@ -28,12 +29,7 @@ const CONTAINER_CONTROL_AREAS = [
   { area: 'Network Policy Enforcement', customer: 'Write and apply NetworkPolicy manifests', aws: 'VPC CNI + NetworkPolicy', azure: 'Azure CNI + Azure Network Policy' },
   { area: 'Image Signing & Immutability', customer: 'Sign images, enforce admission control', aws: 'ECR + AWS Signer + Notary v2', azure: 'ACR Content Trust + Key Vault' },
   { area: 'Registry Access Control', customer: 'Configure IAM/RBAC roles for push/pull', aws: 'ECR resource-based policies', azure: 'ACR AcrPull/AcrPush RBAC roles' },
-];
-
-const ISM_DOMAINS = [
-  'All', 'Access Control', 'Cryptography', 'Audit and Accountability',
-  'Configuration Management', 'System Monitoring', 'Communications Security',
-  'AI Security', 'Supply Chain Security', 'Application Security', 'Data Management',
+  { area: 'Container Hardening (SOE)', customer: 'Use minimal base images, remove unnecessary tools', aws: 'ECR Image Builder, Distroless images', azure: 'ACR Tasks, Defender image hardening' },
 ];
 
 function FilterSelect({ label, value, options, onChange }: {
@@ -59,7 +55,7 @@ export function AIContainers() {
 
   // Local filters (independent of the global mapping table filters)
   const [coverageFilter, setCoverageFilter] = useState('All');
-  const [domainFilter, setDomainFilter] = useState('All');
+  const [guidelineFilter, setGuidelineFilter] = useState('All');
   const [responsibilityFilter, setResponsibilityFilter] = useState('All');
   const [cloudFilter, setCloudFilter] = useState('All');
 
@@ -71,23 +67,26 @@ export function AIContainers() {
   const filteredControls = useMemo(() => {
     return baseControls.filter((c) => {
       if (coverageFilter !== 'All' && c.coverage_status !== coverageFilter) return false;
-      if (domainFilter !== 'All' && c.ism_domain !== domainFilter) return false;
+      if (guidelineFilter !== 'All' && c.ism_guideline !== guidelineFilter) return false;
       if (responsibilityFilter !== 'All' && c.responsibility !== responsibilityFilter) return false;
       if (cloudFilter === 'AWS' && c.aws_services.length === 0) return false;
       if (cloudFilter === 'Azure' && c.azure_services.length === 0) return false;
       return true;
     });
-  }, [baseControls, coverageFilter, domainFilter, responsibilityFilter, cloudFilter]);
+  }, [baseControls, coverageFilter, guidelineFilter, responsibilityFilter, cloudFilter]);
 
   const currentAreas = activeTab === 'ai' ? AI_CONTROL_AREAS : CONTAINER_CONTROL_AREAS;
   const csvFilename = activeTab === 'ai' ? 'cloudcomply-ai-controls.csv' : 'cloudcomply-container-controls.csv';
 
   const csvData = filteredControls.map((c: Control) => ({
     control_id: c.control_id,
-    ism_domain: c.ism_domain,
+    ism_guideline: c.ism_guideline,
+    ism_section: c.ism_section,
+    ism_topic: c.ism_topic,
     iso_control_id: c.iso_control_id,
     iso_control_name: c.iso_control_name,
     service_category: c.service_category,
+    classification_levels: c.classification_levels.join(', '),
     aws_services: c.aws_services.join(', '),
     azure_services: c.azure_services.join(', '),
     responsibility: c.responsibility,
@@ -96,19 +95,19 @@ export function AIContainers() {
   }));
 
   const hasActiveFilters =
-    coverageFilter !== 'All' || domainFilter !== 'All' ||
+    coverageFilter !== 'All' || guidelineFilter !== 'All' ||
     responsibilityFilter !== 'All' || cloudFilter !== 'All';
 
   function resetFilters() {
     setCoverageFilter('All');
-    setDomainFilter('All');
+    setGuidelineFilter('All');
     setResponsibilityFilter('All');
     setCloudFilter('All');
   }
 
   const overviewText = activeTab === 'ai'
-    ? `AI/ML compliance controls covering Bedrock, SageMaker, Azure OpenAI, Azure ML, and related services. Highlights controls unique to AI workloads: model integrity, prompt injection defence, inference logging, data residency, and content filtering. The shared responsibility matrix shows what you own versus what AWS and Azure handle.`
-    : `Container compliance controls covering ECS, EKS, Fargate, ECR, AKS, ACI, ACR, and related services. Highlights container-specific requirements: image vulnerability scanning, Kubernetes RBAC, runtime threat detection, secrets management, and network policy enforcement. The shared responsibility matrix shows what you own versus what AWS and Azure handle.`;
+    ? `AI/ML compliance controls covering Amazon Bedrock, SageMaker, Azure OpenAI, Azure Machine Learning, and related services. Highlights controls unique to AI workloads under ISM March 2026: general-purpose AI usage policies, model integrity, prompt injection defence, inference logging, data residency, and content filtering. The shared responsibility matrix shows what you own versus what AWS and Azure handle.`
+    : `Container compliance controls covering ECS, EKS, Fargate, ECR, AKS, ACI, ACR, and related services. Highlights container-specific requirements from ISM March 2026: image vulnerability scanning, container hardening (SOE), Kubernetes RBAC, runtime threat detection, secrets management, and network policy enforcement. The shared responsibility matrix shows what you own versus what AWS and Azure handle.`;
 
   return (
     <div className="space-y-5 max-w-7xl mx-auto">
@@ -122,7 +121,7 @@ export function AIContainers() {
         <div>
           <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">AI &amp; Container Compliance</h2>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
-            Dedicated compliance view for AI/ML and container service controls
+            Dedicated compliance view for AI/ML and container service controls — ISM March 2026
           </p>
         </div>
         <button
@@ -158,7 +157,12 @@ export function AIContainers() {
       <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-2">
           <FilterSelect label="Coverage" value={coverageFilter} options={['All', 'Covered', 'Partial', 'Gap']} onChange={setCoverageFilter} />
-          <FilterSelect label="ISM Domain" value={domainFilter} options={ISM_DOMAINS} onChange={setDomainFilter} />
+          <FilterSelect
+            label="ISM Guideline"
+            value={guidelineFilter}
+            options={ISM_GUIDELINES}
+            onChange={setGuidelineFilter}
+          />
           <FilterSelect label="Responsibility" value={responsibilityFilter} options={['All', 'Customer', 'Shared', 'Provider']} onChange={setResponsibilityFilter} />
           <FilterSelect label="Cloud" value={cloudFilter} options={['All', 'AWS', 'Azure']} onChange={setCloudFilter} />
         </div>
@@ -220,7 +224,7 @@ export function AIContainers() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700">
-                  {['Control ID', 'ISM Domain', 'Description', 'AWS Services', 'Azure Services', 'Responsibility', 'Coverage'].map((h) => (
+                  {['Control ID', 'ISM Guideline / Section', 'Description', 'AWS Services', 'Azure Services', 'Responsibility', 'Coverage'].map((h) => (
                     <th key={h} className="px-3 py-3 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide whitespace-nowrap">
                       {h}
                     </th>
@@ -237,8 +241,13 @@ export function AIContainers() {
                     <td className="px-3 py-2.5 font-mono text-xs font-medium text-slate-700 dark:text-slate-300 whitespace-nowrap">
                       {c.control_id}
                     </td>
-                    <td className="px-3 py-2.5 text-xs text-slate-600 dark:text-slate-400 max-w-[100px] truncate">
-                      {c.ism_domain}
+                    <td className="px-3 py-2.5 text-xs max-w-[120px]">
+                      <div className="text-slate-600 dark:text-slate-400 truncate" title={c.ism_guideline}>
+                        {c.ism_guideline.replace('Guidelines for ', '')}
+                      </div>
+                      <div className="text-slate-400 dark:text-slate-500 truncate text-xs" title={c.ism_section}>
+                        {c.ism_section}
+                      </div>
                     </td>
                     <td className="px-3 py-2.5 text-xs text-slate-600 dark:text-slate-400 max-w-xs">
                       <p className="line-clamp-2">{c.ism_description}</p>
