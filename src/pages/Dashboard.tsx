@@ -87,10 +87,10 @@ export function Dashboard() {
 
       {/* Stat cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <StatCard label="Total Controls" value={controls.length} colour="text-slate-800 dark:text-slate-100" subtext="ISM + ISO 27001 mapped" />
-        <StatCard label="Covered" value={covered} colour="text-green-600 dark:text-green-400" subtext={`${controls.length ? Math.round((covered / controls.length) * 100) : 0}% of total`} />
-        <StatCard label="Partial Coverage" value={partial} colour="text-amber-600 dark:text-amber-400" subtext={`${controls.length ? Math.round((partial / controls.length) * 100) : 0}% of total`} />
-        <StatCard label="Gaps" value={gaps} colour="text-red-600 dark:text-red-400" subtext={`${controls.length ? Math.round((gaps / controls.length) * 100) : 0}% of total`} />
+        <StatCard label="Total Controls" value={controls.length} colour="text-slate-800 dark:text-slate-100" subtext="ISM + ISO 27001 mapped" accentClass="border-l-4 border-l-slate-400" />
+        <StatCard label="Covered" value={covered} colour="text-green-600 dark:text-green-400" subtext={`${controls.length ? Math.round((covered / controls.length) * 100) : 0}% of total`} accentClass="border-l-4 border-l-green-500" />
+        <StatCard label="Partial Coverage" value={partial} colour="text-amber-600 dark:text-amber-400" subtext={`${controls.length ? Math.round((partial / controls.length) * 100) : 0}% of total`} accentClass="border-l-4 border-l-amber-500" />
+        <StatCard label="Gaps" value={gaps} colour="text-red-600 dark:text-red-400" subtext={`${controls.length ? Math.round((gaps / controls.length) * 100) : 0}% of total`} accentClass="border-l-4 border-l-red-500" />
       </div>
 
       {/* Charts row */}
@@ -194,7 +194,7 @@ export function Dashboard() {
             <button
               key={s}
               onClick={() => quickFilter(s)}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-colors
+              className={`px-4 py-2 min-h-[44px] rounded-full text-sm font-medium border transition-colors
                 ${s === 'Covered' ? 'bg-green-50 border-green-200 text-green-700 hover:bg-green-100 dark:bg-green-900/20 dark:border-green-800 dark:text-green-400' : ''}
                 ${s === 'Partial' ? 'bg-amber-50 border-amber-200 text-amber-700 hover:bg-amber-100 dark:bg-amber-900/20 dark:border-amber-800 dark:text-amber-400' : ''}
                 ${s === 'Gap' ? 'bg-red-50 border-red-200 text-red-700 hover:bg-red-100 dark:bg-red-900/20 dark:border-red-800 dark:text-red-400' : ''}
@@ -207,7 +207,7 @@ export function Dashboard() {
             <button
               key={category}
               onClick={() => filterByCategory(category)}
-              className="px-4 py-1.5 rounded-full text-sm font-medium border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-600 transition-colors"
+              className="px-4 py-2 min-h-[44px] rounded-full text-sm font-medium border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-600 transition-colors"
             >
               {category}
             </button>

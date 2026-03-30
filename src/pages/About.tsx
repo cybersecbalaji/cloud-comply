@@ -13,7 +13,7 @@ export function About() {
 
       {/* Page title */}
       <div>
-        <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-100">About CloudComply</h1>
+        <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100">About CloudComply</h2>
         <p className="mt-2 text-slate-600 dark:text-slate-400">
           A compliance reference tool mapping Australian ISM and ISO 27001:2022 controls to AWS and Azure native services,
           helping organisations understand their cloud security posture.
@@ -44,7 +44,7 @@ export function About() {
           href="https://www.linkedin.com/in/cybersecbalaji/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 mt-2 text-sm text-blue-600 dark:text-blue-400 hover:underline"
+          className="inline-flex items-center gap-1.5 mt-2 py-2 text-sm text-blue-600 dark:text-blue-400 hover:underline min-h-[44px]"
         >
           <Linkedin className="w-3.5 h-3.5" />
           linkedin.com/in/cybersecbalaji

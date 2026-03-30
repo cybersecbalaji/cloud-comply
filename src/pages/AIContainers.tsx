@@ -10,6 +10,10 @@ import type { Control } from '@/types';
 
 type Tab = 'ai' | 'containers';
 
+// Match controls by services rather than service_category (which ISM doesn't split this way)
+const AI_SERVICE_KEYWORDS = ['Bedrock', 'SageMaker', 'Rekognition', 'Comprehend', 'Lex', 'Polly', 'Kendra', 'Translate', 'Forecast', 'Personalize', 'Textract', 'Transcribe', 'OpenAI', 'Azure ML', 'Cognitive', 'Foundry'];
+const CONTAINER_SERVICE_KEYWORDS = ['ECS', 'EKS', 'ECR', 'Fargate', 'AKS', 'ACR', 'Container Apps', 'Container Registry', 'App Runner'];
+
 const AI_CONTROL_AREAS = [
   { area: 'Access Control (Endpoints)', customer: 'Enforce IAM policies, API keys, network restrictions', aws: 'Bedrock IAM enforcement', azure: 'Entra ID RBAC for OpenAI' },
   { area: 'Inference Logging', customer: 'Configure logging destinations, set retention', aws: 'CloudTrail API logs', azure: 'Azure Monitor diagnostic settings' },
@@ -41,7 +45,7 @@ function FilterSelect({ label, value, options, onChange }: {
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="text-sm border border-slate-200 dark:border-slate-600 rounded-md px-2 py-1.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="text-base md:text-sm border border-slate-200 dark:border-slate-600 rounded-md px-2 py-1.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
       >
         {options.map((o) => <option key={o} value={o}>{o}</option>)}
       </select>
@@ -59,8 +63,12 @@ export function AIContainers() {
   const [responsibilityFilter, setResponsibilityFilter] = useState('All');
   const [cloudFilter, setCloudFilter] = useState('All');
 
-  const aiControls = useMemo(() => controls.filter((c) => c.service_category === 'AI/ML'), [controls]);
-  const containerControls = useMemo(() => controls.filter((c) => c.service_category === 'Containers'), [controls]);
+  const aiControls = useMemo(() => controls.filter((c) =>
+    [...c.aws_services, ...c.azure_services].some((s) => AI_SERVICE_KEYWORDS.some((k) => s.includes(k)))
+  ), [controls]);
+  const containerControls = useMemo(() => controls.filter((c) =>
+    [...c.aws_services, ...c.azure_services].some((s) => CONTAINER_SERVICE_KEYWORDS.some((k) => s.includes(k)))
+  ), [controls]);
 
   const baseControls = activeTab === 'ai' ? aiControls : containerControls;
 
@@ -126,7 +134,7 @@ export function AIContainers() {
         </div>
         <button
           onClick={() => downloadCSV(csvData, csvFilename)}
-          className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+          className="flex items-center gap-1.5 px-4 min-h-[44px] text-sm font-medium rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors"
         >
           <Download className="w-4 h-4" />
           Export {activeTab === 'ai' ? 'AI' : 'Container'} Controls CSV
@@ -139,7 +147,7 @@ export function AIContainers() {
           <button
             key={tab}
             onClick={() => { setActiveTab(tab); resetFilters(); }}
-            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+            className={`px-4 py-2 min-h-[44px] rounded-md text-sm font-medium transition-colors ${
               activeTab === tab
                 ? 'bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-100 shadow-sm'
                 : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'

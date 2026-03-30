@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Download, Search, X, Info, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Download, Search, X, Info, ChevronLeft, ChevronRight, SlidersHorizontal } from 'lucide-react';
 import { downloadCSV } from '@/lib/utils';
 import { useStore, useFilteredControls, AWS_SERVICES, AZURE_SERVICES, ISM_GUIDELINES, SERVICE_CATEGORIES } from '@/store/useStore';
 import { Badge } from '@/components/ui/Badge';
@@ -13,6 +13,9 @@ const PAGE_SIZE = 50;
 const ISO_THEMES = ['All', 'Organisational', 'People', 'Physical', 'Technological'];
 const CLASSIFICATION_LEVELS = ['All', 'NC', 'OS', 'P', 'S', 'TS'];
 
+// font-size: 16px on mobile prevents iOS Safari auto-zoom on focus
+const selectClass = 'text-base md:text-sm border border-slate-200 dark:border-slate-600 rounded-md px-2 py-1.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full';
+
 function FilterSelect({
   label, value, options, onChange,
 }: {
@@ -21,11 +24,7 @@ function FilterSelect({
   return (
     <div className="flex flex-col gap-1 min-w-0">
       <label className="text-xs font-medium text-slate-500 dark:text-slate-400">{label}</label>
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="text-sm border border-slate-200 dark:border-slate-600 rounded-md px-2 py-1.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-      >
+      <select value={value} onChange={(e) => onChange(e.target.value)} className={selectClass}>
         {options.map((o) => <option key={o} value={o}>{o}</option>)}
       </select>
     </div>
@@ -38,8 +37,8 @@ export function MappingTable() {
   const { setSelectedControl } = useStore();
   const [loading] = useState(false);
   const [page, setPage] = useState(1);
+  const [showFilters, setShowFilters] = useState(false);
 
-  // Reset to page 1 whenever filters change
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const safePage = Math.min(page, totalPages);
   const pageStart = (safePage - 1) * PAGE_SIZE;
@@ -61,16 +60,19 @@ export function MappingTable() {
     notes: c.notes,
   })), [filtered]);
 
-  const hasActiveFilters =
-    filters.search ||
-    filters.framework !== 'All' ||
-    filters.coverageStatus !== 'All' ||
-    filters.serviceCategory !== 'All' ||
-    filters.ismGuideline !== 'All' ||
-    filters.isoTheme !== 'All' ||
-    filters.cloud !== 'All' ||
-    filters.service !== 'All' ||
-    filters.classificationLevel !== 'All';
+  const activeFilterCount = [
+    filters.search,
+    filters.framework !== 'All',
+    filters.coverageStatus !== 'All',
+    filters.serviceCategory !== 'All',
+    filters.ismGuideline !== 'All',
+    filters.isoTheme !== 'All',
+    filters.cloud !== 'All',
+    filters.service !== 'All',
+    filters.classificationLevel !== 'All',
+  ].filter(Boolean).length;
+
+  const hasActiveFilters = activeFilterCount > 0;
 
   function handleFilterChange<K extends keyof typeof filters>(key: K, value: (typeof filters)[K]) {
     setFilter(key, value);
@@ -94,19 +96,34 @@ export function MappingTable() {
             {filtered.length} control{filtered.length !== 1 ? 's' : ''} shown
           </p>
         </div>
-        <button
-          onClick={() => downloadCSV(csvData, 'cloudcomply-controls.csv')}
-          className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors"
-        >
-          <Download className="w-4 h-4" />
-          Export CSV
-        </button>
+        <div className="flex items-center gap-2">
+          {/* Mobile filter toggle */}
+          <button
+            onClick={() => setShowFilters((v) => !v)}
+            className="md:hidden flex items-center gap-1.5 px-3 min-h-[44px] text-sm font-medium rounded-md border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+          >
+            <SlidersHorizontal className="w-4 h-4" />
+            Filters
+            {activeFilterCount > 0 && (
+              <span className="ml-0.5 px-1.5 py-0.5 rounded-full text-xs font-bold bg-blue-600 text-white">
+                {activeFilterCount}
+              </span>
+            )}
+          </button>
+          <button
+            onClick={() => downloadCSV(csvData, 'cloudcomply-controls.csv')}
+            className="flex items-center gap-1.5 px-4 min-h-[44px] text-sm font-medium rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+          >
+            <Download className="w-4 h-4" />
+            Export CSV
+          </button>
+        </div>
       </div>
 
-      {/* Filters */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mb-3">
-          {/* Framework: changes sort order, not row count */}
+      {/* Filters — always visible on md+, toggleable on mobile */}
+      <div className={`bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4 ${showFilters ? 'block' : 'hidden md:block'}`}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mb-3">
+          {/* Framework */}
           <div className="flex flex-col gap-1 min-w-0">
             <div className="flex items-center gap-1">
               <label className="text-xs font-medium text-slate-500 dark:text-slate-400">Framework</label>
@@ -117,7 +134,7 @@ export function MappingTable() {
             <select
               value={filters.framework}
               onChange={(e) => handleFilterChange('framework', e.target.value as 'All' | 'ISM' | 'ISO 27001')}
-              className="text-sm border border-slate-200 dark:border-slate-600 rounded-md px-2 py-1.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={selectClass}
             >
               {['All', 'ISM', 'ISO 27001'].map((o) => <option key={o} value={o}>{o}</option>)}
             </select>
@@ -139,7 +156,7 @@ export function MappingTable() {
             <select
               value={filters.service}
               onChange={(e) => handleFilterChange('service', e.target.value)}
-              className="text-sm border border-slate-200 dark:border-slate-600 rounded-md px-2 py-1.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={selectClass}
             >
               <option value="All">All Services</option>
               <optgroup label="── AWS ──">
@@ -159,7 +176,7 @@ export function MappingTable() {
                 value={filters.search}
                 onChange={(e) => handleFilterChange('search', e.target.value)}
                 placeholder="Search controls, services, notes..."
-                className="w-full text-sm border border-slate-200 dark:border-slate-600 rounded-md pl-7 pr-2 py-1.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full text-base md:text-sm border border-slate-200 dark:border-slate-600 rounded-md pl-7 pr-2 py-1.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
           </div>
@@ -183,7 +200,7 @@ export function MappingTable() {
         ) : (
           <>
             <div className="overflow-x-auto">
-              <table className="w-full text-sm">
+              <table className="w-full text-sm min-w-[900px]">
                 <thead>
                   <tr className="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700">
                     {['Control ID', 'ISM Guideline', 'ISO Control', 'Category', 'Class.', 'AWS Services', 'Azure Services', 'Responsibility', 'Coverage'].map((h) => (
@@ -213,7 +230,7 @@ export function MappingTable() {
                       </td>
                       <td className="px-3 py-2.5 max-w-[160px]">
                         <div className="font-medium text-slate-700 dark:text-slate-300 whitespace-nowrap text-xs">{c.iso_control_id}</div>
-                        <div className="text-xs text-slate-400 dark:text-slate-500 truncate">{c.iso_control_name}</div>
+                        <div className="text-xs text-slate-400 dark:text-slate-500 truncate" title={c.iso_control_name}>{c.iso_control_name}</div>
                       </td>
                       <td className="px-3 py-2.5 whitespace-nowrap">
                         <Badge className={SERVICE_COLOURS[c.service_category] || 'bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-300'}>
@@ -272,7 +289,8 @@ export function MappingTable() {
                 <button
                   onClick={() => setPage((p) => Math.max(1, p - 1))}
                   disabled={safePage === 1}
-                  className="p-1.5 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed"
+                  aria-label="Previous page"
+                  className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
@@ -282,7 +300,8 @@ export function MappingTable() {
                 <button
                   onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                   disabled={safePage === totalPages}
-                  className="p-1.5 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed"
+                  aria-label="Next page"
+                  className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>

@@ -15,7 +15,13 @@
       "Bash(node -e \":*)",
       "Bash(node -e \"const xlsx = require\\(''''C:/Users/rbala/AppData/Local/Temp/node_modules/xlsx''''\\); const wb = xlsx.readFile\\(''''C:/Users/rbala/AppData/Local/Temp/cloud_controls_march2026.xlsx''''\\); console.log\\(''''Sheets:'''', wb.SheetNames\\); const ws = wb.Sheets[wb.SheetNames[0]]; const rows = xlsx.utils.sheet_to_json\\(ws, {header:1}\\); console.log\\(''''Total rows:'''', rows.length\\); console.log\\(''''Row 1:'''', JSON.stringify\\(rows[0]\\).substring\\(0,200\\)\\); console.log\\(''''Row 2:'''', JSON.stringify\\(rows[1]\\).substring\\(0,200\\)\\); console.log\\(''''Row 3:'''', JSON.stringify\\(rows[2]\\).substring\\(0,200\\)\\);\")",
       "Bash(node generate-controls.js)",
-      "Bash(node -e \"const d = require\\(''./src/data/controls.json''\\); console.log\\(''Total:'', d.length\\); console.log\\(''Sample:'', JSON.stringify\\(d[0], null, 2\\).substring\\(0, 400\\)\\);\")"
+      "Bash(node -e \"const d = require\\(''./src/data/controls.json''\\); console.log\\(''Total:'', d.length\\); console.log\\(''Sample:'', JSON.stringify\\(d[0], null, 2\\).substring\\(0, 400\\)\\);\")",
+      "Bash(node add-tools.js)",
+      "Bash(npx playwright:*)",
+      "Bash(node audit-ui.js)",
+      "Bash(npm install:*)",
+      "Bash(node audit-mobile.js)",
+      "Bash(node fix-ai-services.js)"
     ]
   }
 }

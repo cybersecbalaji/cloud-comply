@@ -1,3 +1,10 @@
+export interface ThirdPartyTool {
+  name: string;
+  type: string;    // e.g. "CSPM", "SIEM", "PAM", "SAST/DAST", "DLP"
+  purpose: string;
+  url: string;
+}
+
 export interface Control {
   control_id: string;
   ism_guideline: string;           // Official ISM guideline name e.g. "Guidelines for system hardening"
@@ -15,6 +22,7 @@ export interface Control {
   coverage_status: 'Covered' | 'Partial' | 'Gap';
   notes: string;
   source_url: string;
+  third_party_tools: ThirdPartyTool[];
 }
 
 export type CoverageStatus = Control['coverage_status'];

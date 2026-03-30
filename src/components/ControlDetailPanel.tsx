@@ -1,5 +1,5 @@
-import { X, Copy, ExternalLink, Check } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { X, Copy, ExternalLink, Check, Wrench } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
 import { useStore } from '@/store/useStore';
 import { Badge } from '@/components/ui/Badge';
 import { ServiceChip } from '@/components/ServiceChip';
@@ -13,6 +13,7 @@ import {
 export function ControlDetailPanel() {
   const { selectedControl, setSelectedControl } = useStore();
   const [copied, setCopied] = useState(false);
+  const touchStartX = useRef<number | null>(null);
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -21,6 +22,18 @@ export function ControlDetailPanel() {
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
   }, [setSelectedControl]);
+
+  function handleTouchStart(e: React.TouchEvent) {
+    touchStartX.current = e.touches[0].clientX;
+  }
+
+  function handleTouchEnd(e: React.TouchEvent) {
+    if (touchStartX.current === null) return;
+    const delta = e.changedTouches[0].clientX - touchStartX.current;
+    // Swipe right-to-left → close (delta < -60px)
+    if (delta > 60) setSelectedControl(null);
+    touchStartX.current = null;
+  }
 
   if (!selectedControl) return null;
 
@@ -46,7 +59,11 @@ export function ControlDetailPanel() {
         onClick={() => setSelectedControl(null)}
       />
       {/* Panel */}
-      <aside className="slide-panel fixed right-0 top-0 h-full w-full max-w-md bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-700 z-50 overflow-y-auto">
+      <aside
+        className="slide-panel fixed right-0 top-0 h-full w-full max-w-md bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-700 z-50 overflow-y-auto"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         {/* Header */}
         <div className="flex items-start justify-between px-5 py-4 border-b border-slate-200 dark:border-slate-700 sticky top-0 bg-white dark:bg-slate-900">
           <div className="flex items-center gap-2 flex-wrap">
@@ -159,6 +176,45 @@ export function ControlDetailPanel() {
               {c.notes}
             </p>
           </div>
+
+          {/* Third-party tools — only for Partial / Gap controls */}
+          {(c.coverage_status === 'Partial' || c.coverage_status === 'Gap') &&
+            c.third_party_tools && c.third_party_tools.length > 0 && (
+            <div>
+              <div className="flex items-center gap-1.5 mb-2">
+                <Wrench className="w-3.5 h-3.5 text-violet-500" />
+                <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wide">
+                  Recommended Third-Party Tools
+                </p>
+              </div>
+              <div className="space-y-2">
+                {c.third_party_tools.map((tool) => (
+                  <a
+                    key={tool.name}
+                    href={tool.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-3 p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-violet-300 dark:hover:border-violet-700 hover:bg-violet-50 dark:hover:bg-violet-950/20 transition-colors group"
+                  >
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <span className="text-xs font-semibold text-slate-700 dark:text-slate-200 group-hover:text-violet-700 dark:group-hover:text-violet-300">
+                          {tool.name}
+                        </span>
+                        <span className="px-1.5 py-0.5 rounded text-xs font-medium bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300">
+                          {tool.type}
+                        </span>
+                      </div>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed line-clamp-2">
+                        {tool.purpose}
+                      </p>
+                    </div>
+                    <ExternalLink className="w-3 h-3 text-slate-300 dark:text-slate-600 group-hover:text-violet-400 shrink-0 mt-0.5" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Actions */}
           <div className="flex gap-2 pt-1">

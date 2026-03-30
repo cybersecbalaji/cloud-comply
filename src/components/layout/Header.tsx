@@ -9,7 +9,7 @@ export function Header({ onMenuToggle }: { onMenuToggle: () => void }) {
       <div className="flex items-center gap-3">
         <button
           onClick={onMenuToggle}
-          className="md:hidden p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors"
+          className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors"
           aria-label="Open navigation"
         >
           <Menu className="w-5 h-5" />
@@ -28,7 +28,7 @@ export function Header({ onMenuToggle }: { onMenuToggle: () => void }) {
         </span>
         <button
           onClick={toggleDarkMode}
-          className="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors"
+          className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors"
           aria-label="Toggle dark mode"
         >
           {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
