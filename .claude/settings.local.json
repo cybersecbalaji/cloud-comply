@@ -21,7 +21,13 @@
       "Bash(node audit-ui.js)",
       "Bash(npm install:*)",
       "Bash(node audit-mobile.js)",
-      "Bash(node fix-ai-services.js)"
+      "Bash(node fix-ai-services.js)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_console_messages",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_press_key"
     ]
   }
 }

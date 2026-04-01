@@ -5,6 +5,7 @@ import {
   ShieldAlert,
   GitCompare,
   BrainCircuit,
+  ClipboardCheck,
   Shield,
   Info,
 } from 'lucide-react';
@@ -16,6 +17,7 @@ const NAV_ITEMS = [
   { to: '/csp-coverage', label: 'CSP Coverage', icon: ShieldAlert },
   { to: '/cross-reference', label: 'Cross-Reference', icon: GitCompare },
   { to: '/ai-containers', label: 'AI & Containers', icon: BrainCircuit },
+  { to: '/implementation', label: 'Implementation', icon: ClipboardCheck },
 ];
 
 const SOURCE_LINKS = [

@@ -1,11 +1,11 @@
 import { useState, useMemo } from 'react';
 import { Download, Info, X } from 'lucide-react';
 import { downloadCSV } from '@/lib/utils';
-import { useStore, ISM_GUIDELINES } from '@/store/useStore';
+import { useStore, ISM_GUIDELINES, ISO_TO_ISM_COUNT } from '@/store/useStore';
 import { Badge } from '@/components/ui/Badge';
 import { ServiceChip } from '@/components/ServiceChip';
 import { EmptyState } from '@/components/ui/EmptyState';
-import { COVERAGE_COLOURS } from '@/lib/utils';
+import { COVERAGE_COLOURS, ISO_THEME_COLOURS } from '@/lib/utils';
 import type { Control } from '@/types';
 
 type Tab = 'ai' | 'containers';
@@ -17,7 +17,7 @@ const CONTAINER_SERVICE_KEYWORDS = ['ECS', 'EKS', 'ECR', 'Fargate', 'AKS', 'ACR'
 const AI_CONTROL_AREAS = [
   { area: 'Access Control (Endpoints)', customer: 'Enforce IAM policies, API keys, network restrictions', aws: 'Bedrock IAM enforcement', azure: 'Entra ID RBAC for OpenAI' },
   { area: 'Inference Logging', customer: 'Configure logging destinations, set retention', aws: 'CloudTrail API logs', azure: 'Azure Monitor diagnostic settings' },
-  { area: 'Data Residency', customer: 'Select AU regions, enforce via policy', aws: 'ap-southeast-2 endpoint configuration', azure: 'australiaeast region selection' },
+  { area: 'Data Residency', customer: 'Select AU regions, enforce via policy', aws: 'ap-southeast-2 endpoint configuration', azure: 'Australia East region selection' },
   { area: 'Content Filtering', customer: 'Configure guardrails and content policies', aws: 'Bedrock Guardrails setup', azure: 'AI Content Safety policy configuration' },
   { area: 'Model Integrity', customer: 'Training data validation, SBOM, provenance', aws: 'SageMaker ML Lineage Tracking', azure: 'Azure ML Model Registry' },
   { area: 'General-Purpose AI Usage Policy', customer: 'Document approved use cases, prohibited inputs', aws: 'AWS Organizations SCPs', azure: 'Azure Policy + Entra ID Conditional Access' },
@@ -58,6 +58,7 @@ export function AIContainers() {
   const { controls, setSelectedControl } = useStore();
 
   // Local filters (independent of the global mapping table filters)
+  const [frameworkFilter, setFrameworkFilter] = useState<'ISM' | 'ISO 27001' | 'Both'>('Both');
   const [coverageFilter, setCoverageFilter] = useState('All');
   const [guidelineFilter, setGuidelineFilter] = useState('All');
   const [responsibilityFilter, setResponsibilityFilter] = useState('All');
@@ -73,7 +74,8 @@ export function AIContainers() {
   const baseControls = activeTab === 'ai' ? aiControls : containerControls;
 
   const filteredControls = useMemo(() => {
-    return baseControls.filter((c) => {
+    const fw = frameworkFilter;
+    const filtered = baseControls.filter((c) => {
       if (coverageFilter !== 'All' && c.coverage_status !== coverageFilter) return false;
       if (guidelineFilter !== 'All' && c.ism_guideline !== guidelineFilter) return false;
       if (responsibilityFilter !== 'All' && c.responsibility !== responsibilityFilter) return false;
@@ -81,32 +83,65 @@ export function AIContainers() {
       if (cloudFilter === 'Azure' && c.azure_services.length === 0) return false;
       return true;
     });
-  }, [baseControls, coverageFilter, guidelineFilter, responsibilityFilter, cloudFilter]);
+    if (fw === 'ISO 27001') {
+      const sorted = [...filtered].sort((a, b) =>
+        a.iso_control_id.localeCompare(b.iso_control_id, undefined, { numeric: true })
+      );
+      const seen = new Set<string>();
+      return sorted.filter((c) => {
+        if (seen.has(c.iso_control_id)) return false;
+        seen.add(c.iso_control_id);
+        return true;
+      });
+    }
+    if (fw === 'ISM') {
+      return [...filtered].sort((a, b) =>
+        a.ism_guideline.localeCompare(b.ism_guideline) ||
+        a.ism_section.localeCompare(b.ism_section) ||
+        a.control_id.localeCompare(b.control_id)
+      );
+    }
+    return filtered;
+  }, [baseControls, frameworkFilter, coverageFilter, guidelineFilter, responsibilityFilter, cloudFilter]);
 
   const currentAreas = activeTab === 'ai' ? AI_CONTROL_AREAS : CONTAINER_CONTROL_AREAS;
   const csvFilename = activeTab === 'ai' ? 'cloudcomply-ai-controls.csv' : 'cloudcomply-container-controls.csv';
 
-  const csvData = filteredControls.map((c: Control) => ({
-    control_id: c.control_id,
-    ism_guideline: c.ism_guideline,
-    ism_section: c.ism_section,
-    ism_topic: c.ism_topic,
-    iso_control_id: c.iso_control_id,
-    iso_control_name: c.iso_control_name,
-    service_category: c.service_category,
-    classification_levels: c.classification_levels.join(', '),
-    aws_services: c.aws_services.join(', '),
-    azure_services: c.azure_services.join(', '),
-    responsibility: c.responsibility,
-    coverage_status: c.coverage_status,
-    notes: c.notes,
-  }));
+  const csvData = frameworkFilter === 'ISO 27001'
+    ? filteredControls.map((c: Control) => ({
+        iso_control_id: c.iso_control_id,
+        iso_control_name: c.iso_control_name,
+        iso_theme: c.iso_theme,
+        ism_controls_count: ISO_TO_ISM_COUNT[c.iso_control_id] ?? 1,
+        service_category: c.service_category,
+        aws_services: c.aws_services.join(', '),
+        azure_services: c.azure_services.join(', '),
+        responsibility: c.responsibility,
+        coverage_status: c.coverage_status,
+      }))
+    : filteredControls.map((c: Control) => ({
+        control_id: c.control_id,
+        ism_guideline: c.ism_guideline,
+        ism_section: c.ism_section,
+        ism_topic: c.ism_topic,
+        iso_control_id: c.iso_control_id,
+        iso_control_name: c.iso_control_name,
+        service_category: c.service_category,
+        classification_levels: c.classification_levels.join(', '),
+        aws_services: c.aws_services.join(', '),
+        azure_services: c.azure_services.join(', '),
+        responsibility: c.responsibility,
+        coverage_status: c.coverage_status,
+        notes: c.notes,
+      }));
 
   const hasActiveFilters =
+    frameworkFilter !== 'Both' ||
     coverageFilter !== 'All' || guidelineFilter !== 'All' ||
     responsibilityFilter !== 'All' || cloudFilter !== 'All';
 
   function resetFilters() {
+    setFrameworkFilter('Both');
     setCoverageFilter('All');
     setGuidelineFilter('All');
     setResponsibilityFilter('All');
@@ -163,7 +198,27 @@ export function AIContainers() {
 
       {/* Filters */}
       <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 mb-2">
+          <div className="flex flex-col gap-1">
+            <div className="flex items-center gap-1">
+              <label className="text-xs font-medium text-slate-500 dark:text-slate-400">Framework</label>
+              <span title="ISM: one row per ISM control. ISO 27001: deduplicated to one row per unique ISO control." className="cursor-help">
+                <Info className="w-3 h-3 text-slate-400" />
+              </span>
+            </div>
+            <select
+              value={frameworkFilter}
+              onChange={(e) => setFrameworkFilter(e.target.value as 'ISM' | 'ISO 27001' | 'Both')}
+              className="text-base md:text-sm border border-slate-200 dark:border-slate-600 rounded-md px-2 py-1.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+            >
+              {['Both', 'ISM', 'ISO 27001'].map((o) => <option key={o} value={o}>{o}</option>)}
+            </select>
+            {frameworkFilter === 'ISO 27001' && (
+              <p className="text-xs text-indigo-600 dark:text-indigo-400">
+                {filteredControls.length} unique ISO controls
+              </p>
+            )}
+          </div>
           <FilterSelect label="Coverage" value={coverageFilter} options={['All', 'Covered', 'Partial', 'Gap']} onChange={setCoverageFilter} />
           <FilterSelect
             label="ISM Guideline"
@@ -232,7 +287,10 @@ export function AIContainers() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700">
-                  {['Control ID', 'ISM Guideline / Section', 'Description', 'AWS Services', 'Azure Services', 'Responsibility', 'Coverage'].map((h) => (
+                  {(frameworkFilter === 'ISO 27001'
+                    ? ['ISO Control', 'ISO Control Name', 'ISM Controls', 'ISO Theme', 'AWS Services', 'Azure Services', 'Responsibility', 'Coverage']
+                    : ['Control ID', 'ISM Guideline / Section', 'Description', 'AWS Services', 'Azure Services', 'Responsibility', 'Coverage']
+                  ).map((h) => (
                     <th key={h} className="px-3 py-3 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide whitespace-nowrap">
                       {h}
                     </th>
@@ -242,24 +300,46 @@ export function AIContainers() {
               <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
                 {filteredControls.map((c: Control, idx: number) => (
                   <tr
-                    key={`${c.control_id}-${idx}`}
+                    key={`${frameworkFilter === 'ISO 27001' ? c.iso_control_id : c.control_id}-${idx}`}
                     className="hover:bg-blue-50/50 dark:hover:bg-slate-700/50 cursor-pointer transition-colors"
                     onClick={() => setSelectedControl(c)}
                   >
-                    <td className="px-3 py-2.5 font-mono text-xs font-medium text-slate-700 dark:text-slate-300 whitespace-nowrap">
-                      {c.control_id}
-                    </td>
-                    <td className="px-3 py-2.5 text-xs max-w-[120px]">
-                      <div className="text-slate-600 dark:text-slate-400 truncate" title={c.ism_guideline}>
-                        {c.ism_guideline.replace('Guidelines for ', '')}
-                      </div>
-                      <div className="text-slate-400 dark:text-slate-500 truncate text-xs" title={c.ism_section}>
-                        {c.ism_section}
-                      </div>
-                    </td>
-                    <td className="px-3 py-2.5 text-xs text-slate-600 dark:text-slate-400 max-w-xs">
-                      <p className="line-clamp-2">{c.ism_description}</p>
-                    </td>
+                    {frameworkFilter === 'ISO 27001' ? (
+                      <>
+                        <td className="px-3 py-2.5">
+                          <div className="flex flex-col gap-1">
+                            <span className="font-mono text-xs font-medium text-indigo-700 dark:text-indigo-300">{c.iso_control_id}</span>
+                            <Badge className={COVERAGE_COLOURS[c.coverage_status]}>{c.coverage_status}</Badge>
+                          </div>
+                        </td>
+                        <td className="px-3 py-2.5 text-xs max-w-[200px]">
+                          <div className="font-medium text-slate-700 dark:text-slate-300 truncate" title={c.iso_control_name}>{c.iso_control_name}</div>
+                        </td>
+                        <td className="px-3 py-2.5 text-xs text-slate-500 dark:text-slate-400 whitespace-nowrap">
+                          {ISO_TO_ISM_COUNT[c.iso_control_id] ?? 1} ISM control{(ISO_TO_ISM_COUNT[c.iso_control_id] ?? 1) !== 1 ? 's' : ''}
+                        </td>
+                        <td className="px-3 py-2.5 whitespace-nowrap">
+                          <Badge className={ISO_THEME_COLOURS[c.iso_theme]}>{c.iso_theme}</Badge>
+                        </td>
+                      </>
+                    ) : (
+                      <>
+                        <td className="px-3 py-2.5 font-mono text-xs font-medium text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                          {c.control_id}
+                        </td>
+                        <td className="px-3 py-2.5 text-xs max-w-[120px]">
+                          <div className="text-slate-600 dark:text-slate-400 truncate" title={c.ism_guideline}>
+                            {c.ism_guideline.replace('Guidelines for ', '')}
+                          </div>
+                          <div className="text-slate-400 dark:text-slate-500 truncate text-xs" title={c.ism_section}>
+                            {c.ism_section}
+                          </div>
+                        </td>
+                        <td className="px-3 py-2.5 text-xs text-slate-600 dark:text-slate-400 max-w-xs">
+                          <p className="line-clamp-2">{c.ism_description}</p>
+                        </td>
+                      </>
+                    )}
                     <td className="px-3 py-2.5 max-w-[160px]">
                       <div className="flex flex-wrap gap-1">
                         {c.aws_services.slice(0, 2).map((s) => (
@@ -285,9 +365,11 @@ export function AIContainers() {
                         {c.responsibility}
                       </Badge>
                     </td>
-                    <td className="px-3 py-2.5 whitespace-nowrap">
-                      <Badge className={COVERAGE_COLOURS[c.coverage_status]}>{c.coverage_status}</Badge>
-                    </td>
+                    {frameworkFilter !== 'ISO 27001' && (
+                      <td className="px-3 py-2.5 whitespace-nowrap">
+                        <Badge className={COVERAGE_COLOURS[c.coverage_status]}>{c.coverage_status}</Badge>
+                      </td>
+                    )}
                   </tr>
                 ))}
               </tbody>

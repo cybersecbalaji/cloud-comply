@@ -29,3 +29,14 @@ export type CoverageStatus = Control['coverage_status'];
 export type ISOTheme = Control['iso_theme'];
 export type ServiceCategory = string;
 export type Responsibility = Control['responsibility'];
+
+export type ImplementationStatus = 'Not Started' | 'In Progress' | 'Implemented' | 'Accepted Risk';
+
+export interface ImplementationRecord {
+  status: ImplementationStatus;
+  notes: string;
+  updatedAt: string; // ISO date string
+}
+
+// Map of control_id → ImplementationRecord
+export type ImplementationState = Record<string, ImplementationRecord>;

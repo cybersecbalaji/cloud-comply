@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Download, Search, X, Info, ChevronLeft, ChevronRight, SlidersHorizontal } from 'lucide-react';
 import { downloadCSV } from '@/lib/utils';
-import { useStore, useFilteredControls, AWS_SERVICES, AZURE_SERVICES, ISM_GUIDELINES, SERVICE_CATEGORIES } from '@/store/useStore';
+import { useStore, useFilteredControls, AWS_SERVICES, AZURE_SERVICES, ISM_GUIDELINES, SERVICE_CATEGORIES, ISO_TO_ISM_COUNT } from '@/store/useStore';
 import { Badge } from '@/components/ui/Badge';
 import { ServiceChip } from '@/components/ServiceChip';
 import { EmptyState } from '@/components/ui/EmptyState';
@@ -127,7 +127,7 @@ export function MappingTable() {
           <div className="flex flex-col gap-1 min-w-0">
             <div className="flex items-center gap-1">
               <label className="text-xs font-medium text-slate-500 dark:text-slate-400">Framework</label>
-              <span title="All controls are dual-mapped to ISM and ISO 27001. Selecting a framework re-sorts results by that framework's structure." className="cursor-help">
+              <span title="ISM: one row per ISM control (780). ISO 27001: deduplicated to one row per unique ISO control (~240). Both: all ISM controls." className="cursor-help">
                 <Info className="w-3 h-3 text-slate-400" />
               </span>
             </div>
@@ -138,9 +138,14 @@ export function MappingTable() {
             >
               {['All', 'ISM', 'ISO 27001'].map((o) => <option key={o} value={o}>{o}</option>)}
             </select>
-            {filters.framework !== 'All' && (
+            {filters.framework === 'ISO 27001' && (
+              <p className="text-xs text-indigo-600 dark:text-indigo-400">
+                {filtered.length} unique ISO controls
+              </p>
+            )}
+            {filters.framework === 'ISM' && (
               <p className="text-xs text-blue-600 dark:text-blue-400">
-                Sorted by {filters.framework === 'ISM' ? 'ISM guideline' : 'ISO control ID'}
+                Sorted by ISM guideline
               </p>
             )}
           </div>
@@ -203,7 +208,10 @@ export function MappingTable() {
               <table className="w-full text-sm min-w-[900px]">
                 <thead>
                   <tr className="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700">
-                    {['Control ID', 'ISM Guideline', 'ISO Control', 'Category', 'Class.', 'AWS Services', 'Azure Services', 'Responsibility', 'Coverage'].map((h) => (
+                    {(filters.framework === 'ISO 27001'
+                      ? ['ISO Control', 'ISO Control Name', 'ISM Controls', 'Category', 'Class', 'AWS Services', 'Azure Services', 'Responsibility', 'Coverage']
+                      : ['Control ID', 'ISM Guideline', 'ISO Control', 'Category', 'Class', 'AWS Services', 'Azure Services', 'Responsibility', 'Coverage']
+                    ).map((h) => (
                       <th key={h} className="px-3 py-3 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide whitespace-nowrap">
                         {h}
                       </th>
@@ -213,25 +221,42 @@ export function MappingTable() {
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
                   {pageRows.map((c: Control, idx: number) => (
                     <tr
-                      key={`${c.control_id}-${idx}`}
+                      key={`${filters.framework === 'ISO 27001' ? c.iso_control_id : c.control_id}-${idx}`}
                       className="hover:bg-blue-50/50 dark:hover:bg-slate-700/50 cursor-pointer transition-colors"
                       onClick={() => setSelectedControl(c)}
                     >
-                      <td className="px-3 py-2.5 font-mono text-xs font-medium text-slate-700 dark:text-slate-300 whitespace-nowrap">
-                        {c.control_id}
-                      </td>
-                      <td className="px-3 py-2.5 text-slate-600 dark:text-slate-400 max-w-[160px]">
-                        <div className="truncate text-xs" title={c.ism_guideline}>
-                          {c.ism_guideline.replace('Guidelines for ', '')}
-                        </div>
-                        <div className="text-xs text-slate-400 dark:text-slate-500 truncate" title={c.ism_section}>
-                          {c.ism_section}
-                        </div>
-                      </td>
-                      <td className="px-3 py-2.5 max-w-[160px]">
-                        <div className="font-medium text-slate-700 dark:text-slate-300 whitespace-nowrap text-xs">{c.iso_control_id}</div>
-                        <div className="text-xs text-slate-400 dark:text-slate-500 truncate" title={c.iso_control_name}>{c.iso_control_name}</div>
-                      </td>
+                      {filters.framework === 'ISO 27001' ? (
+                        <>
+                          <td className="px-3 py-2.5 font-mono text-xs font-medium text-indigo-700 dark:text-indigo-300 whitespace-nowrap">
+                            {c.iso_control_id}
+                          </td>
+                          <td className="px-3 py-2.5 max-w-[200px]">
+                            <div className="text-xs font-medium text-slate-700 dark:text-slate-300 truncate" title={c.iso_control_name}>{c.iso_control_name}</div>
+                            <div className="text-xs text-slate-400 dark:text-slate-500 italic">{c.iso_theme}</div>
+                          </td>
+                          <td className="px-3 py-2.5 text-xs text-slate-500 dark:text-slate-400 whitespace-nowrap">
+                            {ISO_TO_ISM_COUNT[c.iso_control_id] ?? 1} ISM control{(ISO_TO_ISM_COUNT[c.iso_control_id] ?? 1) !== 1 ? 's' : ''}
+                          </td>
+                        </>
+                      ) : (
+                        <>
+                          <td className="px-3 py-2.5 font-mono text-xs font-medium text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                            {c.control_id}
+                          </td>
+                          <td className="px-3 py-2.5 text-slate-600 dark:text-slate-400 max-w-[160px]">
+                            <div className="truncate text-xs" title={c.ism_guideline}>
+                              {c.ism_guideline.replace('Guidelines for ', '')}
+                            </div>
+                            <div className="text-xs text-slate-400 dark:text-slate-500 truncate" title={c.ism_section}>
+                              {c.ism_section}
+                            </div>
+                          </td>
+                          <td className="px-3 py-2.5 max-w-[160px]">
+                            <div className="font-medium text-slate-700 dark:text-slate-300 whitespace-nowrap text-xs">{c.iso_control_id}</div>
+                            <div className="text-xs text-slate-400 dark:text-slate-500 truncate" title={c.iso_control_name}>{c.iso_control_name}</div>
+                          </td>
+                        </>
+                      )}
                       <td className="px-3 py-2.5 whitespace-nowrap">
                         <Badge className={SERVICE_COLOURS[c.service_category] || 'bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-300'}>
                           {c.service_category}

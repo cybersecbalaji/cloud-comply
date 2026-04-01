@@ -1,0 +1,1536 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - img [ref=e6]
+      - generic [ref=e8]: CloudComply
+    - navigation [ref=e9]:
+      - generic [ref=e10]:
+        - link "Dashboard" [ref=e11] [cursor=pointer]:
+          - /url: /
+          - img [ref=e12]
+          - generic [ref=e17]: Dashboard
+        - link "Mapping Table" [ref=e18] [cursor=pointer]:
+          - /url: /mapping
+          - img [ref=e19]
+          - generic [ref=e21]: Mapping Table
+        - link "CSP Coverage" [ref=e22] [cursor=pointer]:
+          - /url: /csp-coverage
+          - img [ref=e23]
+          - generic [ref=e25]: CSP Coverage
+        - link "Cross-Reference" [ref=e26] [cursor=pointer]:
+          - /url: /cross-reference
+          - img [ref=e27]
+          - generic [ref=e32]: Cross-Reference
+        - link "AI & Containers" [ref=e33] [cursor=pointer]:
+          - /url: /ai-containers
+          - img [ref=e34]
+          - generic [ref=e46]: AI & Containers
+        - link "Implementation" [ref=e47] [cursor=pointer]:
+          - /url: /implementation
+          - img [ref=e48]
+          - generic [ref=e52]: Implementation
+      - link "About" [ref=e54] [cursor=pointer]:
+        - /url: /about
+        - img [ref=e55]
+        - generic [ref=e57]: About
+    - generic [ref=e58]:
+      - paragraph [ref=e59]: Sources
+      - link "ISM (cyber.gov.au)" [ref=e60] [cursor=pointer]:
+        - /url: https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/ism
+      - link "ISO 27001 (iso.org)" [ref=e61] [cursor=pointer]:
+        - /url: https://www.iso.org/standard/27001
+      - link "AWS Compliance" [ref=e62] [cursor=pointer]:
+        - /url: https://aws.amazon.com/compliance
+      - link "Azure Trust Centre" [ref=e63] [cursor=pointer]:
+        - /url: https://www.microsoft.com/en-us/trust-center
+  - generic [ref=e64]:
+    - banner [ref=e65]:
+      - generic [ref=e67]: "ISM: March 2026 | ISO 27001:2022"
+      - generic [ref=e68]:
+        - generic [ref=e69]: Australian ISM & ISO 27001 Cloud Compliance Mapper
+        - button "Toggle dark mode" [ref=e70]:
+          - img [ref=e71]
+    - main [ref=e73]:
+      - generic [ref=e74]:
+        - generic [ref=e75]:
+          - img [ref=e76]
+          - paragraph [ref=e78]: Full list of all 780 ISM controls mapped across 18 guideline areas and ISO 27001:2022. Use the filters to narrow by guideline, cloud provider, service, coverage status, or classification level. Click any row to open the control detail panel. Export the current filtered view to CSV.
+        - generic [ref=e79]:
+          - generic [ref=e80]:
+            - heading "Mapping Table" [level=2] [ref=e81]
+            - paragraph [ref=e82]: 780 controls shown
+          - button "Export CSV" [ref=e84]:
+            - img [ref=e85]
+            - text: Export CSV
+        - generic [ref=e89]:
+          - generic [ref=e90]:
+            - generic [ref=e91]:
+              - generic [ref=e92]: Framework
+              - 'generic "ISM: one row per ISM control (780). ISO 27001: deduplicated to one row per unique ISO control (~240). Both: all ISM controls." [ref=e93]':
+                - img [ref=e94]
+            - combobox [ref=e96]:
+              - option "All" [selected]
+              - option "ISM"
+              - option "ISO 27001"
+          - generic [ref=e97]:
+            - generic [ref=e98]: Cloud
+            - combobox [ref=e99]:
+              - option "All" [selected]
+              - option "AWS"
+              - option "Azure"
+          - generic [ref=e100]:
+            - generic [ref=e101]: Coverage
+            - combobox [ref=e102]:
+              - option "All" [selected]
+              - option "Covered"
+              - option "Partial"
+              - option "Gap"
+          - generic [ref=e103]:
+            - generic [ref=e104]: Category
+            - combobox [ref=e105]:
+              - option "All" [selected]
+              - option "AI/ML"
+              - option "Compute"
+              - option "Containers"
+              - option "Database"
+              - option "DevOps"
+              - option "Email"
+              - option "Gateway"
+              - option "Governance"
+              - option "Identity"
+              - option "Network"
+              - option "Security"
+              - option "Storage"
+          - generic [ref=e106]:
+            - generic [ref=e107]: ISM Guideline
+            - combobox [ref=e108]:
+              - option "All" [selected]
+              - option "Guidelines for communications systems"
+              - option "Guidelines for cryptography"
+              - option "Guidelines for cyber security documentation"
+              - option "Guidelines for cyber security incidents"
+              - option "Guidelines for cyber security roles"
+              - option "Guidelines for data transfers"
+              - option "Guidelines for database systems"
+              - option "Guidelines for email"
+              - option "Guidelines for evaluated products"
+              - option "Guidelines for gateways"
+              - option "Guidelines for networking"
+              - option "Guidelines for personnel security"
+              - option "Guidelines for physical security"
+              - option "Guidelines for procurement and outsourcing"
+              - option "Guidelines for software development"
+              - option "Guidelines for system hardening"
+              - option "Guidelines for system management"
+              - option "Guidelines for system monitoring"
+          - generic [ref=e109]:
+            - generic [ref=e110]: ISO Theme
+            - combobox [ref=e111]:
+              - option "All" [selected]
+              - option "Organisational"
+              - option "People"
+              - option "Physical"
+              - option "Technological"
+          - generic [ref=e112]:
+            - generic [ref=e113]: Classification
+            - combobox [ref=e114]:
+              - option "All" [selected]
+              - option "NC"
+              - option "OS"
+              - option "P"
+              - option "S"
+              - option "TS"
+          - generic [ref=e115]:
+            - generic [ref=e116]: Service
+            - combobox [ref=e117]:
+              - option "All Services" [selected]
+              - option "ACM"
+              - option "AWS Artifact"
+              - option "AWS Backup"
+              - option "AWS Config"
+              - option "AWS GovCloud"
+              - option "AWS Marketplace"
+              - option "AWS Organizations"
+              - option "AWS SSO"
+              - option "AWS WAF"
+              - option "App Runner"
+              - option "Aurora"
+              - option "Bedrock"
+              - option "Chime"
+              - option "CloudFront"
+              - option "CloudHSM"
+              - option "CloudTrail"
+              - option "CloudWatch"
+              - option "CodeBuild"
+              - option "CodeCommit"
+              - option "CodeGuru"
+              - option "CodePipeline"
+              - option "Cognito"
+              - option "Connect"
+              - option "DataSync"
+              - option "Dedicated Hosts"
+              - option "Detective"
+              - option "DynamoDB"
+              - option "EBS Snapshots"
+              - option "EC2"
+              - option "ECR"
+              - option "ECS"
+              - option "EKS"
+              - option "ELB"
+              - option "Elastic Beanstalk"
+              - option "GuardDuty"
+              - option "IAM"
+              - option "Inspector"
+              - option "KMS"
+              - option "Network Firewall"
+              - option "Nitro Enclaves"
+              - option "RDS"
+              - option "Redshift"
+              - option "Route 53"
+              - option "S3"
+              - option "SES"
+              - option "SageMaker"
+              - option "Secrets Manager"
+              - option "Security Groups"
+              - option "Security Hub"
+              - option "Shield"
+              - option "Snow Family"
+              - option "Subnets"
+              - option "Systems Manager"
+              - option "Systems Manager Patch Manager"
+              - option "Transfer Family"
+              - option "Transit Gateway"
+              - option "VPC"
+              - option "WorkMail"
+              - option "ACR"
+              - option "AKS"
+              - option "App Service"
+              - option "Application Gateway"
+              - option "Azure AD"
+              - option "Azure Automation"
+              - option "Azure Backup"
+              - option "Azure Blob Storage"
+              - option "Azure CDN"
+              - option "Azure Communication Services"
+              - option "Azure Confidential Computing"
+              - option "Azure DNS"
+              - option "Azure Data Box"
+              - option "Azure Data Factory"
+              - option "Azure Database for PostgreSQL"
+              - option "Azure Dedicated Host"
+              - option "Azure DevOps"
+              - option "Azure Firewall"
+              - option "Azure Front Door"
+              - option "Azure Key Vault"
+              - option "Azure ML"
+              - option "Azure Marketplace"
+              - option "Azure Monitor"
+              - option "Azure OpenAI"
+              - option "Azure Pipelines"
+              - option "Azure Policy"
+              - option "Azure Repos"
+              - option "Azure SQL"
+              - option "Azure Site Recovery"
+              - option "Azure Synapse"
+              - option "Azure Update Manager"
+              - option "Conditional Access"
+              - option "Container Apps"
+              - option "Cosmos DB"
+              - option "DDoS Protection"
+              - option "Dedicated HSM"
+              - option "Defender for Cloud"
+              - option "Defender for DevOps"
+              - option "Defender for Office 365"
+              - option "Exchange Online Protection"
+              - option "GitHub Advanced Security"
+              - option "Log Analytics"
+              - option "MFA"
+              - option "Managed HSM"
+              - option "Microsoft Sentinel"
+              - option "Microsoft Service Trust Portal"
+              - option "NSG"
+              - option "Privileged Identity Management"
+              - option "Recovery Services Vault"
+              - option "Subnets"
+              - option "Teams"
+              - option "Virtual Machines"
+              - option "Virtual Network"
+              - option "Virtual WAN"
+              - option "Web Application Firewall"
+          - generic [ref=e118]:
+            - generic [ref=e119]: Search
+            - generic [ref=e120]:
+              - img [ref=e121]
+              - textbox "Search controls, services, notes..." [ref=e124]
+        - generic [ref=e125]:
+          - table [ref=e127]:
+            - rowgroup [ref=e128]:
+              - row "Control ID ISM Guideline ISO Control Category Class. AWS Services Azure Services Responsibility Coverage" [ref=e129]:
+                - columnheader "Control ID" [ref=e130]
+                - columnheader "ISM Guideline" [ref=e131]
+                - columnheader "ISO Control" [ref=e132]
+                - columnheader "Category" [ref=e133]
+                - columnheader "Class." [ref=e134]
+                - columnheader "AWS Services" [ref=e135]
+                - columnheader "Azure Services" [ref=e136]
+                - columnheader "Responsibility" [ref=e137]
+                - columnheader "Coverage" [ref=e138]
+            - rowgroup [ref=e139]:
+              - row "ISM-1071 cyber security roles System owners A.5.2 Information security roles and responsibilities Governance NC, OS, P, S, TS IAM AWS Organizations +1 Azure AD Azure Policy +1 Shared Gap" [ref=e140] [cursor=pointer]:
+                - cell "ISM-1071" [ref=e141]
+                - cell "cyber security roles System owners" [ref=e142]:
+                  - generic "Guidelines for cyber security roles" [ref=e143]: cyber security roles
+                  - generic "System owners" [ref=e144]
+                - cell "A.5.2 Information security roles and responsibilities" [ref=e145]:
+                  - generic [ref=e146]: A.5.2
+                  - generic "Information security roles and responsibilities" [ref=e147]
+                - cell "Governance" [ref=e148]:
+                  - generic [ref=e149]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e150]
+                - cell "IAM AWS Organizations +1" [ref=e151]:
+                  - generic [ref=e152]:
+                    - generic "Identity and Access Management for AWS resources" [ref=e153]: IAM
+                    - generic "Centralised management of multiple AWS accounts" [ref=e154]: AWS Organizations
+                    - generic [ref=e155]: "+1"
+                - cell "Azure AD Azure Policy +1" [ref=e156]:
+                  - generic [ref=e157]:
+                    - generic [ref=e158]: Azure AD
+                    - generic "Enforces organisational standards across Azure resources" [ref=e159]: Azure Policy
+                    - generic [ref=e160]: "+1"
+                - cell "Shared" [ref=e161]:
+                  - generic [ref=e162]: Shared
+                - cell "Gap" [ref=e163]:
+                  - generic [ref=e164]: Gap
+              - row "ISM-1525 cyber security roles System owners A.5.2 Information security roles and responsibilities Governance NC, OS, P, S, TS IAM AWS Organizations +1 Azure AD Azure Policy +1 Shared Gap" [ref=e165] [cursor=pointer]:
+                - cell "ISM-1525" [ref=e166]
+                - cell "cyber security roles System owners" [ref=e167]:
+                  - generic "Guidelines for cyber security roles" [ref=e168]: cyber security roles
+                  - generic "System owners" [ref=e169]
+                - cell "A.5.2 Information security roles and responsibilities" [ref=e170]:
+                  - generic [ref=e171]: A.5.2
+                  - generic "Information security roles and responsibilities" [ref=e172]
+                - cell "Governance" [ref=e173]:
+                  - generic [ref=e174]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e175]
+                - cell "IAM AWS Organizations +1" [ref=e176]:
+                  - generic [ref=e177]:
+                    - generic "Identity and Access Management for AWS resources" [ref=e178]: IAM
+                    - generic "Centralised management of multiple AWS accounts" [ref=e179]: AWS Organizations
+                    - generic [ref=e180]: "+1"
+                - cell "Azure AD Azure Policy +1" [ref=e181]:
+                  - generic [ref=e182]:
+                    - generic [ref=e183]: Azure AD
+                    - generic "Enforces organisational standards across Azure resources" [ref=e184]: Azure Policy
+                    - generic [ref=e185]: "+1"
+                - cell "Shared" [ref=e186]:
+                  - generic [ref=e187]: Shared
+                - cell "Gap" [ref=e188]:
+                  - generic [ref=e189]: Gap
+              - row "ISM-1633 cyber security roles System owners A.5.2 Information security roles and responsibilities Governance NC, OS, P, S, TS IAM AWS Organizations +1 Azure AD Azure Policy +1 Shared Gap" [ref=e190] [cursor=pointer]:
+                - cell "ISM-1633" [ref=e191]
+                - cell "cyber security roles System owners" [ref=e192]:
+                  - generic "Guidelines for cyber security roles" [ref=e193]: cyber security roles
+                  - generic "System owners" [ref=e194]
+                - cell "A.5.2 Information security roles and responsibilities" [ref=e195]:
+                  - generic [ref=e196]: A.5.2
+                  - generic "Information security roles and responsibilities" [ref=e197]
+                - cell "Governance" [ref=e198]:
+                  - generic [ref=e199]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e200]
+                - cell "IAM AWS Organizations +1" [ref=e201]:
+                  - generic [ref=e202]:
+                    - generic "Identity and Access Management for AWS resources" [ref=e203]: IAM
+                    - generic "Centralised management of multiple AWS accounts" [ref=e204]: AWS Organizations
+                    - generic [ref=e205]: "+1"
+                - cell "Azure AD Azure Policy +1" [ref=e206]:
+                  - generic [ref=e207]:
+                    - generic [ref=e208]: Azure AD
+                    - generic "Enforces organisational standards across Azure resources" [ref=e209]: Azure Policy
+                    - generic [ref=e210]: "+1"
+                - cell "Shared" [ref=e211]:
+                  - generic [ref=e212]: Shared
+                - cell "Gap" [ref=e213]:
+                  - generic [ref=e214]: Gap
+              - row "ISM-1203 cyber security roles System owners A.5.2 Information security roles and responsibilities Governance NC, OS, P, S, TS IAM AWS Organizations +1 Azure AD Azure Policy +1 Shared Gap" [ref=e215] [cursor=pointer]:
+                - cell "ISM-1203" [ref=e216]
+                - cell "cyber security roles System owners" [ref=e217]:
+                  - generic "Guidelines for cyber security roles" [ref=e218]: cyber security roles
+                  - generic "System owners" [ref=e219]
+                - cell "A.5.2 Information security roles and responsibilities" [ref=e220]:
+                  - generic [ref=e221]: A.5.2
+                  - generic "Information security roles and responsibilities" [ref=e222]
+                - cell "Governance" [ref=e223]:
+                  - generic [ref=e224]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e225]
+                - cell "IAM AWS Organizations +1" [ref=e226]:
+                  - generic [ref=e227]:
+                    - generic "Identity and Access Management for AWS resources" [ref=e228]: IAM
+                    - generic "Centralised management of multiple AWS accounts" [ref=e229]: AWS Organizations
+                    - generic [ref=e230]: "+1"
+                - cell "Azure AD Azure Policy +1" [ref=e231]:
+                  - generic [ref=e232]:
+                    - generic [ref=e233]: Azure AD
+                    - generic "Enforces organisational standards across Azure resources" [ref=e234]: Azure Policy
+                    - generic [ref=e235]: "+1"
+                - cell "Shared" [ref=e236]:
+                  - generic [ref=e237]: Shared
+                - cell "Gap" [ref=e238]:
+                  - generic [ref=e239]: Gap
+              - row "ISM-1634 cyber security roles System owners A.5.2 Information security roles and responsibilities Governance NC, OS, P, S, TS IAM AWS Organizations +1 Azure AD Azure Policy +1 Shared Gap" [ref=e240] [cursor=pointer]:
+                - cell "ISM-1634" [ref=e241]
+                - cell "cyber security roles System owners" [ref=e242]:
+                  - generic "Guidelines for cyber security roles" [ref=e243]: cyber security roles
+                  - generic "System owners" [ref=e244]
+                - cell "A.5.2 Information security roles and responsibilities" [ref=e245]:
+                  - generic [ref=e246]: A.5.2
+                  - generic "Information security roles and responsibilities" [ref=e247]
+                - cell "Governance" [ref=e248]:
+                  - generic [ref=e249]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e250]
+                - cell "IAM AWS Organizations +1" [ref=e251]:
+                  - generic [ref=e252]:
+                    - generic "Identity and Access Management for AWS resources" [ref=e253]: IAM
+                    - generic "Centralised management of multiple AWS accounts" [ref=e254]: AWS Organizations
+                    - generic [ref=e255]: "+1"
+                - cell "Azure AD Azure Policy +1" [ref=e256]:
+                  - generic [ref=e257]:
+                    - generic [ref=e258]: Azure AD
+                    - generic "Enforces organisational standards across Azure resources" [ref=e259]: Azure Policy
+                    - generic [ref=e260]: "+1"
+                - cell "Shared" [ref=e261]:
+                  - generic [ref=e262]: Shared
+                - cell "Gap" [ref=e263]:
+                  - generic [ref=e264]: Gap
+              - row "ISM-0009 cyber security roles System owners A.5.2 Information security roles and responsibilities Governance NC, OS, P, S, TS IAM AWS Organizations +1 Azure AD Azure Policy +1 Shared Gap" [ref=e265] [cursor=pointer]:
+                - cell "ISM-0009" [ref=e266]
+                - cell "cyber security roles System owners" [ref=e267]:
+                  - generic "Guidelines for cyber security roles" [ref=e268]: cyber security roles
+                  - generic "System owners" [ref=e269]
+                - cell "A.5.2 Information security roles and responsibilities" [ref=e270]:
+                  - generic [ref=e271]: A.5.2
+                  - generic "Information security roles and responsibilities" [ref=e272]
+                - cell "Governance" [ref=e273]:
+                  - generic [ref=e274]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e275]
+                - cell "IAM AWS Organizations +1" [ref=e276]:
+                  - generic [ref=e277]:
+                    - generic "Identity and Access Management for AWS resources" [ref=e278]: IAM
+                    - generic "Centralised management of multiple AWS accounts" [ref=e279]: AWS Organizations
+                    - generic [ref=e280]: "+1"
+                - cell "Azure AD Azure Policy +1" [ref=e281]:
+                  - generic [ref=e282]:
+                    - generic [ref=e283]: Azure AD
+                    - generic "Enforces organisational standards across Azure resources" [ref=e284]: Azure Policy
+                    - generic [ref=e285]: "+1"
+                - cell "Shared" [ref=e286]:
+                  - generic [ref=e287]: Shared
+                - cell "Gap" [ref=e288]:
+                  - generic [ref=e289]: Gap
+              - row "ISM-1635 cyber security roles System owners A.5.2 Information security roles and responsibilities Governance NC, OS, P, S, TS IAM AWS Organizations +1 Azure AD Azure Policy +1 Shared Gap" [ref=e290] [cursor=pointer]:
+                - cell "ISM-1635" [ref=e291]
+                - cell "cyber security roles System owners" [ref=e292]:
+                  - generic "Guidelines for cyber security roles" [ref=e293]: cyber security roles
+                  - generic "System owners" [ref=e294]
+                - cell "A.5.2 Information security roles and responsibilities" [ref=e295]:
+                  - generic [ref=e296]: A.5.2
+                  - generic "Information security roles and responsibilities" [ref=e297]
+                - cell "Governance" [ref=e298]:
+                  - generic [ref=e299]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e300]
+                - cell "IAM AWS Organizations +1" [ref=e301]:
+                  - generic [ref=e302]:
+                    - generic "Identity and Access Management for AWS resources" [ref=e303]: IAM
+                    - generic "Centralised management of multiple AWS accounts" [ref=e304]: AWS Organizations
+                    - generic [ref=e305]: "+1"
+                - cell "Azure AD Azure Policy +1" [ref=e306]:
+                  - generic [ref=e307]:
+                    - generic [ref=e308]: Azure AD
+                    - generic "Enforces organisational standards across Azure resources" [ref=e309]: Azure Policy
+                    - generic [ref=e310]: "+1"
+                - cell "Shared" [ref=e311]:
+                  - generic [ref=e312]: Shared
+                - cell "Gap" [ref=e313]:
+                  - generic [ref=e314]: Gap
+              - row "ISM-1636 cyber security roles System owners A.5.2 Information security roles and responsibilities Governance NC, OS, P, S IAM AWS Organizations +1 Azure AD Azure Policy +1 Shared Gap" [ref=e315] [cursor=pointer]:
+                - cell "ISM-1636" [ref=e316]
+                - cell "cyber security roles System owners" [ref=e317]:
+                  - generic "Guidelines for cyber security roles" [ref=e318]: cyber security roles
+                  - generic "System owners" [ref=e319]
+                - cell "A.5.2 Information security roles and responsibilities" [ref=e320]:
+                  - generic [ref=e321]: A.5.2
+                  - generic "Information security roles and responsibilities" [ref=e322]
+                - cell "Governance" [ref=e323]:
+                  - generic [ref=e324]: Governance
+                - cell "NC, OS, P, S" [ref=e325]
+                - cell "IAM AWS Organizations +1" [ref=e326]:
+                  - generic [ref=e327]:
+                    - generic "Identity and Access Management for AWS resources" [ref=e328]: IAM
+                    - generic "Centralised management of multiple AWS accounts" [ref=e329]: AWS Organizations
+                    - generic [ref=e330]: "+1"
+                - cell "Azure AD Azure Policy +1" [ref=e331]:
+                  - generic [ref=e332]:
+                    - generic [ref=e333]: Azure AD
+                    - generic "Enforces organisational standards across Azure resources" [ref=e334]: Azure Policy
+                    - generic [ref=e335]: "+1"
+                - cell "Shared" [ref=e336]:
+                  - generic [ref=e337]: Shared
+                - cell "Gap" [ref=e338]:
+                  - generic [ref=e339]: Gap
+              - row "ISM-1967 cyber security roles System owners A.5.2 Information security roles and responsibilities Governance TS IAM AWS Organizations +1 Azure AD Azure Policy +1 Shared Gap" [ref=e340] [cursor=pointer]:
+                - cell "ISM-1967" [ref=e341]
+                - cell "cyber security roles System owners" [ref=e342]:
+                  - generic "Guidelines for cyber security roles" [ref=e343]: cyber security roles
+                  - generic "System owners" [ref=e344]
+                - cell "A.5.2 Information security roles and responsibilities" [ref=e345]:
+                  - generic [ref=e346]: A.5.2
+                  - generic "Information security roles and responsibilities" [ref=e347]
+                - cell "Governance" [ref=e348]:
+                  - generic [ref=e349]: Governance
+                - cell "TS" [ref=e350]
+                - cell "IAM AWS Organizations +1" [ref=e351]:
+                  - generic [ref=e352]:
+                    - generic "Identity and Access Management for AWS resources" [ref=e353]: IAM
+                    - generic "Centralised management of multiple AWS accounts" [ref=e354]: AWS Organizations
+                    - generic [ref=e355]: "+1"
+                - cell "Azure AD Azure Policy +1" [ref=e356]:
+                  - generic [ref=e357]:
+                    - generic [ref=e358]: Azure AD
+                    - generic "Enforces organisational standards across Azure resources" [ref=e359]: Azure Policy
+                    - generic [ref=e360]: "+1"
+                - cell "Shared" [ref=e361]:
+                  - generic [ref=e362]: Shared
+                - cell "Gap" [ref=e363]:
+                  - generic [ref=e364]: Gap
+              - row "ISM-0027 cyber security roles System owners A.5.2 Information security roles and responsibilities Governance NC, OS, P, S IAM AWS Organizations +1 Azure AD Azure Policy +1 Shared Gap" [ref=e365] [cursor=pointer]:
+                - cell "ISM-0027" [ref=e366]
+                - cell "cyber security roles System owners" [ref=e367]:
+                  - generic "Guidelines for cyber security roles" [ref=e368]: cyber security roles
+                  - generic "System owners" [ref=e369]
+                - cell "A.5.2 Information security roles and responsibilities" [ref=e370]:
+                  - generic [ref=e371]: A.5.2
+                  - generic "Information security roles and responsibilities" [ref=e372]
+                - cell "Governance" [ref=e373]:
+                  - generic [ref=e374]: Governance
+                - cell "NC, OS, P, S" [ref=e375]
+                - cell "IAM AWS Organizations +1" [ref=e376]:
+                  - generic [ref=e377]:
+                    - generic "Identity and Access Management for AWS resources" [ref=e378]: IAM
+                    - generic "Centralised management of multiple AWS accounts" [ref=e379]: AWS Organizations
+                    - generic [ref=e380]: "+1"
+                - cell "Azure AD Azure Policy +1" [ref=e381]:
+                  - generic [ref=e382]:
+                    - generic [ref=e383]: Azure AD
+                    - generic "Enforces organisational standards across Azure resources" [ref=e384]: Azure Policy
+                    - generic [ref=e385]: "+1"
+                - cell "Shared" [ref=e386]:
+                  - generic [ref=e387]: Shared
+                - cell "Gap" [ref=e388]:
+                  - generic [ref=e389]: Gap
+              - row "ISM-1968 cyber security roles System owners A.5.2 Information security roles and responsibilities Governance TS IAM AWS Organizations +1 Azure AD Azure Policy +1 Shared Gap" [ref=e390] [cursor=pointer]:
+                - cell "ISM-1968" [ref=e391]
+                - cell "cyber security roles System owners" [ref=e392]:
+                  - generic "Guidelines for cyber security roles" [ref=e393]: cyber security roles
+                  - generic "System owners" [ref=e394]
+                - cell "A.5.2 Information security roles and responsibilities" [ref=e395]:
+                  - generic [ref=e396]: A.5.2
+                  - generic "Information security roles and responsibilities" [ref=e397]
+                - cell "Governance" [ref=e398]:
+                  - generic [ref=e399]: Governance
+                - cell "TS" [ref=e400]
+                - cell "IAM AWS Organizations +1" [ref=e401]:
+                  - generic [ref=e402]:
+                    - generic "Identity and Access Management for AWS resources" [ref=e403]: IAM
+                    - generic "Centralised management of multiple AWS accounts" [ref=e404]: AWS Organizations
+                    - generic [ref=e405]: "+1"
+                - cell "Azure AD Azure Policy +1" [ref=e406]:
+                  - generic [ref=e407]:
+                    - generic [ref=e408]: Azure AD
+                    - generic "Enforces organisational standards across Azure resources" [ref=e409]: Azure Policy
+                    - generic [ref=e410]: "+1"
+                - cell "Shared" [ref=e411]:
+                  - generic [ref=e412]: Shared
+                - cell "Gap" [ref=e413]:
+                  - generic [ref=e414]: Gap
+              - row "ISM-1526 cyber security roles System owners A.5.2 Information security roles and responsibilities Governance NC, OS, P, S, TS IAM AWS Organizations +1 Azure AD Azure Policy +1 Shared Gap" [ref=e415] [cursor=pointer]:
+                - cell "ISM-1526" [ref=e416]
+                - cell "cyber security roles System owners" [ref=e417]:
+                  - generic "Guidelines for cyber security roles" [ref=e418]: cyber security roles
+                  - generic "System owners" [ref=e419]
+                - cell "A.5.2 Information security roles and responsibilities" [ref=e420]:
+                  - generic [ref=e421]: A.5.2
+                  - generic "Information security roles and responsibilities" [ref=e422]
+                - cell "Governance" [ref=e423]:
+                  - generic [ref=e424]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e425]
+                - cell "IAM AWS Organizations +1" [ref=e426]:
+                  - generic [ref=e427]:
+                    - generic "Identity and Access Management for AWS resources" [ref=e428]: IAM
+                    - generic "Centralised management of multiple AWS accounts" [ref=e429]: AWS Organizations
+                    - generic [ref=e430]: "+1"
+                - cell "Azure AD Azure Policy +1" [ref=e431]:
+                  - generic [ref=e432]:
+                    - generic [ref=e433]: Azure AD
+                    - generic "Enforces organisational standards across Azure resources" [ref=e434]: Azure Policy
+                    - generic [ref=e435]: "+1"
+                - cell "Shared" [ref=e436]:
+                  - generic [ref=e437]: Shared
+                - cell "Gap" [ref=e438]:
+                  - generic [ref=e439]: Gap
+              - row "ISM-2021 cyber security roles System owners A.5.2 Information security roles and responsibilities Governance NC, OS, P, S, TS IAM AWS Organizations +1 Azure AD Azure Policy +1 Shared Gap" [ref=e440] [cursor=pointer]:
+                - cell "ISM-2021" [ref=e441]
+                - cell "cyber security roles System owners" [ref=e442]:
+                  - generic "Guidelines for cyber security roles" [ref=e443]: cyber security roles
+                  - generic "System owners" [ref=e444]
+                - cell "A.5.2 Information security roles and responsibilities" [ref=e445]:
+                  - generic [ref=e446]: A.5.2
+                  - generic "Information security roles and responsibilities" [ref=e447]
+                - cell "Governance" [ref=e448]:
+                  - generic [ref=e449]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e450]
+                - cell "IAM AWS Organizations +1" [ref=e451]:
+                  - generic [ref=e452]:
+                    - generic "Identity and Access Management for AWS resources" [ref=e453]: IAM
+                    - generic "Centralised management of multiple AWS accounts" [ref=e454]: AWS Organizations
+                    - generic [ref=e455]: "+1"
+                - cell "Azure AD Azure Policy +1" [ref=e456]:
+                  - generic [ref=e457]:
+                    - generic [ref=e458]: Azure AD
+                    - generic "Enforces organisational standards across Azure resources" [ref=e459]: Azure Policy
+                    - generic [ref=e460]: "+1"
+                - cell "Shared" [ref=e461]:
+                  - generic [ref=e462]: Shared
+                - cell "Gap" [ref=e463]:
+                  - generic [ref=e464]: Gap
+              - row "ISM-1587 cyber security roles System owners A.5.2 Information security roles and responsibilities Governance NC, OS, P, S, TS IAM AWS Organizations +1 Azure AD Azure Policy +1 Shared Gap" [ref=e465] [cursor=pointer]:
+                - cell "ISM-1587" [ref=e466]
+                - cell "cyber security roles System owners" [ref=e467]:
+                  - generic "Guidelines for cyber security roles" [ref=e468]: cyber security roles
+                  - generic "System owners" [ref=e469]
+                - cell "A.5.2 Information security roles and responsibilities" [ref=e470]:
+                  - generic [ref=e471]: A.5.2
+                  - generic "Information security roles and responsibilities" [ref=e472]
+                - cell "Governance" [ref=e473]:
+                  - generic [ref=e474]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e475]
+                - cell "IAM AWS Organizations +1" [ref=e476]:
+                  - generic [ref=e477]:
+                    - generic "Identity and Access Management for AWS resources" [ref=e478]: IAM
+                    - generic "Centralised management of multiple AWS accounts" [ref=e479]: AWS Organizations
+                    - generic [ref=e480]: "+1"
+                - cell "Azure AD Azure Policy +1" [ref=e481]:
+                  - generic [ref=e482]:
+                    - generic [ref=e483]: Azure AD
+                    - generic "Enforces organisational standards across Azure resources" [ref=e484]: Azure Policy
+                    - generic [ref=e485]: "+1"
+                - cell "Shared" [ref=e486]:
+                  - generic [ref=e487]: Shared
+                - cell "Gap" [ref=e488]:
+                  - generic [ref=e489]: Gap
+              - row "ISM-0576 cyber security incidents Managing cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e490] [cursor=pointer]:
+                - cell "ISM-0576" [ref=e491]
+                - cell "cyber security incidents Managing cyber security incidents" [ref=e492]:
+                  - generic "Guidelines for cyber security incidents" [ref=e493]: cyber security incidents
+                  - generic "Managing cyber security incidents" [ref=e494]
+                - cell "A.5.26 Response to information security incidents" [ref=e495]:
+                  - generic [ref=e496]: A.5.26
+                  - generic "Response to information security incidents" [ref=e497]
+                - cell "Security" [ref=e498]:
+                  - generic [ref=e499]: Security
+                - cell "NC, OS, P, S, TS" [ref=e500]
+                - cell "GuardDuty Security Hub +2" [ref=e501]:
+                  - generic [ref=e502]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e503]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e504]: Security Hub
+                    - generic [ref=e505]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e506]:
+                  - generic [ref=e507]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e508]: Microsoft Sentinel
+                    - generic [ref=e509]: Defender for Cloud
+                    - generic [ref=e510]: "+1"
+                - cell "Shared" [ref=e511]:
+                  - generic [ref=e512]: Shared
+                - cell "Partial" [ref=e513]:
+                  - generic [ref=e514]: Partial
+              - row "ISM-1784 cyber security incidents Managing cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e515] [cursor=pointer]:
+                - cell "ISM-1784" [ref=e516]
+                - cell "cyber security incidents Managing cyber security incidents" [ref=e517]:
+                  - generic "Guidelines for cyber security incidents" [ref=e518]: cyber security incidents
+                  - generic "Managing cyber security incidents" [ref=e519]
+                - cell "A.5.26 Response to information security incidents" [ref=e520]:
+                  - generic [ref=e521]: A.5.26
+                  - generic "Response to information security incidents" [ref=e522]
+                - cell "Security" [ref=e523]:
+                  - generic [ref=e524]: Security
+                - cell "NC, OS, P, S, TS" [ref=e525]
+                - cell "GuardDuty Security Hub +2" [ref=e526]:
+                  - generic [ref=e527]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e528]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e529]: Security Hub
+                    - generic [ref=e530]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e531]:
+                  - generic [ref=e532]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e533]: Microsoft Sentinel
+                    - generic [ref=e534]: Defender for Cloud
+                    - generic [ref=e535]: "+1"
+                - cell "Shared" [ref=e536]:
+                  - generic [ref=e537]: Shared
+                - cell "Partial" [ref=e538]:
+                  - generic [ref=e539]: Partial
+              - row "ISM-0125 cyber security incidents Managing cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e540] [cursor=pointer]:
+                - cell "ISM-0125" [ref=e541]
+                - cell "cyber security incidents Managing cyber security incidents" [ref=e542]:
+                  - generic "Guidelines for cyber security incidents" [ref=e543]: cyber security incidents
+                  - generic "Managing cyber security incidents" [ref=e544]
+                - cell "A.5.26 Response to information security incidents" [ref=e545]:
+                  - generic [ref=e546]: A.5.26
+                  - generic "Response to information security incidents" [ref=e547]
+                - cell "Security" [ref=e548]:
+                  - generic [ref=e549]: Security
+                - cell "NC, OS, P, S, TS" [ref=e550]
+                - cell "GuardDuty Security Hub +2" [ref=e551]:
+                  - generic [ref=e552]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e553]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e554]: Security Hub
+                    - generic [ref=e555]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e556]:
+                  - generic [ref=e557]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e558]: Microsoft Sentinel
+                    - generic [ref=e559]: Defender for Cloud
+                    - generic [ref=e560]: "+1"
+                - cell "Shared" [ref=e561]:
+                  - generic [ref=e562]: Shared
+                - cell "Partial" [ref=e563]:
+                  - generic [ref=e564]: Partial
+              - row "ISM-1803 cyber security incidents Managing cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e565] [cursor=pointer]:
+                - cell "ISM-1803" [ref=e566]
+                - cell "cyber security incidents Managing cyber security incidents" [ref=e567]:
+                  - generic "Guidelines for cyber security incidents" [ref=e568]: cyber security incidents
+                  - generic "Managing cyber security incidents" [ref=e569]
+                - cell "A.5.26 Response to information security incidents" [ref=e570]:
+                  - generic [ref=e571]: A.5.26
+                  - generic "Response to information security incidents" [ref=e572]
+                - cell "Security" [ref=e573]:
+                  - generic [ref=e574]: Security
+                - cell "NC, OS, P, S, TS" [ref=e575]
+                - cell "GuardDuty Security Hub +2" [ref=e576]:
+                  - generic [ref=e577]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e578]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e579]: Security Hub
+                    - generic [ref=e580]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e581]:
+                  - generic [ref=e582]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e583]: Microsoft Sentinel
+                    - generic [ref=e584]: Defender for Cloud
+                    - generic [ref=e585]: "+1"
+                - cell "Shared" [ref=e586]:
+                  - generic [ref=e587]: Shared
+                - cell "Partial" [ref=e588]:
+                  - generic [ref=e589]: Partial
+              - row "ISM-1625 cyber security incidents Managing cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e590] [cursor=pointer]:
+                - cell "ISM-1625" [ref=e591]
+                - cell "cyber security incidents Managing cyber security incidents" [ref=e592]:
+                  - generic "Guidelines for cyber security incidents" [ref=e593]: cyber security incidents
+                  - generic "Managing cyber security incidents" [ref=e594]
+                - cell "A.5.26 Response to information security incidents" [ref=e595]:
+                  - generic [ref=e596]: A.5.26
+                  - generic "Response to information security incidents" [ref=e597]
+                - cell "Security" [ref=e598]:
+                  - generic [ref=e599]: Security
+                - cell "NC, OS, P, S, TS" [ref=e600]
+                - cell "GuardDuty Security Hub +2" [ref=e601]:
+                  - generic [ref=e602]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e603]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e604]: Security Hub
+                    - generic [ref=e605]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e606]:
+                  - generic [ref=e607]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e608]: Microsoft Sentinel
+                    - generic [ref=e609]: Defender for Cloud
+                    - generic [ref=e610]: "+1"
+                - cell "Shared" [ref=e611]:
+                  - generic [ref=e612]: Shared
+                - cell "Partial" [ref=e613]:
+                  - generic [ref=e614]: Partial
+              - row "ISM-1626 cyber security incidents Managing cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e615] [cursor=pointer]:
+                - cell "ISM-1626" [ref=e616]
+                - cell "cyber security incidents Managing cyber security incidents" [ref=e617]:
+                  - generic "Guidelines for cyber security incidents" [ref=e618]: cyber security incidents
+                  - generic "Managing cyber security incidents" [ref=e619]
+                - cell "A.5.26 Response to information security incidents" [ref=e620]:
+                  - generic [ref=e621]: A.5.26
+                  - generic "Response to information security incidents" [ref=e622]
+                - cell "Security" [ref=e623]:
+                  - generic [ref=e624]: Security
+                - cell "NC, OS, P, S, TS" [ref=e625]
+                - cell "GuardDuty Security Hub +2" [ref=e626]:
+                  - generic [ref=e627]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e628]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e629]: Security Hub
+                    - generic [ref=e630]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e631]:
+                  - generic [ref=e632]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e633]: Microsoft Sentinel
+                    - generic [ref=e634]: Defender for Cloud
+                    - generic [ref=e635]: "+1"
+                - cell "Shared" [ref=e636]:
+                  - generic [ref=e637]: Shared
+                - cell "Partial" [ref=e638]:
+                  - generic [ref=e639]: Partial
+              - row "ISM-0120 cyber security incidents Managing cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e640] [cursor=pointer]:
+                - cell "ISM-0120" [ref=e641]
+                - cell "cyber security incidents Managing cyber security incidents" [ref=e642]:
+                  - generic "Guidelines for cyber security incidents" [ref=e643]: cyber security incidents
+                  - generic "Managing cyber security incidents" [ref=e644]
+                - cell "A.5.26 Response to information security incidents" [ref=e645]:
+                  - generic [ref=e646]: A.5.26
+                  - generic "Response to information security incidents" [ref=e647]
+                - cell "Security" [ref=e648]:
+                  - generic [ref=e649]: Security
+                - cell "NC, OS, P, S, TS" [ref=e650]
+                - cell "GuardDuty Security Hub +2" [ref=e651]:
+                  - generic [ref=e652]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e653]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e654]: Security Hub
+                    - generic [ref=e655]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e656]:
+                  - generic [ref=e657]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e658]: Microsoft Sentinel
+                    - generic [ref=e659]: Defender for Cloud
+                    - generic [ref=e660]: "+1"
+                - cell "Shared" [ref=e661]:
+                  - generic [ref=e662]: Shared
+                - cell "Partial" [ref=e663]:
+                  - generic [ref=e664]: Partial
+              - row "ISM-0123 cyber security incidents Managing cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS, ML2, ML3 GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e665] [cursor=pointer]:
+                - cell "ISM-0123" [ref=e666]
+                - cell "cyber security incidents Managing cyber security incidents" [ref=e667]:
+                  - generic "Guidelines for cyber security incidents" [ref=e668]: cyber security incidents
+                  - generic "Managing cyber security incidents" [ref=e669]
+                - cell "A.5.26 Response to information security incidents" [ref=e670]:
+                  - generic [ref=e671]: A.5.26
+                  - generic "Response to information security incidents" [ref=e672]
+                - cell "Security" [ref=e673]:
+                  - generic [ref=e674]: Security
+                - cell "NC, OS, P, S, TS, ML2, ML3" [ref=e675]
+                - cell "GuardDuty Security Hub +2" [ref=e676]:
+                  - generic [ref=e677]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e678]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e679]: Security Hub
+                    - generic [ref=e680]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e681]:
+                  - generic [ref=e682]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e683]: Microsoft Sentinel
+                    - generic [ref=e684]: Defender for Cloud
+                    - generic [ref=e685]: "+1"
+                - cell "Shared" [ref=e686]:
+                  - generic [ref=e687]: Shared
+                - cell "Partial" [ref=e688]:
+                  - generic [ref=e689]: Partial
+              - row "ISM-0140 cyber security incidents Managing cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS, ML2, ML3 GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e690] [cursor=pointer]:
+                - cell "ISM-0140" [ref=e691]
+                - cell "cyber security incidents Managing cyber security incidents" [ref=e692]:
+                  - generic "Guidelines for cyber security incidents" [ref=e693]: cyber security incidents
+                  - generic "Managing cyber security incidents" [ref=e694]
+                - cell "A.5.26 Response to information security incidents" [ref=e695]:
+                  - generic [ref=e696]: A.5.26
+                  - generic "Response to information security incidents" [ref=e697]
+                - cell "Security" [ref=e698]:
+                  - generic [ref=e699]: Security
+                - cell "NC, OS, P, S, TS, ML2, ML3" [ref=e700]
+                - cell "GuardDuty Security Hub +2" [ref=e701]:
+                  - generic [ref=e702]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e703]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e704]: Security Hub
+                    - generic [ref=e705]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e706]:
+                  - generic [ref=e707]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e708]: Microsoft Sentinel
+                    - generic [ref=e709]: Defender for Cloud
+                    - generic [ref=e710]: "+1"
+                - cell "Shared" [ref=e711]:
+                  - generic [ref=e712]: Shared
+                - cell "Partial" [ref=e713]:
+                  - generic [ref=e714]: Partial
+              - row "ISM-1880 cyber security incidents Managing cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e715] [cursor=pointer]:
+                - cell "ISM-1880" [ref=e716]
+                - cell "cyber security incidents Managing cyber security incidents" [ref=e717]:
+                  - generic "Guidelines for cyber security incidents" [ref=e718]: cyber security incidents
+                  - generic "Managing cyber security incidents" [ref=e719]
+                - cell "A.5.26 Response to information security incidents" [ref=e720]:
+                  - generic [ref=e721]: A.5.26
+                  - generic "Response to information security incidents" [ref=e722]
+                - cell "Security" [ref=e723]:
+                  - generic [ref=e724]: Security
+                - cell "NC, OS, P, S, TS" [ref=e725]
+                - cell "GuardDuty Security Hub +2" [ref=e726]:
+                  - generic [ref=e727]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e728]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e729]: Security Hub
+                    - generic [ref=e730]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e731]:
+                  - generic [ref=e732]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e733]: Microsoft Sentinel
+                    - generic [ref=e734]: Defender for Cloud
+                    - generic [ref=e735]: "+1"
+                - cell "Shared" [ref=e736]:
+                  - generic [ref=e737]: Shared
+                - cell "Partial" [ref=e738]:
+                  - generic [ref=e739]: Partial
+              - row "ISM-1881 cyber security incidents Managing cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e740] [cursor=pointer]:
+                - cell "ISM-1881" [ref=e741]
+                - cell "cyber security incidents Managing cyber security incidents" [ref=e742]:
+                  - generic "Guidelines for cyber security incidents" [ref=e743]: cyber security incidents
+                  - generic "Managing cyber security incidents" [ref=e744]
+                - cell "A.5.26 Response to information security incidents" [ref=e745]:
+                  - generic [ref=e746]: A.5.26
+                  - generic "Response to information security incidents" [ref=e747]
+                - cell "Security" [ref=e748]:
+                  - generic [ref=e749]: Security
+                - cell "NC, OS, P, S, TS" [ref=e750]
+                - cell "GuardDuty Security Hub +2" [ref=e751]:
+                  - generic [ref=e752]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e753]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e754]: Security Hub
+                    - generic [ref=e755]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e756]:
+                  - generic [ref=e757]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e758]: Microsoft Sentinel
+                    - generic [ref=e759]: Defender for Cloud
+                    - generic [ref=e760]: "+1"
+                - cell "Shared" [ref=e761]:
+                  - generic [ref=e762]: Shared
+                - cell "Partial" [ref=e763]:
+                  - generic [ref=e764]: Partial
+              - row "ISM-1819 cyber security incidents Responding to cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS, ML2, ML3 GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e765] [cursor=pointer]:
+                - cell "ISM-1819" [ref=e766]
+                - cell "cyber security incidents Responding to cyber security incidents" [ref=e767]:
+                  - generic "Guidelines for cyber security incidents" [ref=e768]: cyber security incidents
+                  - generic "Responding to cyber security incidents" [ref=e769]
+                - cell "A.5.26 Response to information security incidents" [ref=e770]:
+                  - generic [ref=e771]: A.5.26
+                  - generic "Response to information security incidents" [ref=e772]
+                - cell "Security" [ref=e773]:
+                  - generic [ref=e774]: Security
+                - cell "NC, OS, P, S, TS, ML2, ML3" [ref=e775]
+                - cell "GuardDuty Security Hub +2" [ref=e776]:
+                  - generic [ref=e777]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e778]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e779]: Security Hub
+                    - generic [ref=e780]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e781]:
+                  - generic [ref=e782]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e783]: Microsoft Sentinel
+                    - generic [ref=e784]: Defender for Cloud
+                    - generic [ref=e785]: "+1"
+                - cell "Shared" [ref=e786]:
+                  - generic [ref=e787]: Shared
+                - cell "Partial" [ref=e788]:
+                  - generic [ref=e789]: Partial
+              - row "ISM-0133 cyber security incidents Responding to cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e790] [cursor=pointer]:
+                - cell "ISM-0133" [ref=e791]
+                - cell "cyber security incidents Responding to cyber security incidents" [ref=e792]:
+                  - generic "Guidelines for cyber security incidents" [ref=e793]: cyber security incidents
+                  - generic "Responding to cyber security incidents" [ref=e794]
+                - cell "A.5.26 Response to information security incidents" [ref=e795]:
+                  - generic [ref=e796]: A.5.26
+                  - generic "Response to information security incidents" [ref=e797]
+                - cell "Security" [ref=e798]:
+                  - generic [ref=e799]: Security
+                - cell "NC, OS, P, S, TS" [ref=e800]
+                - cell "GuardDuty Security Hub +2" [ref=e801]:
+                  - generic [ref=e802]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e803]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e804]: Security Hub
+                    - generic [ref=e805]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e806]:
+                  - generic [ref=e807]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e808]: Microsoft Sentinel
+                    - generic [ref=e809]: Defender for Cloud
+                    - generic [ref=e810]: "+1"
+                - cell "Shared" [ref=e811]:
+                  - generic [ref=e812]: Shared
+                - cell "Partial" [ref=e813]:
+                  - generic [ref=e814]: Partial
+              - row "ISM-0917 cyber security incidents Responding to cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e815] [cursor=pointer]:
+                - cell "ISM-0917" [ref=e816]
+                - cell "cyber security incidents Responding to cyber security incidents" [ref=e817]:
+                  - generic "Guidelines for cyber security incidents" [ref=e818]: cyber security incidents
+                  - generic "Responding to cyber security incidents" [ref=e819]
+                - cell "A.5.26 Response to information security incidents" [ref=e820]:
+                  - generic [ref=e821]: A.5.26
+                  - generic "Response to information security incidents" [ref=e822]
+                - cell "Security" [ref=e823]:
+                  - generic [ref=e824]: Security
+                - cell "NC, OS, P, S, TS" [ref=e825]
+                - cell "GuardDuty Security Hub +2" [ref=e826]:
+                  - generic [ref=e827]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e828]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e829]: Security Hub
+                    - generic [ref=e830]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e831]:
+                  - generic [ref=e832]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e833]: Microsoft Sentinel
+                    - generic [ref=e834]: Defender for Cloud
+                    - generic [ref=e835]: "+1"
+                - cell "Shared" [ref=e836]:
+                  - generic [ref=e837]: Shared
+                - cell "Partial" [ref=e838]:
+                  - generic [ref=e839]: Partial
+              - row "ISM-1969 cyber security incidents Responding to cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e840] [cursor=pointer]:
+                - cell "ISM-1969" [ref=e841]
+                - cell "cyber security incidents Responding to cyber security incidents" [ref=e842]:
+                  - generic "Guidelines for cyber security incidents" [ref=e843]: cyber security incidents
+                  - generic "Responding to cyber security incidents" [ref=e844]
+                - cell "A.5.26 Response to information security incidents" [ref=e845]:
+                  - generic [ref=e846]: A.5.26
+                  - generic "Response to information security incidents" [ref=e847]
+                - cell "Security" [ref=e848]:
+                  - generic [ref=e849]: Security
+                - cell "NC, OS, P, S, TS" [ref=e850]
+                - cell "GuardDuty Security Hub +2" [ref=e851]:
+                  - generic [ref=e852]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e853]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e854]: Security Hub
+                    - generic [ref=e855]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e856]:
+                  - generic [ref=e857]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e858]: Microsoft Sentinel
+                    - generic [ref=e859]: Defender for Cloud
+                    - generic [ref=e860]: "+1"
+                - cell "Shared" [ref=e861]:
+                  - generic [ref=e862]: Shared
+                - cell "Partial" [ref=e863]:
+                  - generic [ref=e864]: Partial
+              - row "ISM-1970 cyber security incidents Responding to cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e865] [cursor=pointer]:
+                - cell "ISM-1970" [ref=e866]
+                - cell "cyber security incidents Responding to cyber security incidents" [ref=e867]:
+                  - generic "Guidelines for cyber security incidents" [ref=e868]: cyber security incidents
+                  - generic "Responding to cyber security incidents" [ref=e869]
+                - cell "A.5.26 Response to information security incidents" [ref=e870]:
+                  - generic [ref=e871]: A.5.26
+                  - generic "Response to information security incidents" [ref=e872]
+                - cell "Security" [ref=e873]:
+                  - generic [ref=e874]: Security
+                - cell "NC, OS, P, S, TS" [ref=e875]
+                - cell "GuardDuty Security Hub +2" [ref=e876]:
+                  - generic [ref=e877]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e878]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e879]: Security Hub
+                    - generic [ref=e880]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e881]:
+                  - generic [ref=e882]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e883]: Microsoft Sentinel
+                    - generic [ref=e884]: Defender for Cloud
+                    - generic [ref=e885]: "+1"
+                - cell "Shared" [ref=e886]:
+                  - generic [ref=e887]: Shared
+                - cell "Partial" [ref=e888]:
+                  - generic [ref=e889]: Partial
+              - row "ISM-0137 cyber security incidents Responding to cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e890] [cursor=pointer]:
+                - cell "ISM-0137" [ref=e891]
+                - cell "cyber security incidents Responding to cyber security incidents" [ref=e892]:
+                  - generic "Guidelines for cyber security incidents" [ref=e893]: cyber security incidents
+                  - generic "Responding to cyber security incidents" [ref=e894]
+                - cell "A.5.26 Response to information security incidents" [ref=e895]:
+                  - generic [ref=e896]: A.5.26
+                  - generic "Response to information security incidents" [ref=e897]
+                - cell "Security" [ref=e898]:
+                  - generic [ref=e899]: Security
+                - cell "NC, OS, P, S, TS" [ref=e900]
+                - cell "GuardDuty Security Hub +2" [ref=e901]:
+                  - generic [ref=e902]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e903]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e904]: Security Hub
+                    - generic [ref=e905]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e906]:
+                  - generic [ref=e907]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e908]: Microsoft Sentinel
+                    - generic [ref=e909]: Defender for Cloud
+                    - generic [ref=e910]: "+1"
+                - cell "Shared" [ref=e911]:
+                  - generic [ref=e912]: Shared
+                - cell "Partial" [ref=e913]:
+                  - generic [ref=e914]: Partial
+              - row "ISM-1609 cyber security incidents Responding to cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e915] [cursor=pointer]:
+                - cell "ISM-1609" [ref=e916]
+                - cell "cyber security incidents Responding to cyber security incidents" [ref=e917]:
+                  - generic "Guidelines for cyber security incidents" [ref=e918]: cyber security incidents
+                  - generic "Responding to cyber security incidents" [ref=e919]
+                - cell "A.5.26 Response to information security incidents" [ref=e920]:
+                  - generic [ref=e921]: A.5.26
+                  - generic "Response to information security incidents" [ref=e922]
+                - cell "Security" [ref=e923]:
+                  - generic [ref=e924]: Security
+                - cell "NC, OS, P, S, TS" [ref=e925]
+                - cell "GuardDuty Security Hub +2" [ref=e926]:
+                  - generic [ref=e927]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e928]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e929]: Security Hub
+                    - generic [ref=e930]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e931]:
+                  - generic [ref=e932]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e933]: Microsoft Sentinel
+                    - generic [ref=e934]: Defender for Cloud
+                    - generic [ref=e935]: "+1"
+                - cell "Shared" [ref=e936]:
+                  - generic [ref=e937]: Shared
+                - cell "Partial" [ref=e938]:
+                  - generic [ref=e939]: Partial
+              - row "ISM-1731 cyber security incidents Responding to cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e940] [cursor=pointer]:
+                - cell "ISM-1731" [ref=e941]
+                - cell "cyber security incidents Responding to cyber security incidents" [ref=e942]:
+                  - generic "Guidelines for cyber security incidents" [ref=e943]: cyber security incidents
+                  - generic "Responding to cyber security incidents" [ref=e944]
+                - cell "A.5.26 Response to information security incidents" [ref=e945]:
+                  - generic [ref=e946]: A.5.26
+                  - generic "Response to information security incidents" [ref=e947]
+                - cell "Security" [ref=e948]:
+                  - generic [ref=e949]: Security
+                - cell "NC, OS, P, S, TS" [ref=e950]
+                - cell "GuardDuty Security Hub +2" [ref=e951]:
+                  - generic [ref=e952]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e953]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e954]: Security Hub
+                    - generic [ref=e955]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e956]:
+                  - generic [ref=e957]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e958]: Microsoft Sentinel
+                    - generic [ref=e959]: Defender for Cloud
+                    - generic [ref=e960]: "+1"
+                - cell "Shared" [ref=e961]:
+                  - generic [ref=e962]: Shared
+                - cell "Partial" [ref=e963]:
+                  - generic [ref=e964]: Partial
+              - row "ISM-1732 cyber security incidents Responding to cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e965] [cursor=pointer]:
+                - cell "ISM-1732" [ref=e966]
+                - cell "cyber security incidents Responding to cyber security incidents" [ref=e967]:
+                  - generic "Guidelines for cyber security incidents" [ref=e968]: cyber security incidents
+                  - generic "Responding to cyber security incidents" [ref=e969]
+                - cell "A.5.26 Response to information security incidents" [ref=e970]:
+                  - generic [ref=e971]: A.5.26
+                  - generic "Response to information security incidents" [ref=e972]
+                - cell "Security" [ref=e973]:
+                  - generic [ref=e974]: Security
+                - cell "NC, OS, P, S, TS" [ref=e975]
+                - cell "GuardDuty Security Hub +2" [ref=e976]:
+                  - generic [ref=e977]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e978]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e979]: Security Hub
+                    - generic [ref=e980]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e981]:
+                  - generic [ref=e982]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e983]: Microsoft Sentinel
+                    - generic [ref=e984]: Defender for Cloud
+                    - generic [ref=e985]: "+1"
+                - cell "Shared" [ref=e986]:
+                  - generic [ref=e987]: Shared
+                - cell "Partial" [ref=e988]:
+                  - generic [ref=e989]: Partial
+              - row "ISM-1213 cyber security incidents Responding to cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e990] [cursor=pointer]:
+                - cell "ISM-1213" [ref=e991]
+                - cell "cyber security incidents Responding to cyber security incidents" [ref=e992]:
+                  - generic "Guidelines for cyber security incidents" [ref=e993]: cyber security incidents
+                  - generic "Responding to cyber security incidents" [ref=e994]
+                - cell "A.5.26 Response to information security incidents" [ref=e995]:
+                  - generic [ref=e996]: A.5.26
+                  - generic "Response to information security incidents" [ref=e997]
+                - cell "Security" [ref=e998]:
+                  - generic [ref=e999]: Security
+                - cell "NC, OS, P, S, TS" [ref=e1000]
+                - cell "GuardDuty Security Hub +2" [ref=e1001]:
+                  - generic [ref=e1002]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e1003]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e1004]: Security Hub
+                    - generic [ref=e1005]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e1006]:
+                  - generic [ref=e1007]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e1008]: Microsoft Sentinel
+                    - generic [ref=e1009]: Defender for Cloud
+                    - generic [ref=e1010]: "+1"
+                - cell "Shared" [ref=e1011]:
+                  - generic [ref=e1012]: Shared
+                - cell "Partial" [ref=e1013]:
+                  - generic [ref=e1014]: Partial
+              - row "ISM-0138 cyber security incidents Responding to cyber security incidents A.5.26 Response to information security incidents Security NC, OS, P, S, TS GuardDuty Security Hub +2 Microsoft Sentinel Defender for Cloud +1 Shared Partial" [ref=e1015] [cursor=pointer]:
+                - cell "ISM-0138" [ref=e1016]
+                - cell "cyber security incidents Responding to cyber security incidents" [ref=e1017]:
+                  - generic "Guidelines for cyber security incidents" [ref=e1018]: cyber security incidents
+                  - generic "Responding to cyber security incidents" [ref=e1019]
+                - cell "A.5.26 Response to information security incidents" [ref=e1020]:
+                  - generic [ref=e1021]: A.5.26
+                  - generic "Response to information security incidents" [ref=e1022]
+                - cell "Security" [ref=e1023]:
+                  - generic [ref=e1024]: Security
+                - cell "NC, OS, P, S, TS" [ref=e1025]
+                - cell "GuardDuty Security Hub +2" [ref=e1026]:
+                  - generic [ref=e1027]:
+                    - generic "ML-based threat detection for AWS accounts" [ref=e1028]: GuardDuty
+                    - generic "Centralised AWS security findings aggregator" [ref=e1029]: Security Hub
+                    - generic [ref=e1030]: "+2"
+                - cell "Microsoft Sentinel Defender for Cloud +1" [ref=e1031]:
+                  - generic [ref=e1032]:
+                    - generic "Cloud-native SIEM and SOAR from Microsoft" [ref=e1033]: Microsoft Sentinel
+                    - generic [ref=e1034]: Defender for Cloud
+                    - generic [ref=e1035]: "+1"
+                - cell "Shared" [ref=e1036]:
+                  - generic [ref=e1037]: Shared
+                - cell "Partial" [ref=e1038]:
+                  - generic [ref=e1039]: Partial
+              - row "ISM-1631 procurement and outsourcing Cyber supply chain risk management A.5.21 Managing information security in the ICT supply chain Governance NC, OS, P, S, TS AWS Artifact AWS Config +1 Microsoft Service Trust Portal Azure Policy +1 Shared Gap" [ref=e1040] [cursor=pointer]:
+                - cell "ISM-1631" [ref=e1041]
+                - cell "procurement and outsourcing Cyber supply chain risk management" [ref=e1042]:
+                  - generic "Guidelines for procurement and outsourcing" [ref=e1043]: procurement and outsourcing
+                  - generic "Cyber supply chain risk management" [ref=e1044]
+                - cell "A.5.21 Managing information security in the ICT supply chain" [ref=e1045]:
+                  - generic [ref=e1046]: A.5.21
+                  - generic "Managing information security in the ICT supply chain" [ref=e1047]
+                - cell "Governance" [ref=e1048]:
+                  - generic [ref=e1049]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e1050]
+                - cell "AWS Artifact AWS Config +1" [ref=e1051]:
+                  - generic [ref=e1052]:
+                    - generic "On-demand access to AWS compliance reports and agreements" [ref=e1053]: AWS Artifact
+                    - generic "Records and evaluates AWS resource configurations" [ref=e1054]: AWS Config
+                    - generic [ref=e1055]: "+1"
+                - cell "Microsoft Service Trust Portal Azure Policy +1" [ref=e1056]:
+                  - generic [ref=e1057]:
+                    - generic [ref=e1058]: Microsoft Service Trust Portal
+                    - generic "Enforces organisational standards across Azure resources" [ref=e1059]: Azure Policy
+                    - generic [ref=e1060]: "+1"
+                - cell "Shared" [ref=e1061]:
+                  - generic [ref=e1062]: Shared
+                - cell "Gap" [ref=e1063]:
+                  - generic [ref=e1064]: Gap
+              - row "ISM-1452 procurement and outsourcing Cyber supply chain risk management A.5.21 Managing information security in the ICT supply chain Governance NC, OS, P, S, TS AWS Artifact AWS Config +1 Microsoft Service Trust Portal Azure Policy +1 Shared Gap" [ref=e1065] [cursor=pointer]:
+                - cell "ISM-1452" [ref=e1066]
+                - cell "procurement and outsourcing Cyber supply chain risk management" [ref=e1067]:
+                  - generic "Guidelines for procurement and outsourcing" [ref=e1068]: procurement and outsourcing
+                  - generic "Cyber supply chain risk management" [ref=e1069]
+                - cell "A.5.21 Managing information security in the ICT supply chain" [ref=e1070]:
+                  - generic [ref=e1071]: A.5.21
+                  - generic "Managing information security in the ICT supply chain" [ref=e1072]
+                - cell "Governance" [ref=e1073]:
+                  - generic [ref=e1074]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e1075]
+                - cell "AWS Artifact AWS Config +1" [ref=e1076]:
+                  - generic [ref=e1077]:
+                    - generic "On-demand access to AWS compliance reports and agreements" [ref=e1078]: AWS Artifact
+                    - generic "Records and evaluates AWS resource configurations" [ref=e1079]: AWS Config
+                    - generic [ref=e1080]: "+1"
+                - cell "Microsoft Service Trust Portal Azure Policy +1" [ref=e1081]:
+                  - generic [ref=e1082]:
+                    - generic [ref=e1083]: Microsoft Service Trust Portal
+                    - generic "Enforces organisational standards across Azure resources" [ref=e1084]: Azure Policy
+                    - generic [ref=e1085]: "+1"
+                - cell "Shared" [ref=e1086]:
+                  - generic [ref=e1087]: Shared
+                - cell "Gap" [ref=e1088]:
+                  - generic [ref=e1089]: Gap
+              - row "ISM-1567 procurement and outsourcing Cyber supply chain risk management A.5.21 Managing information security in the ICT supply chain Governance NC, OS, P, S, TS AWS Artifact AWS Config +1 Microsoft Service Trust Portal Azure Policy +1 Shared Gap" [ref=e1090] [cursor=pointer]:
+                - cell "ISM-1567" [ref=e1091]
+                - cell "procurement and outsourcing Cyber supply chain risk management" [ref=e1092]:
+                  - generic "Guidelines for procurement and outsourcing" [ref=e1093]: procurement and outsourcing
+                  - generic "Cyber supply chain risk management" [ref=e1094]
+                - cell "A.5.21 Managing information security in the ICT supply chain" [ref=e1095]:
+                  - generic [ref=e1096]: A.5.21
+                  - generic "Managing information security in the ICT supply chain" [ref=e1097]
+                - cell "Governance" [ref=e1098]:
+                  - generic [ref=e1099]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e1100]
+                - cell "AWS Artifact AWS Config +1" [ref=e1101]:
+                  - generic [ref=e1102]:
+                    - generic "On-demand access to AWS compliance reports and agreements" [ref=e1103]: AWS Artifact
+                    - generic "Records and evaluates AWS resource configurations" [ref=e1104]: AWS Config
+                    - generic [ref=e1105]: "+1"
+                - cell "Microsoft Service Trust Portal Azure Policy +1" [ref=e1106]:
+                  - generic [ref=e1107]:
+                    - generic [ref=e1108]: Microsoft Service Trust Portal
+                    - generic "Enforces organisational standards across Azure resources" [ref=e1109]: Azure Policy
+                    - generic [ref=e1110]: "+1"
+                - cell "Shared" [ref=e1111]:
+                  - generic [ref=e1112]: Shared
+                - cell "Gap" [ref=e1113]:
+                  - generic [ref=e1114]: Gap
+              - row "ISM-1568 procurement and outsourcing Cyber supply chain risk management A.5.21 Managing information security in the ICT supply chain Governance NC, OS, P, S, TS AWS Artifact AWS Config +1 Microsoft Service Trust Portal Azure Policy +1 Shared Gap" [ref=e1115] [cursor=pointer]:
+                - cell "ISM-1568" [ref=e1116]
+                - cell "procurement and outsourcing Cyber supply chain risk management" [ref=e1117]:
+                  - generic "Guidelines for procurement and outsourcing" [ref=e1118]: procurement and outsourcing
+                  - generic "Cyber supply chain risk management" [ref=e1119]
+                - cell "A.5.21 Managing information security in the ICT supply chain" [ref=e1120]:
+                  - generic [ref=e1121]: A.5.21
+                  - generic "Managing information security in the ICT supply chain" [ref=e1122]
+                - cell "Governance" [ref=e1123]:
+                  - generic [ref=e1124]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e1125]
+                - cell "AWS Artifact AWS Config +1" [ref=e1126]:
+                  - generic [ref=e1127]:
+                    - generic "On-demand access to AWS compliance reports and agreements" [ref=e1128]: AWS Artifact
+                    - generic "Records and evaluates AWS resource configurations" [ref=e1129]: AWS Config
+                    - generic [ref=e1130]: "+1"
+                - cell "Microsoft Service Trust Portal Azure Policy +1" [ref=e1131]:
+                  - generic [ref=e1132]:
+                    - generic [ref=e1133]: Microsoft Service Trust Portal
+                    - generic "Enforces organisational standards across Azure resources" [ref=e1134]: Azure Policy
+                    - generic [ref=e1135]: "+1"
+                - cell "Shared" [ref=e1136]:
+                  - generic [ref=e1137]: Shared
+                - cell "Gap" [ref=e1138]:
+                  - generic [ref=e1139]: Gap
+              - row "ISM-1882 procurement and outsourcing Cyber supply chain risk management A.5.21 Managing information security in the ICT supply chain Governance NC, OS, P, S, TS AWS Artifact AWS Config +1 Microsoft Service Trust Portal Azure Policy +1 Shared Gap" [ref=e1140] [cursor=pointer]:
+                - cell "ISM-1882" [ref=e1141]
+                - cell "procurement and outsourcing Cyber supply chain risk management" [ref=e1142]:
+                  - generic "Guidelines for procurement and outsourcing" [ref=e1143]: procurement and outsourcing
+                  - generic "Cyber supply chain risk management" [ref=e1144]
+                - cell "A.5.21 Managing information security in the ICT supply chain" [ref=e1145]:
+                  - generic [ref=e1146]: A.5.21
+                  - generic "Managing information security in the ICT supply chain" [ref=e1147]
+                - cell "Governance" [ref=e1148]:
+                  - generic [ref=e1149]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e1150]
+                - cell "AWS Artifact AWS Config +1" [ref=e1151]:
+                  - generic [ref=e1152]:
+                    - generic "On-demand access to AWS compliance reports and agreements" [ref=e1153]: AWS Artifact
+                    - generic "Records and evaluates AWS resource configurations" [ref=e1154]: AWS Config
+                    - generic [ref=e1155]: "+1"
+                - cell "Microsoft Service Trust Portal Azure Policy +1" [ref=e1156]:
+                  - generic [ref=e1157]:
+                    - generic [ref=e1158]: Microsoft Service Trust Portal
+                    - generic "Enforces organisational standards across Azure resources" [ref=e1159]: Azure Policy
+                    - generic [ref=e1160]: "+1"
+                - cell "Shared" [ref=e1161]:
+                  - generic [ref=e1162]: Shared
+                - cell "Gap" [ref=e1163]:
+                  - generic [ref=e1164]: Gap
+              - row "ISM-1632 procurement and outsourcing Cyber supply chain risk management A.5.21 Managing information security in the ICT supply chain Governance NC, OS, P, S, TS AWS Artifact AWS Config +1 Microsoft Service Trust Portal Azure Policy +1 Shared Gap" [ref=e1165] [cursor=pointer]:
+                - cell "ISM-1632" [ref=e1166]
+                - cell "procurement and outsourcing Cyber supply chain risk management" [ref=e1167]:
+                  - generic "Guidelines for procurement and outsourcing" [ref=e1168]: procurement and outsourcing
+                  - generic "Cyber supply chain risk management" [ref=e1169]
+                - cell "A.5.21 Managing information security in the ICT supply chain" [ref=e1170]:
+                  - generic [ref=e1171]: A.5.21
+                  - generic "Managing information security in the ICT supply chain" [ref=e1172]
+                - cell "Governance" [ref=e1173]:
+                  - generic [ref=e1174]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e1175]
+                - cell "AWS Artifact AWS Config +1" [ref=e1176]:
+                  - generic [ref=e1177]:
+                    - generic "On-demand access to AWS compliance reports and agreements" [ref=e1178]: AWS Artifact
+                    - generic "Records and evaluates AWS resource configurations" [ref=e1179]: AWS Config
+                    - generic [ref=e1180]: "+1"
+                - cell "Microsoft Service Trust Portal Azure Policy +1" [ref=e1181]:
+                  - generic [ref=e1182]:
+                    - generic [ref=e1183]: Microsoft Service Trust Portal
+                    - generic "Enforces organisational standards across Azure resources" [ref=e1184]: Azure Policy
+                    - generic [ref=e1185]: "+1"
+                - cell "Shared" [ref=e1186]:
+                  - generic [ref=e1187]: Shared
+                - cell "Gap" [ref=e1188]:
+                  - generic [ref=e1189]: Gap
+              - row "ISM-1569 procurement and outsourcing Cyber supply chain risk management A.5.21 Managing information security in the ICT supply chain Governance NC, OS, P, S, TS AWS Artifact AWS Config +1 Microsoft Service Trust Portal Azure Policy +1 Shared Gap" [ref=e1190] [cursor=pointer]:
+                - cell "ISM-1569" [ref=e1191]
+                - cell "procurement and outsourcing Cyber supply chain risk management" [ref=e1192]:
+                  - generic "Guidelines for procurement and outsourcing" [ref=e1193]: procurement and outsourcing
+                  - generic "Cyber supply chain risk management" [ref=e1194]
+                - cell "A.5.21 Managing information security in the ICT supply chain" [ref=e1195]:
+                  - generic [ref=e1196]: A.5.21
+                  - generic "Managing information security in the ICT supply chain" [ref=e1197]
+                - cell "Governance" [ref=e1198]:
+                  - generic [ref=e1199]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e1200]
+                - cell "AWS Artifact AWS Config +1" [ref=e1201]:
+                  - generic [ref=e1202]:
+                    - generic "On-demand access to AWS compliance reports and agreements" [ref=e1203]: AWS Artifact
+                    - generic "Records and evaluates AWS resource configurations" [ref=e1204]: AWS Config
+                    - generic [ref=e1205]: "+1"
+                - cell "Microsoft Service Trust Portal Azure Policy +1" [ref=e1206]:
+                  - generic [ref=e1207]:
+                    - generic [ref=e1208]: Microsoft Service Trust Portal
+                    - generic "Enforces organisational standards across Azure resources" [ref=e1209]: Azure Policy
+                    - generic [ref=e1210]: "+1"
+                - cell "Shared" [ref=e1211]:
+                  - generic [ref=e1212]: Shared
+                - cell "Gap" [ref=e1213]:
+                  - generic [ref=e1214]: Gap
+              - row "ISM-1785 procurement and outsourcing Cyber supply chain risk management A.5.21 Managing information security in the ICT supply chain Governance NC, OS, P, S, TS AWS Artifact AWS Config +1 Microsoft Service Trust Portal Azure Policy +1 Shared Gap" [ref=e1215] [cursor=pointer]:
+                - cell "ISM-1785" [ref=e1216]
+                - cell "procurement and outsourcing Cyber supply chain risk management" [ref=e1217]:
+                  - generic "Guidelines for procurement and outsourcing" [ref=e1218]: procurement and outsourcing
+                  - generic "Cyber supply chain risk management" [ref=e1219]
+                - cell "A.5.21 Managing information security in the ICT supply chain" [ref=e1220]:
+                  - generic [ref=e1221]: A.5.21
+                  - generic "Managing information security in the ICT supply chain" [ref=e1222]
+                - cell "Governance" [ref=e1223]:
+                  - generic [ref=e1224]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e1225]
+                - cell "AWS Artifact AWS Config +1" [ref=e1226]:
+                  - generic [ref=e1227]:
+                    - generic "On-demand access to AWS compliance reports and agreements" [ref=e1228]: AWS Artifact
+                    - generic "Records and evaluates AWS resource configurations" [ref=e1229]: AWS Config
+                    - generic [ref=e1230]: "+1"
+                - cell "Microsoft Service Trust Portal Azure Policy +1" [ref=e1231]:
+                  - generic [ref=e1232]:
+                    - generic [ref=e1233]: Microsoft Service Trust Portal
+                    - generic "Enforces organisational standards across Azure resources" [ref=e1234]: Azure Policy
+                    - generic [ref=e1235]: "+1"
+                - cell "Shared" [ref=e1236]:
+                  - generic [ref=e1237]: Shared
+                - cell "Gap" [ref=e1238]:
+                  - generic [ref=e1239]: Gap
+              - row "ISM-1786 procurement and outsourcing Cyber supply chain risk management A.5.21 Managing information security in the ICT supply chain Governance NC, OS, P, S, TS AWS Artifact AWS Config +1 Microsoft Service Trust Portal Azure Policy +1 Shared Gap" [ref=e1240] [cursor=pointer]:
+                - cell "ISM-1786" [ref=e1241]
+                - cell "procurement and outsourcing Cyber supply chain risk management" [ref=e1242]:
+                  - generic "Guidelines for procurement and outsourcing" [ref=e1243]: procurement and outsourcing
+                  - generic "Cyber supply chain risk management" [ref=e1244]
+                - cell "A.5.21 Managing information security in the ICT supply chain" [ref=e1245]:
+                  - generic [ref=e1246]: A.5.21
+                  - generic "Managing information security in the ICT supply chain" [ref=e1247]
+                - cell "Governance" [ref=e1248]:
+                  - generic [ref=e1249]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e1250]
+                - cell "AWS Artifact AWS Config +1" [ref=e1251]:
+                  - generic [ref=e1252]:
+                    - generic "On-demand access to AWS compliance reports and agreements" [ref=e1253]: AWS Artifact
+                    - generic "Records and evaluates AWS resource configurations" [ref=e1254]: AWS Config
+                    - generic [ref=e1255]: "+1"
+                - cell "Microsoft Service Trust Portal Azure Policy +1" [ref=e1256]:
+                  - generic [ref=e1257]:
+                    - generic [ref=e1258]: Microsoft Service Trust Portal
+                    - generic "Enforces organisational standards across Azure resources" [ref=e1259]: Azure Policy
+                    - generic [ref=e1260]: "+1"
+                - cell "Shared" [ref=e1261]:
+                  - generic [ref=e1262]: Shared
+                - cell "Gap" [ref=e1263]:
+                  - generic [ref=e1264]: Gap
+              - row "ISM-1787 procurement and outsourcing Cyber supply chain risk management A.5.21 Managing information security in the ICT supply chain Governance NC, OS, P, S, TS AWS Artifact AWS Config +1 Microsoft Service Trust Portal Azure Policy +1 Shared Gap" [ref=e1265] [cursor=pointer]:
+                - cell "ISM-1787" [ref=e1266]
+                - cell "procurement and outsourcing Cyber supply chain risk management" [ref=e1267]:
+                  - generic "Guidelines for procurement and outsourcing" [ref=e1268]: procurement and outsourcing
+                  - generic "Cyber supply chain risk management" [ref=e1269]
+                - cell "A.5.21 Managing information security in the ICT supply chain" [ref=e1270]:
+                  - generic [ref=e1271]: A.5.21
+                  - generic "Managing information security in the ICT supply chain" [ref=e1272]
+                - cell "Governance" [ref=e1273]:
+                  - generic [ref=e1274]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e1275]
+                - cell "AWS Artifact AWS Config +1" [ref=e1276]:
+                  - generic [ref=e1277]:
+                    - generic "On-demand access to AWS compliance reports and agreements" [ref=e1278]: AWS Artifact
+                    - generic "Records and evaluates AWS resource configurations" [ref=e1279]: AWS Config
+                    - generic [ref=e1280]: "+1"
+                - cell "Microsoft Service Trust Portal Azure Policy +1" [ref=e1281]:
+                  - generic [ref=e1282]:
+                    - generic [ref=e1283]: Microsoft Service Trust Portal
+                    - generic "Enforces organisational standards across Azure resources" [ref=e1284]: Azure Policy
+                    - generic [ref=e1285]: "+1"
+                - cell "Shared" [ref=e1286]:
+                  - generic [ref=e1287]: Shared
+                - cell "Gap" [ref=e1288]:
+                  - generic [ref=e1289]: Gap
+              - row "ISM-1788 procurement and outsourcing Cyber supply chain risk management A.5.21 Managing information security in the ICT supply chain Governance NC, OS, P, S, TS AWS Artifact AWS Config +1 Microsoft Service Trust Portal Azure Policy +1 Shared Gap" [ref=e1290] [cursor=pointer]:
+                - cell "ISM-1788" [ref=e1291]
+                - cell "procurement and outsourcing Cyber supply chain risk management" [ref=e1292]:
+                  - generic "Guidelines for procurement and outsourcing" [ref=e1293]: procurement and outsourcing
+                  - generic "Cyber supply chain risk management" [ref=e1294]
+                - cell "A.5.21 Managing information security in the ICT supply chain" [ref=e1295]:
+                  - generic [ref=e1296]: A.5.21
+                  - generic "Managing information security in the ICT supply chain" [ref=e1297]
+                - cell "Governance" [ref=e1298]:
+                  - generic [ref=e1299]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e1300]
+                - cell "AWS Artifact AWS Config +1" [ref=e1301]:
+                  - generic [ref=e1302]:
+                    - generic "On-demand access to AWS compliance reports and agreements" [ref=e1303]: AWS Artifact
+                    - generic "Records and evaluates AWS resource configurations" [ref=e1304]: AWS Config
+                    - generic [ref=e1305]: "+1"
+                - cell "Microsoft Service Trust Portal Azure Policy +1" [ref=e1306]:
+                  - generic [ref=e1307]:
+                    - generic [ref=e1308]: Microsoft Service Trust Portal
+                    - generic "Enforces organisational standards across Azure resources" [ref=e1309]: Azure Policy
+                    - generic [ref=e1310]: "+1"
+                - cell "Shared" [ref=e1311]:
+                  - generic [ref=e1312]: Shared
+                - cell "Gap" [ref=e1313]:
+                  - generic [ref=e1314]: Gap
+              - row "ISM-1789 procurement and outsourcing Cyber supply chain risk management A.5.21 Managing information security in the ICT supply chain Governance NC, OS, P, S, TS AWS Artifact AWS Config +1 Microsoft Service Trust Portal Azure Policy +1 Shared Gap" [ref=e1315] [cursor=pointer]:
+                - cell "ISM-1789" [ref=e1316]
+                - cell "procurement and outsourcing Cyber supply chain risk management" [ref=e1317]:
+                  - generic "Guidelines for procurement and outsourcing" [ref=e1318]: procurement and outsourcing
+                  - generic "Cyber supply chain risk management" [ref=e1319]
+                - cell "A.5.21 Managing information security in the ICT supply chain" [ref=e1320]:
+                  - generic [ref=e1321]: A.5.21
+                  - generic "Managing information security in the ICT supply chain" [ref=e1322]
+                - cell "Governance" [ref=e1323]:
+                  - generic [ref=e1324]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e1325]
+                - cell "AWS Artifact AWS Config +1" [ref=e1326]:
+                  - generic [ref=e1327]:
+                    - generic "On-demand access to AWS compliance reports and agreements" [ref=e1328]: AWS Artifact
+                    - generic "Records and evaluates AWS resource configurations" [ref=e1329]: AWS Config
+                    - generic [ref=e1330]: "+1"
+                - cell "Microsoft Service Trust Portal Azure Policy +1" [ref=e1331]:
+                  - generic [ref=e1332]:
+                    - generic [ref=e1333]: Microsoft Service Trust Portal
+                    - generic "Enforces organisational standards across Azure resources" [ref=e1334]: Azure Policy
+                    - generic [ref=e1335]: "+1"
+                - cell "Shared" [ref=e1336]:
+                  - generic [ref=e1337]: Shared
+                - cell "Gap" [ref=e1338]:
+                  - generic [ref=e1339]: Gap
+              - row "ISM-1790 procurement and outsourcing Cyber supply chain risk management A.5.21 Managing information security in the ICT supply chain Governance NC, OS, P, S, TS AWS Artifact AWS Config +1 Microsoft Service Trust Portal Azure Policy +1 Shared Gap" [ref=e1340] [cursor=pointer]:
+                - cell "ISM-1790" [ref=e1341]
+                - cell "procurement and outsourcing Cyber supply chain risk management" [ref=e1342]:
+                  - generic "Guidelines for procurement and outsourcing" [ref=e1343]: procurement and outsourcing
+                  - generic "Cyber supply chain risk management" [ref=e1344]
+                - cell "A.5.21 Managing information security in the ICT supply chain" [ref=e1345]:
+                  - generic [ref=e1346]: A.5.21
+                  - generic "Managing information security in the ICT supply chain" [ref=e1347]
+                - cell "Governance" [ref=e1348]:
+                  - generic [ref=e1349]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e1350]
+                - cell "AWS Artifact AWS Config +1" [ref=e1351]:
+                  - generic [ref=e1352]:
+                    - generic "On-demand access to AWS compliance reports and agreements" [ref=e1353]: AWS Artifact
+                    - generic "Records and evaluates AWS resource configurations" [ref=e1354]: AWS Config
+                    - generic [ref=e1355]: "+1"
+                - cell "Microsoft Service Trust Portal Azure Policy +1" [ref=e1356]:
+                  - generic [ref=e1357]:
+                    - generic [ref=e1358]: Microsoft Service Trust Portal
+                    - generic "Enforces organisational standards across Azure resources" [ref=e1359]: Azure Policy
+                    - generic [ref=e1360]: "+1"
+                - cell "Shared" [ref=e1361]:
+                  - generic [ref=e1362]: Shared
+                - cell "Gap" [ref=e1363]:
+                  - generic [ref=e1364]: Gap
+              - row "ISM-1791 procurement and outsourcing Cyber supply chain risk management A.5.21 Managing information security in the ICT supply chain Governance NC, OS, P, S, TS AWS Artifact AWS Config +1 Microsoft Service Trust Portal Azure Policy +1 Shared Gap" [ref=e1365] [cursor=pointer]:
+                - cell "ISM-1791" [ref=e1366]
+                - cell "procurement and outsourcing Cyber supply chain risk management" [ref=e1367]:
+                  - generic "Guidelines for procurement and outsourcing" [ref=e1368]: procurement and outsourcing
+                  - generic "Cyber supply chain risk management" [ref=e1369]
+                - cell "A.5.21 Managing information security in the ICT supply chain" [ref=e1370]:
+                  - generic [ref=e1371]: A.5.21
+                  - generic "Managing information security in the ICT supply chain" [ref=e1372]
+                - cell "Governance" [ref=e1373]:
+                  - generic [ref=e1374]: Governance
+                - cell "NC, OS, P, S, TS" [ref=e1375]
+                - cell "AWS Artifact AWS Config +1" [ref=e1376]:
+                  - generic [ref=e1377]:
+                    - generic "On-demand access to AWS compliance reports and agreements" [ref=e1378]: AWS Artifact
+                    - generic "Records and evaluates AWS resource configurations" [ref=e1379]: AWS Config
+                    - generic [ref=e1380]: "+1"
+                - cell "Microsoft Service Trust Portal Azure Policy +1" [ref=e1381]:
+                  - generic [ref=e1382]:
+                    - generic [ref=e1383]: Microsoft Service Trust Portal
+                    - generic "Enforces organisational standards across Azure resources" [ref=e1384]: Azure Policy
+                    - generic [ref=e1385]: "+1"
+                - cell "Shared" [ref=e1386]:
+                  - generic [ref=e1387]: Shared
+                - cell "Gap" [ref=e1388]:
+                  - generic [ref=e1389]: Gap
+          - generic [ref=e1390]:
+            - paragraph [ref=e1391]: Showing 1–50 of 780
+            - generic [ref=e1392]:
+              - button "Previous page" [disabled] [ref=e1393]:
+                - img [ref=e1394]
+              - generic [ref=e1396]: Page 1 of 16
+              - button "Next page" [ref=e1397]:
+                - img [ref=e1398]

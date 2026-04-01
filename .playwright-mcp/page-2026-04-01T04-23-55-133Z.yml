@@ -1,0 +1,1047 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - img [ref=e6]
+      - generic [ref=e8]: CloudComply
+    - navigation [ref=e9]:
+      - generic [ref=e10]:
+        - link "Dashboard" [ref=e11] [cursor=pointer]:
+          - /url: /
+          - img [ref=e12]
+          - generic [ref=e17]: Dashboard
+        - link "Mapping Table" [ref=e18] [cursor=pointer]:
+          - /url: /mapping
+          - img [ref=e19]
+          - generic [ref=e21]: Mapping Table
+        - link "CSP Coverage" [ref=e22] [cursor=pointer]:
+          - /url: /csp-coverage
+          - img [ref=e23]
+          - generic [ref=e25]: CSP Coverage
+        - link "Cross-Reference" [ref=e26] [cursor=pointer]:
+          - /url: /cross-reference
+          - img [ref=e27]
+          - generic [ref=e32]: Cross-Reference
+        - link "AI & Containers" [ref=e33] [cursor=pointer]:
+          - /url: /ai-containers
+          - img [ref=e34]
+          - generic [ref=e46]: AI & Containers
+        - link "Implementation" [ref=e47] [cursor=pointer]:
+          - /url: /implementation
+          - img [ref=e48]
+          - generic [ref=e52]: Implementation
+      - link "About" [ref=e54] [cursor=pointer]:
+        - /url: /about
+        - img [ref=e55]
+        - generic [ref=e57]: About
+    - generic [ref=e58]:
+      - paragraph [ref=e59]: Sources
+      - link "ISM (cyber.gov.au)" [ref=e60] [cursor=pointer]:
+        - /url: https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/ism
+      - link "ISO 27001 (iso.org)" [ref=e61] [cursor=pointer]:
+        - /url: https://www.iso.org/standard/27001
+      - link "AWS Compliance" [ref=e62] [cursor=pointer]:
+        - /url: https://aws.amazon.com/compliance
+      - link "Azure Trust Centre" [ref=e63] [cursor=pointer]:
+        - /url: https://www.microsoft.com/en-us/trust-center
+  - generic [ref=e64]:
+    - banner [ref=e65]:
+      - generic [ref=e67]: "ISM: March 2026 | ISO 27001:2022"
+      - generic [ref=e68]:
+        - generic [ref=e69]: Australian ISM & ISO 27001 Cloud Compliance Mapper
+        - button "Toggle dark mode" [ref=e70]:
+          - img [ref=e71]
+    - main [ref=e73]:
+      - generic [ref=e74]:
+        - generic [ref=e75]:
+          - img [ref=e76]
+          - paragraph [ref=e78]: Choose your compliance framework (ISM / ISO 27001), cloud provider, and the services you actually deploy. Then mark each applicable control as Not Started → In Progress → Implemented (or Accepted Risk). Progress is saved automatically in your browser. Export as JSON to back up or share, or as CSV for spreadsheets.
+        - generic [ref=e79]:
+          - heading "Implementation Tracker" [level=2] [ref=e80]
+          - paragraph [ref=e81]: Your active compliance workbook — scoped to your infrastructure
+        - generic [ref=e82]:
+          - button "Scope — Both · Both · All services" [ref=e83]:
+            - generic [ref=e84]:
+              - img [ref=e85]
+              - text: Scope — Both · Both · All services
+            - img [ref=e86]
+          - generic [ref=e88]:
+            - generic [ref=e89]:
+              - generic [ref=e90]:
+                - generic [ref=e91]: Compliance Framework
+                - generic [ref=e92]:
+                  - button "ISM" [ref=e93]
+                  - button "ISO 27001" [ref=e94]
+                  - button "Both" [ref=e95]
+              - generic [ref=e96]:
+                - generic [ref=e97]: Cloud Provider
+                - generic [ref=e98]:
+                  - button "Both" [ref=e99]
+                  - button "AWS" [ref=e100]
+                  - button "Azure" [ref=e101]
+            - paragraph [ref=e102]: 780 ISM controls in scope.
+            - generic [ref=e103]:
+              - generic [ref=e104]: Services in your infrastructure(leave empty to include all)
+              - generic [ref=e105]:
+                - textbox "Search services…" [ref=e106]
+                - generic [ref=e107]:
+                  - generic [ref=e108] [cursor=pointer]:
+                    - checkbox "ACM" [ref=e109]
+                    - text: ACM
+                  - generic [ref=e110] [cursor=pointer]:
+                    - checkbox "ACR" [ref=e111]
+                    - text: ACR
+                  - generic [ref=e112] [cursor=pointer]:
+                    - checkbox "AKS" [ref=e113]
+                    - text: AKS
+                  - generic [ref=e114] [cursor=pointer]:
+                    - checkbox "AWS Artifact" [ref=e115]
+                    - text: AWS Artifact
+                  - generic [ref=e116] [cursor=pointer]:
+                    - checkbox "AWS Backup" [ref=e117]
+                    - text: AWS Backup
+                  - generic [ref=e118] [cursor=pointer]:
+                    - checkbox "AWS Config" [ref=e119]
+                    - text: AWS Config
+                  - generic [ref=e120] [cursor=pointer]:
+                    - checkbox "AWS GovCloud" [ref=e121]
+                    - text: AWS GovCloud
+                  - generic [ref=e122] [cursor=pointer]:
+                    - checkbox "AWS Marketplace" [ref=e123]
+                    - text: AWS Marketplace
+                  - generic [ref=e124] [cursor=pointer]:
+                    - checkbox "AWS Organizations" [ref=e125]
+                    - text: AWS Organizations
+                  - generic [ref=e126] [cursor=pointer]:
+                    - checkbox "AWS SSO" [ref=e127]
+                    - text: AWS SSO
+                  - generic [ref=e128] [cursor=pointer]:
+                    - checkbox "AWS WAF" [ref=e129]
+                    - text: AWS WAF
+                  - generic [ref=e130] [cursor=pointer]:
+                    - checkbox "App Runner" [ref=e131]
+                    - text: App Runner
+                  - generic [ref=e132] [cursor=pointer]:
+                    - checkbox "App Service" [ref=e133]
+                    - text: App Service
+                  - generic [ref=e134] [cursor=pointer]:
+                    - checkbox "Application Gateway" [ref=e135]
+                    - text: Application Gateway
+                  - generic [ref=e136] [cursor=pointer]:
+                    - checkbox "Aurora" [ref=e137]
+                    - text: Aurora
+                  - generic [ref=e138] [cursor=pointer]:
+                    - checkbox "Azure AD" [ref=e139]
+                    - text: Azure AD
+                  - generic [ref=e140] [cursor=pointer]:
+                    - checkbox "Azure Automation" [ref=e141]
+                    - text: Azure Automation
+                  - generic [ref=e142] [cursor=pointer]:
+                    - checkbox "Azure Backup" [ref=e143]
+                    - text: Azure Backup
+                  - generic [ref=e144] [cursor=pointer]:
+                    - checkbox "Azure Blob Storage" [ref=e145]
+                    - text: Azure Blob Storage
+                  - generic [ref=e146] [cursor=pointer]:
+                    - checkbox "Azure CDN" [ref=e147]
+                    - text: Azure CDN
+                  - generic [ref=e148] [cursor=pointer]:
+                    - checkbox "Azure Communication Services" [ref=e149]
+                    - text: Azure Communication Services
+                  - generic [ref=e150] [cursor=pointer]:
+                    - checkbox "Azure Confidential Computing" [ref=e151]
+                    - text: Azure Confidential Computing
+                  - generic [ref=e152] [cursor=pointer]:
+                    - checkbox "Azure DNS" [ref=e153]
+                    - text: Azure DNS
+                  - generic [ref=e154] [cursor=pointer]:
+                    - checkbox "Azure Data Box" [ref=e155]
+                    - text: Azure Data Box
+                  - generic [ref=e156] [cursor=pointer]:
+                    - checkbox "Azure Data Factory" [ref=e157]
+                    - text: Azure Data Factory
+                  - generic [ref=e158] [cursor=pointer]:
+                    - checkbox "Azure Database for PostgreSQL" [ref=e159]
+                    - text: Azure Database for PostgreSQL
+                  - generic [ref=e160] [cursor=pointer]:
+                    - checkbox "Azure Dedicated Host" [ref=e161]
+                    - text: Azure Dedicated Host
+                  - generic [ref=e162] [cursor=pointer]:
+                    - checkbox "Azure DevOps" [ref=e163]
+                    - text: Azure DevOps
+                  - generic [ref=e164] [cursor=pointer]:
+                    - checkbox "Azure Firewall" [ref=e165]
+                    - text: Azure Firewall
+                  - generic [ref=e166] [cursor=pointer]:
+                    - checkbox "Azure Front Door" [ref=e167]
+                    - text: Azure Front Door
+                  - generic [ref=e168] [cursor=pointer]:
+                    - checkbox "Azure Key Vault" [ref=e169]
+                    - text: Azure Key Vault
+                  - generic [ref=e170] [cursor=pointer]:
+                    - checkbox "Azure ML" [ref=e171]
+                    - text: Azure ML
+                  - generic [ref=e172] [cursor=pointer]:
+                    - checkbox "Azure Marketplace" [ref=e173]
+                    - text: Azure Marketplace
+                  - generic [ref=e174] [cursor=pointer]:
+                    - checkbox "Azure Monitor" [ref=e175]
+                    - text: Azure Monitor
+                  - generic [ref=e176] [cursor=pointer]:
+                    - checkbox "Azure OpenAI" [ref=e177]
+                    - text: Azure OpenAI
+                  - generic [ref=e178] [cursor=pointer]:
+                    - checkbox "Azure Pipelines" [ref=e179]
+                    - text: Azure Pipelines
+                  - generic [ref=e180] [cursor=pointer]:
+                    - checkbox "Azure Policy" [ref=e181]
+                    - text: Azure Policy
+                  - generic [ref=e182] [cursor=pointer]:
+                    - checkbox "Azure Repos" [ref=e183]
+                    - text: Azure Repos
+                  - generic [ref=e184] [cursor=pointer]:
+                    - checkbox "Azure SQL" [ref=e185]
+                    - text: Azure SQL
+                  - generic [ref=e186] [cursor=pointer]:
+                    - checkbox "Azure Site Recovery" [ref=e187]
+                    - text: Azure Site Recovery
+                  - generic [ref=e188] [cursor=pointer]:
+                    - checkbox "Azure Synapse" [ref=e189]
+                    - text: Azure Synapse
+                  - generic [ref=e190] [cursor=pointer]:
+                    - checkbox "Azure Update Manager" [ref=e191]
+                    - text: Azure Update Manager
+                  - generic [ref=e192] [cursor=pointer]:
+                    - checkbox "Bedrock" [ref=e193]
+                    - text: Bedrock
+                  - generic [ref=e194] [cursor=pointer]:
+                    - checkbox "Chime" [ref=e195]
+                    - text: Chime
+                  - generic [ref=e196] [cursor=pointer]:
+                    - checkbox "CloudFront" [ref=e197]
+                    - text: CloudFront
+                  - generic [ref=e198] [cursor=pointer]:
+                    - checkbox "CloudHSM" [ref=e199]
+                    - text: CloudHSM
+                  - generic [ref=e200] [cursor=pointer]:
+                    - checkbox "CloudTrail" [ref=e201]
+                    - text: CloudTrail
+                  - generic [ref=e202] [cursor=pointer]:
+                    - checkbox "CloudWatch" [ref=e203]
+                    - text: CloudWatch
+                  - generic [ref=e204] [cursor=pointer]:
+                    - checkbox "CodeBuild" [ref=e205]
+                    - text: CodeBuild
+                  - generic [ref=e206] [cursor=pointer]:
+                    - checkbox "CodeCommit" [ref=e207]
+                    - text: CodeCommit
+                  - generic [ref=e208] [cursor=pointer]:
+                    - checkbox "CodeGuru" [ref=e209]
+                    - text: CodeGuru
+                  - generic [ref=e210] [cursor=pointer]:
+                    - checkbox "CodePipeline" [ref=e211]
+                    - text: CodePipeline
+                  - generic [ref=e212] [cursor=pointer]:
+                    - checkbox "Cognito" [ref=e213]
+                    - text: Cognito
+                  - generic [ref=e214] [cursor=pointer]:
+                    - checkbox "Conditional Access" [ref=e215]
+                    - text: Conditional Access
+                  - generic [ref=e216] [cursor=pointer]:
+                    - checkbox "Connect" [ref=e217]
+                    - text: Connect
+                  - generic [ref=e218] [cursor=pointer]:
+                    - checkbox "Container Apps" [ref=e219]
+                    - text: Container Apps
+                  - generic [ref=e220] [cursor=pointer]:
+                    - checkbox "Cosmos DB" [ref=e221]
+                    - text: Cosmos DB
+                  - generic [ref=e222] [cursor=pointer]:
+                    - checkbox "DDoS Protection" [ref=e223]
+                    - text: DDoS Protection
+                  - generic [ref=e224] [cursor=pointer]:
+                    - checkbox "DataSync" [ref=e225]
+                    - text: DataSync
+                  - generic [ref=e226] [cursor=pointer]:
+                    - checkbox "Dedicated HSM" [ref=e227]
+                    - text: Dedicated HSM
+                  - generic [ref=e228] [cursor=pointer]:
+                    - checkbox "Dedicated Hosts" [ref=e229]
+                    - text: Dedicated Hosts
+                  - generic [ref=e230] [cursor=pointer]:
+                    - checkbox "Defender for Cloud" [ref=e231]
+                    - text: Defender for Cloud
+                  - generic [ref=e232] [cursor=pointer]:
+                    - checkbox "Defender for DevOps" [ref=e233]
+                    - text: Defender for DevOps
+                  - generic [ref=e234] [cursor=pointer]:
+                    - checkbox "Defender for Office 365" [ref=e235]
+                    - text: Defender for Office 365
+                  - generic [ref=e236] [cursor=pointer]:
+                    - checkbox "Detective" [ref=e237]
+                    - text: Detective
+                  - generic [ref=e238] [cursor=pointer]:
+                    - checkbox "DynamoDB" [ref=e239]
+                    - text: DynamoDB
+                  - generic [ref=e240] [cursor=pointer]:
+                    - checkbox "EBS Snapshots" [ref=e241]
+                    - text: EBS Snapshots
+                  - generic [ref=e242] [cursor=pointer]:
+                    - checkbox "EC2" [ref=e243]
+                    - text: EC2
+                  - generic [ref=e244] [cursor=pointer]:
+                    - checkbox "ECR" [ref=e245]
+                    - text: ECR
+                  - generic [ref=e246] [cursor=pointer]:
+                    - checkbox "ECS" [ref=e247]
+                    - text: ECS
+                  - generic [ref=e248] [cursor=pointer]:
+                    - checkbox "EKS" [ref=e249]
+                    - text: EKS
+                  - generic [ref=e250] [cursor=pointer]:
+                    - checkbox "ELB" [ref=e251]
+                    - text: ELB
+                  - generic [ref=e252] [cursor=pointer]:
+                    - checkbox "Elastic Beanstalk" [ref=e253]
+                    - text: Elastic Beanstalk
+                  - generic [ref=e254] [cursor=pointer]:
+                    - checkbox "Exchange Online Protection" [ref=e255]
+                    - text: Exchange Online Protection
+                  - generic [ref=e256] [cursor=pointer]:
+                    - checkbox "GitHub Advanced Security" [ref=e257]
+                    - text: GitHub Advanced Security
+                  - generic [ref=e258] [cursor=pointer]:
+                    - checkbox "GuardDuty" [ref=e259]
+                    - text: GuardDuty
+                  - generic [ref=e260] [cursor=pointer]:
+                    - checkbox "IAM" [ref=e261]
+                    - text: IAM
+                  - generic [ref=e262] [cursor=pointer]:
+                    - checkbox "Inspector" [ref=e263]
+                    - text: Inspector
+                  - generic [ref=e264] [cursor=pointer]:
+                    - checkbox "KMS" [ref=e265]
+                    - text: KMS
+                  - generic [ref=e266] [cursor=pointer]:
+                    - checkbox "Log Analytics" [ref=e267]
+                    - text: Log Analytics
+                  - generic [ref=e268] [cursor=pointer]:
+                    - checkbox "MFA" [ref=e269]
+                    - text: MFA
+                  - generic [ref=e270] [cursor=pointer]:
+                    - checkbox "Managed HSM" [ref=e271]
+                    - text: Managed HSM
+                  - generic [ref=e272] [cursor=pointer]:
+                    - checkbox "Microsoft Sentinel" [ref=e273]
+                    - text: Microsoft Sentinel
+                  - generic [ref=e274] [cursor=pointer]:
+                    - checkbox "Microsoft Service Trust Portal" [ref=e275]
+                    - text: Microsoft Service Trust Portal
+                  - generic [ref=e276] [cursor=pointer]:
+                    - checkbox "NSG" [ref=e277]
+                    - text: NSG
+                  - generic [ref=e278] [cursor=pointer]:
+                    - checkbox "Network Firewall" [ref=e279]
+                    - text: Network Firewall
+                  - generic [ref=e280] [cursor=pointer]:
+                    - checkbox "Nitro Enclaves" [ref=e281]
+                    - text: Nitro Enclaves
+                  - generic [ref=e282] [cursor=pointer]:
+                    - checkbox "Privileged Identity Management" [ref=e283]
+                    - text: Privileged Identity Management
+                  - generic [ref=e284] [cursor=pointer]:
+                    - checkbox "RDS" [ref=e285]
+                    - text: RDS
+                  - generic [ref=e286] [cursor=pointer]:
+                    - checkbox "Recovery Services Vault" [ref=e287]
+                    - text: Recovery Services Vault
+                  - generic [ref=e288] [cursor=pointer]:
+                    - checkbox "Redshift" [ref=e289]
+                    - text: Redshift
+                  - generic [ref=e290] [cursor=pointer]:
+                    - checkbox "Route 53" [ref=e291]
+                    - text: Route 53
+                  - generic [ref=e292] [cursor=pointer]:
+                    - checkbox "S3" [ref=e293]
+                    - text: S3
+                  - generic [ref=e294] [cursor=pointer]:
+                    - checkbox "SES" [ref=e295]
+                    - text: SES
+                  - generic [ref=e296] [cursor=pointer]:
+                    - checkbox "SageMaker" [ref=e297]
+                    - text: SageMaker
+                  - generic [ref=e298] [cursor=pointer]:
+                    - checkbox "Secrets Manager" [ref=e299]
+                    - text: Secrets Manager
+                  - generic [ref=e300] [cursor=pointer]:
+                    - checkbox "Security Groups" [ref=e301]
+                    - text: Security Groups
+                  - generic [ref=e302] [cursor=pointer]:
+                    - checkbox "Security Hub" [ref=e303]
+                    - text: Security Hub
+                  - generic [ref=e304] [cursor=pointer]:
+                    - checkbox "Shield" [ref=e305]
+                    - text: Shield
+                  - generic [ref=e306] [cursor=pointer]:
+                    - checkbox "Snow Family" [ref=e307]
+                    - text: Snow Family
+                  - generic [ref=e308] [cursor=pointer]:
+                    - checkbox "Subnets" [ref=e309]
+                    - text: Subnets
+                  - generic [ref=e310] [cursor=pointer]:
+                    - checkbox "Systems Manager" [ref=e311]
+                    - text: Systems Manager
+                  - generic [ref=e312] [cursor=pointer]:
+                    - checkbox "Systems Manager Patch Manager" [ref=e313]
+                    - text: Systems Manager Patch Manager
+                  - generic [ref=e314] [cursor=pointer]:
+                    - checkbox "Teams" [ref=e315]
+                    - text: Teams
+                  - generic [ref=e316] [cursor=pointer]:
+                    - checkbox "Transfer Family" [ref=e317]
+                    - text: Transfer Family
+                  - generic [ref=e318] [cursor=pointer]:
+                    - checkbox "Transit Gateway" [ref=e319]
+                    - text: Transit Gateway
+                  - generic [ref=e320] [cursor=pointer]:
+                    - checkbox "VPC" [ref=e321]
+                    - text: VPC
+                  - generic [ref=e322] [cursor=pointer]:
+                    - checkbox "Virtual Machines" [ref=e323]
+                    - text: Virtual Machines
+                  - generic [ref=e324] [cursor=pointer]:
+                    - checkbox "Virtual Network" [ref=e325]
+                    - text: Virtual Network
+                  - generic [ref=e326] [cursor=pointer]:
+                    - checkbox "Virtual WAN" [ref=e327]
+                    - text: Virtual WAN
+                  - generic [ref=e328] [cursor=pointer]:
+                    - checkbox "Web Application Firewall" [ref=e329]
+                    - text: Web Application Firewall
+                  - generic [ref=e330] [cursor=pointer]:
+                    - checkbox "WorkMail" [ref=e331]
+                    - text: WorkMail
+                - generic [ref=e332]:
+                  - button "Select all (112)" [ref=e333]
+                  - generic [ref=e334]: ·
+                  - button "Clear" [ref=e335]
+            - button "Apply Scope" [ref=e336]
+        - generic [ref=e337]:
+          - generic [ref=e338]:
+            - heading "Implementation Posture — 780 controls in scope" [level=3] [ref=e339]
+            - generic [ref=e340]: 0% implemented
+          - generic [ref=e343]:
+            - generic [ref=e344]:
+              - text: Not Started
+              - generic [ref=e346]: "780"
+              - generic [ref=e347]: (100%)
+            - generic [ref=e348]:
+              - text: In Progress
+              - generic [ref=e350]: "0"
+              - generic [ref=e351]: (0%)
+            - generic [ref=e352]:
+              - text: Implemented
+              - generic [ref=e354]: "0"
+              - generic [ref=e355]: (0%)
+            - generic [ref=e356]:
+              - text: Accepted Risk
+              - generic [ref=e358]: "0"
+              - generic [ref=e359]: (0%)
+        - generic [ref=e360]:
+          - generic [ref=e361]:
+            - textbox "Search controls…" [ref=e362]
+            - combobox "Filter by implementation status" [ref=e363]:
+              - option "All statuses" [selected]
+              - option "Not Started"
+              - option "In Progress"
+              - option "Implemented"
+              - option "Accepted Risk"
+            - combobox "Filter by coverage status" [ref=e364]:
+              - option "All coverage" [selected]
+              - option "Covered"
+              - option "Partial"
+              - option "Gap"
+          - generic [ref=e365]:
+            - generic [ref=e366]: 780 controls shown
+            - button "Import JSON" [ref=e367]:
+              - img [ref=e368]
+              - text: Import JSON
+            - button "Export JSON" [ref=e371]:
+              - img [ref=e372]
+              - text: Export JSON
+            - button "Export CSV" [ref=e377]:
+              - img [ref=e378]
+              - text: Export CSV
+            - button "Reset" [ref=e381]:
+              - img [ref=e382]
+              - text: Reset
+        - generic [ref=e385]:
+          - table [ref=e387]:
+            - rowgroup [ref=e388]:
+              - row "Status ISM ID Section / Description Coverage Notes" [ref=e389]:
+                - columnheader "Status" [ref=e390]
+                - columnheader "ISM ID" [ref=e391]
+                - columnheader "Section / Description" [ref=e392]
+                - columnheader "Coverage" [ref=e393]
+                - columnheader "Notes" [ref=e394]
+            - rowgroup [ref=e395]:
+              - row "Not Started ISM-0546 A.8.26 Network Video conferencing and Internet Protocol telephony · Video-aware and voice-aware firewalls and proxies When video conferencing or IP telephony traffic passes through a gateway containing a firewall or proxy, a video-aware or voice-aware firewall or proxy is used. Application security requirements Partial" [ref=e396]:
+                - cell "Not Started" [ref=e397]:
+                  - combobox "Status for ISM-0546" [ref=e398] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-0546 A.8.26 Network" [ref=e399]:
+                  - button "ISM-0546" [ref=e400]
+                  - paragraph [ref=e401]: A.8.26
+                  - paragraph [ref=e402]: Network
+                - cell "Video conferencing and Internet Protocol telephony · Video-aware and voice-aware firewalls and proxies When video conferencing or IP telephony traffic passes through a gateway containing a firewall or proxy, a video-aware or voice-aware firewall or proxy is used. Application security requirements" [ref=e403]:
+                  - paragraph [ref=e404]:
+                    - text: Video conferencing and Internet Protocol telephony
+                    - generic [ref=e405]: · Video-aware and voice-aware firewalls and proxies
+                  - paragraph [ref=e406]: When video conferencing or IP telephony traffic passes through a gateway containing a firewall or proxy, a video-aware or voice-aware firewall or proxy is used.
+                  - paragraph [ref=e407]: Application security requirements
+                - cell "Partial" [ref=e408]:
+                  - generic [ref=e409]: Partial
+                - cell [ref=e410]:
+                  - button "Add notes" [ref=e411]:
+                    - img [ref=e412]
+              - row "Not Started ISM-0547 A.8.26 Network Video conferencing and Internet Protocol telephony · Protecting video conferencing and Internet Protocol telephony traffic Video conferencing and IP telephony calls are conducted using a secure real-time transport protocol. Application security requirements Partial" [ref=e415]:
+                - cell "Not Started" [ref=e416]:
+                  - combobox "Status for ISM-0547" [ref=e417] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-0547 A.8.26 Network" [ref=e418]:
+                  - button "ISM-0547" [ref=e419]
+                  - paragraph [ref=e420]: A.8.26
+                  - paragraph [ref=e421]: Network
+                - cell "Video conferencing and Internet Protocol telephony · Protecting video conferencing and Internet Protocol telephony traffic Video conferencing and IP telephony calls are conducted using a secure real-time transport protocol. Application security requirements" [ref=e422]:
+                  - paragraph [ref=e423]:
+                    - text: Video conferencing and Internet Protocol telephony
+                    - generic [ref=e424]: · Protecting video conferencing and Internet Protocol telephony traffic
+                  - paragraph [ref=e425]: Video conferencing and IP telephony calls are conducted using a secure real-time transport protocol.
+                  - paragraph [ref=e426]: Application security requirements
+                - cell "Partial" [ref=e427]:
+                  - generic [ref=e428]: Partial
+                - cell [ref=e429]:
+                  - button "Add notes" [ref=e430]:
+                    - img [ref=e431]
+              - row "Not Started ISM-0548 A.8.26 Network Video conferencing and Internet Protocol telephony · Protecting video conferencing and Internet Protocol telephony traffic Video conferencing and IP telephony calls are established using a secure session initiation protocol. Application security requirements Partial" [ref=e434]:
+                - cell "Not Started" [ref=e435]:
+                  - combobox "Status for ISM-0548" [ref=e436] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-0548 A.8.26 Network" [ref=e437]:
+                  - button "ISM-0548" [ref=e438]
+                  - paragraph [ref=e439]: A.8.26
+                  - paragraph [ref=e440]: Network
+                - cell "Video conferencing and Internet Protocol telephony · Protecting video conferencing and Internet Protocol telephony traffic Video conferencing and IP telephony calls are established using a secure session initiation protocol. Application security requirements" [ref=e441]:
+                  - paragraph [ref=e442]:
+                    - text: Video conferencing and Internet Protocol telephony
+                    - generic [ref=e443]: · Protecting video conferencing and Internet Protocol telephony traffic
+                  - paragraph [ref=e444]: Video conferencing and IP telephony calls are established using a secure session initiation protocol.
+                  - paragraph [ref=e445]: Application security requirements
+                - cell "Partial" [ref=e446]:
+                  - generic [ref=e447]: Partial
+                - cell [ref=e448]:
+                  - button "Add notes" [ref=e449]:
+                    - img [ref=e450]
+              - row "Not Started ISM-0549 A.8.26 Network Video conferencing and Internet Protocol telephony · Traffic separation Video conferencing and IP telephony traffic is separated physically or logically from other data traffic. Application security requirements Partial" [ref=e453]:
+                - cell "Not Started" [ref=e454]:
+                  - combobox "Status for ISM-0549" [ref=e455] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-0549 A.8.26 Network" [ref=e456]:
+                  - button "ISM-0549" [ref=e457]
+                  - paragraph [ref=e458]: A.8.26
+                  - paragraph [ref=e459]: Network
+                - cell "Video conferencing and Internet Protocol telephony · Traffic separation Video conferencing and IP telephony traffic is separated physically or logically from other data traffic. Application security requirements" [ref=e460]:
+                  - paragraph [ref=e461]:
+                    - text: Video conferencing and Internet Protocol telephony
+                    - generic [ref=e462]: · Traffic separation
+                  - paragraph [ref=e463]: Video conferencing and IP telephony traffic is separated physically or logically from other data traffic.
+                  - paragraph [ref=e464]: Application security requirements
+                - cell "Partial" [ref=e465]:
+                  - generic [ref=e466]: Partial
+                - cell [ref=e467]:
+                  - button "Add notes" [ref=e468]:
+                    - img [ref=e469]
+              - 'row "Not Started ISM-0551 A.8.26 Network Video conferencing and Internet Protocol telephony · Video conferencing unit and Internet Protocol phone authentication IP telephony is configured such that: • IP phones authenticate themselves to the call controller upon registration • auto-registration is disabled and only authorised devices are allowed to access the network • unauthorised devices are blocked by default • all unused and prohibited functionality is disabled. Application security requirements Partial" [ref=e472]':
+                - cell "Not Started" [ref=e473]:
+                  - combobox "Status for ISM-0551" [ref=e474] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-0551 A.8.26 Network" [ref=e475]:
+                  - button "ISM-0551" [ref=e476]
+                  - paragraph [ref=e477]: A.8.26
+                  - paragraph [ref=e478]: Network
+                - 'cell "Video conferencing and Internet Protocol telephony · Video conferencing unit and Internet Protocol phone authentication IP telephony is configured such that: • IP phones authenticate themselves to the call controller upon registration • auto-registration is disabled and only authorised devices are allowed to access the network • unauthorised devices are blocked by default • all unused and prohibited functionality is disabled. Application security requirements" [ref=e479]':
+                  - paragraph [ref=e480]:
+                    - text: Video conferencing and Internet Protocol telephony
+                    - generic [ref=e481]: · Video conferencing unit and Internet Protocol phone authentication
+                  - paragraph [ref=e482]: "IP telephony is configured such that: • IP phones authenticate themselves to the call controller upon registration • auto-registration is disabled and only authorised devices are allowed to access the network • unauthorised devices are blocked by default • all unused and prohibited functionality is disabled."
+                  - paragraph [ref=e483]: Application security requirements
+                - cell "Partial" [ref=e484]:
+                  - generic [ref=e485]: Partial
+                - cell [ref=e486]:
+                  - button "Add notes" [ref=e487]:
+                    - img [ref=e488]
+              - row "Not Started ISM-0553 A.8.26 Network Video conferencing and Internet Protocol telephony · Video conferencing unit and Internet Protocol phone authentication Authentication and authorisation is used for all actions on a video conferencing network, including call setup and changing settings. Application security requirements Partial" [ref=e491]:
+                - cell "Not Started" [ref=e492]:
+                  - combobox "Status for ISM-0553" [ref=e493] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-0553 A.8.26 Network" [ref=e494]:
+                  - button "ISM-0553" [ref=e495]
+                  - paragraph [ref=e496]: A.8.26
+                  - paragraph [ref=e497]: Network
+                - cell "Video conferencing and Internet Protocol telephony · Video conferencing unit and Internet Protocol phone authentication Authentication and authorisation is used for all actions on a video conferencing network, including call setup and changing settings. Application security requirements" [ref=e498]:
+                  - paragraph [ref=e499]:
+                    - text: Video conferencing and Internet Protocol telephony
+                    - generic [ref=e500]: · Video conferencing unit and Internet Protocol phone authentication
+                  - paragraph [ref=e501]: Authentication and authorisation is used for all actions on a video conferencing network, including call setup and changing settings.
+                  - paragraph [ref=e502]: Application security requirements
+                - cell "Partial" [ref=e503]:
+                  - generic [ref=e504]: Partial
+                - cell [ref=e505]:
+                  - button "Add notes" [ref=e506]:
+                    - img [ref=e507]
+              - row "Not Started ISM-0554 A.8.26 Network Video conferencing and Internet Protocol telephony · Video conferencing unit and Internet Protocol phone authentication An encrypted and non-replayable two-way authentication scheme is used for call authentication and authorisation. Application security requirements Partial" [ref=e510]:
+                - cell "Not Started" [ref=e511]:
+                  - combobox "Status for ISM-0554" [ref=e512] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-0554 A.8.26 Network" [ref=e513]:
+                  - button "ISM-0554" [ref=e514]
+                  - paragraph [ref=e515]: A.8.26
+                  - paragraph [ref=e516]: Network
+                - cell "Video conferencing and Internet Protocol telephony · Video conferencing unit and Internet Protocol phone authentication An encrypted and non-replayable two-way authentication scheme is used for call authentication and authorisation. Application security requirements" [ref=e517]:
+                  - paragraph [ref=e518]:
+                    - text: Video conferencing and Internet Protocol telephony
+                    - generic [ref=e519]: · Video conferencing unit and Internet Protocol phone authentication
+                  - paragraph [ref=e520]: An encrypted and non-replayable two-way authentication scheme is used for call authentication and authorisation.
+                  - paragraph [ref=e521]: Application security requirements
+                - cell "Partial" [ref=e522]:
+                  - generic [ref=e523]: Partial
+                - cell [ref=e524]:
+                  - button "Add notes" [ref=e525]:
+                    - img [ref=e526]
+              - row "Not Started ISM-0555 A.8.26 Network Video conferencing and Internet Protocol telephony · Video conferencing unit and Internet Protocol phone authentication Authentication and authorisation is used for all actions on an IP telephony network, including registering a new IP phone, changing phone users, changing settings and accessing voicemail. Application security requirements Partial" [ref=e529]:
+                - cell "Not Started" [ref=e530]:
+                  - combobox "Status for ISM-0555" [ref=e531] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-0555 A.8.26 Network" [ref=e532]:
+                  - button "ISM-0555" [ref=e533]
+                  - paragraph [ref=e534]: A.8.26
+                  - paragraph [ref=e535]: Network
+                - cell "Video conferencing and Internet Protocol telephony · Video conferencing unit and Internet Protocol phone authentication Authentication and authorisation is used for all actions on an IP telephony network, including registering a new IP phone, changing phone users, changing settings and accessing voicemail. Application security requirements" [ref=e536]:
+                  - paragraph [ref=e537]:
+                    - text: Video conferencing and Internet Protocol telephony
+                    - generic [ref=e538]: · Video conferencing unit and Internet Protocol phone authentication
+                  - paragraph [ref=e539]: Authentication and authorisation is used for all actions on an IP telephony network, including registering a new IP phone, changing phone users, changing settings and accessing voicemail.
+                  - paragraph [ref=e540]: Application security requirements
+                - cell "Partial" [ref=e541]:
+                  - generic [ref=e542]: Partial
+                - cell [ref=e543]:
+                  - button "Add notes" [ref=e544]:
+                    - img [ref=e545]
+              - row "Not Started ISM-0556 A.8.26 Network Video conferencing and Internet Protocol telephony · Traffic separation Workstations are not connected to video conferencing units or IP phones unless the workstation or the device uses Virtual Local Area Networks or similar mechanisms to maintain separation between video conferencing, IP telephony and other data traffic. Application security requirements Partial" [ref=e548]:
+                - cell "Not Started" [ref=e549]:
+                  - combobox "Status for ISM-0556" [ref=e550] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-0556 A.8.26 Network" [ref=e551]:
+                  - button "ISM-0556" [ref=e552]
+                  - paragraph [ref=e553]: A.8.26
+                  - paragraph [ref=e554]: Network
+                - cell "Video conferencing and Internet Protocol telephony · Traffic separation Workstations are not connected to video conferencing units or IP phones unless the workstation or the device uses Virtual Local Area Networks or similar mechanisms to maintain separation between video conferencing, IP telephony and other data traffic. Application security requirements" [ref=e555]:
+                  - paragraph [ref=e556]:
+                    - text: Video conferencing and Internet Protocol telephony
+                    - generic [ref=e557]: · Traffic separation
+                  - paragraph [ref=e558]: Workstations are not connected to video conferencing units or IP phones unless the workstation or the device uses Virtual Local Area Networks or similar mechanisms to maintain separation between video conferencing, IP telephony and other data traffic.
+                  - paragraph [ref=e559]: Application security requirements
+                - cell "Partial" [ref=e560]:
+                  - generic [ref=e561]: Partial
+                - cell [ref=e562]:
+                  - button "Add notes" [ref=e563]:
+                    - img [ref=e564]
+              - row "Not Started ISM-1014 A.8.26 Network Video conferencing and Internet Protocol telephony · Video conferencing unit and Internet Protocol phone authentication Individual logins are implemented for IP phones used for SECRET or TOP SECRET conversations. Application security requirements Partial" [ref=e567]:
+                - cell "Not Started" [ref=e568]:
+                  - combobox "Status for ISM-1014" [ref=e569] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-1014 A.8.26 Network" [ref=e570]:
+                  - button "ISM-1014" [ref=e571]
+                  - paragraph [ref=e572]: A.8.26
+                  - paragraph [ref=e573]: Network
+                - cell "Video conferencing and Internet Protocol telephony · Video conferencing unit and Internet Protocol phone authentication Individual logins are implemented for IP phones used for SECRET or TOP SECRET conversations. Application security requirements" [ref=e574]:
+                  - paragraph [ref=e575]:
+                    - text: Video conferencing and Internet Protocol telephony
+                    - generic [ref=e576]: · Video conferencing unit and Internet Protocol phone authentication
+                  - paragraph [ref=e577]: Individual logins are implemented for IP phones used for SECRET or TOP SECRET conversations.
+                  - paragraph [ref=e578]: Application security requirements
+                - cell "Partial" [ref=e579]:
+                  - generic [ref=e580]: Partial
+                - cell [ref=e581]:
+                  - button "Add notes" [ref=e582]:
+                    - img [ref=e583]
+              - row "Not Started ISM-1562 A.8.26 Network Video conferencing and Internet Protocol telephony · Video conferencing and Internet Protocol telephony infrastructure hardening Video conferencing and IP telephony infrastructure is hardened. Application security requirements Partial" [ref=e586]:
+                - cell "Not Started" [ref=e587]:
+                  - combobox "Status for ISM-1562" [ref=e588] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-1562 A.8.26 Network" [ref=e589]:
+                  - button "ISM-1562" [ref=e590]
+                  - paragraph [ref=e591]: A.8.26
+                  - paragraph [ref=e592]: Network
+                - cell "Video conferencing and Internet Protocol telephony · Video conferencing and Internet Protocol telephony infrastructure hardening Video conferencing and IP telephony infrastructure is hardened. Application security requirements" [ref=e593]:
+                  - paragraph [ref=e594]:
+                    - text: Video conferencing and Internet Protocol telephony
+                    - generic [ref=e595]: · Video conferencing and Internet Protocol telephony infrastructure hardening
+                  - paragraph [ref=e596]: Video conferencing and IP telephony infrastructure is hardened.
+                  - paragraph [ref=e597]: Application security requirements
+                - cell "Partial" [ref=e598]:
+                  - generic [ref=e599]: Partial
+                - cell [ref=e600]:
+                  - button "Add notes" [ref=e601]:
+                    - img [ref=e602]
+              - row "Not Started ISM-0471 A.8.24 Security ASD-Approved Cryptographic Algorithms · Using ASD-Approved Cryptographic Algorithms Only AACAs or high assurance cryptographic algorithms are used by cryptographic equipment, applications and libraries. Use of cryptography Partial" [ref=e605]:
+                - cell "Not Started" [ref=e606]:
+                  - combobox "Status for ISM-0471" [ref=e607] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-0471 A.8.24 Security" [ref=e608]:
+                  - button "ISM-0471" [ref=e609]
+                  - paragraph [ref=e610]: A.8.24
+                  - paragraph [ref=e611]: Security
+                - cell "ASD-Approved Cryptographic Algorithms · Using ASD-Approved Cryptographic Algorithms Only AACAs or high assurance cryptographic algorithms are used by cryptographic equipment, applications and libraries. Use of cryptography" [ref=e612]:
+                  - paragraph [ref=e613]:
+                    - text: ASD-Approved Cryptographic Algorithms
+                    - generic [ref=e614]: · Using ASD-Approved Cryptographic Algorithms
+                  - paragraph [ref=e615]: Only AACAs or high assurance cryptographic algorithms are used by cryptographic equipment, applications and libraries.
+                  - paragraph [ref=e616]: Use of cryptography
+                - cell "Partial" [ref=e617]:
+                  - generic [ref=e618]: Partial
+                - cell [ref=e619]:
+                  - button "Add notes" [ref=e620]:
+                    - img [ref=e621]
+              - row "Not Started ISM-0472 A.8.24 Security ASD-Approved Cryptographic Algorithms · Using Diffie-Hellman When using DH for agreeing on encryption session keys, a modulus of at least 2048 bits is used, preferably 3072 bits. Use of cryptography Partial" [ref=e624]:
+                - cell "Not Started" [ref=e625]:
+                  - combobox "Status for ISM-0472" [ref=e626] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-0472 A.8.24 Security" [ref=e627]:
+                  - button "ISM-0472" [ref=e628]
+                  - paragraph [ref=e629]: A.8.24
+                  - paragraph [ref=e630]: Security
+                - cell "ASD-Approved Cryptographic Algorithms · Using Diffie-Hellman When using DH for agreeing on encryption session keys, a modulus of at least 2048 bits is used, preferably 3072 bits. Use of cryptography" [ref=e631]:
+                  - paragraph [ref=e632]:
+                    - text: ASD-Approved Cryptographic Algorithms
+                    - generic [ref=e633]: · Using Diffie-Hellman
+                  - paragraph [ref=e634]: When using DH for agreeing on encryption session keys, a modulus of at least 2048 bits is used, preferably 3072 bits.
+                  - paragraph [ref=e635]: Use of cryptography
+                - cell "Partial" [ref=e636]:
+                  - generic [ref=e637]: Partial
+                - cell [ref=e638]:
+                  - button "Add notes" [ref=e639]:
+                    - img [ref=e640]
+              - row "Not Started ISM-0474 A.8.24 Security ASD-Approved Cryptographic Algorithms · Using Elliptic Curve Diffie-Hellman When using ECDH for agreeing on encryption session keys, a base point order and key size of at least 224 bits is used, preferably the NIST P-384 curve. Use of cryptography Partial" [ref=e643]:
+                - cell "Not Started" [ref=e644]:
+                  - combobox "Status for ISM-0474" [ref=e645] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-0474 A.8.24 Security" [ref=e646]:
+                  - button "ISM-0474" [ref=e647]
+                  - paragraph [ref=e648]: A.8.24
+                  - paragraph [ref=e649]: Security
+                - cell "ASD-Approved Cryptographic Algorithms · Using Elliptic Curve Diffie-Hellman When using ECDH for agreeing on encryption session keys, a base point order and key size of at least 224 bits is used, preferably the NIST P-384 curve. Use of cryptography" [ref=e650]:
+                  - paragraph [ref=e651]:
+                    - text: ASD-Approved Cryptographic Algorithms
+                    - generic [ref=e652]: · Using Elliptic Curve Diffie-Hellman
+                  - paragraph [ref=e653]: When using ECDH for agreeing on encryption session keys, a base point order and key size of at least 224 bits is used, preferably the NIST P-384 curve.
+                  - paragraph [ref=e654]: Use of cryptography
+                - cell "Partial" [ref=e655]:
+                  - generic [ref=e656]: Partial
+                - cell [ref=e657]:
+                  - button "Add notes" [ref=e658]:
+                    - img [ref=e659]
+              - row "Not Started ISM-0475 A.8.24 Security ASD-Approved Cryptographic Algorithms · Using the Elliptic Curve Digital Signature Algorithm When using ECDSA for digital signatures, a base point order and key size of at least 224 bits is used, preferably the P-384 curve. Use of cryptography Partial" [ref=e662]:
+                - cell "Not Started" [ref=e663]:
+                  - combobox "Status for ISM-0475" [ref=e664] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-0475 A.8.24 Security" [ref=e665]:
+                  - button "ISM-0475" [ref=e666]
+                  - paragraph [ref=e667]: A.8.24
+                  - paragraph [ref=e668]: Security
+                - cell "ASD-Approved Cryptographic Algorithms · Using the Elliptic Curve Digital Signature Algorithm When using ECDSA for digital signatures, a base point order and key size of at least 224 bits is used, preferably the P-384 curve. Use of cryptography" [ref=e669]:
+                  - paragraph [ref=e670]:
+                    - text: ASD-Approved Cryptographic Algorithms
+                    - generic [ref=e671]: · Using the Elliptic Curve Digital Signature Algorithm
+                  - paragraph [ref=e672]: When using ECDSA for digital signatures, a base point order and key size of at least 224 bits is used, preferably the P-384 curve.
+                  - paragraph [ref=e673]: Use of cryptography
+                - cell "Partial" [ref=e674]:
+                  - generic [ref=e675]: Partial
+                - cell [ref=e676]:
+                  - button "Add notes" [ref=e677]:
+                    - img [ref=e678]
+              - row "Not Started ISM-0476 A.8.24 Security ASD-Approved Cryptographic Algorithms · Using Rivest-Shamir-Adleman When using RSA for digital signatures, and transporting encryption session keys (and similar keys), a modulus of at least 2048 bits is used, preferably 3072 bits. Use of cryptography Partial" [ref=e681]:
+                - cell "Not Started" [ref=e682]:
+                  - combobox "Status for ISM-0476" [ref=e683] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-0476 A.8.24 Security" [ref=e684]:
+                  - button "ISM-0476" [ref=e685]
+                  - paragraph [ref=e686]: A.8.24
+                  - paragraph [ref=e687]: Security
+                - cell "ASD-Approved Cryptographic Algorithms · Using Rivest-Shamir-Adleman When using RSA for digital signatures, and transporting encryption session keys (and similar keys), a modulus of at least 2048 bits is used, preferably 3072 bits. Use of cryptography" [ref=e688]:
+                  - paragraph [ref=e689]:
+                    - text: ASD-Approved Cryptographic Algorithms
+                    - generic [ref=e690]: · Using Rivest-Shamir-Adleman
+                  - paragraph [ref=e691]: When using RSA for digital signatures, and transporting encryption session keys (and similar keys), a modulus of at least 2048 bits is used, preferably 3072 bits.
+                  - paragraph [ref=e692]: Use of cryptography
+                - cell "Partial" [ref=e693]:
+                  - generic [ref=e694]: Partial
+                - cell [ref=e695]:
+                  - button "Add notes" [ref=e696]:
+                    - img [ref=e697]
+              - row "Not Started ISM-0477 A.8.24 Security ASD-Approved Cryptographic Algorithms · Using Rivest-Shamir-Adleman When using RSA for digital signatures, and for transporting encryption session keys (and similar keys), a different key pair is used for digital signatures and transporting encryption session keys. Use of cryptography Partial" [ref=e700]:
+                - cell "Not Started" [ref=e701]:
+                  - combobox "Status for ISM-0477" [ref=e702] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-0477 A.8.24 Security" [ref=e703]:
+                  - button "ISM-0477" [ref=e704]
+                  - paragraph [ref=e705]: A.8.24
+                  - paragraph [ref=e706]: Security
+                - cell "ASD-Approved Cryptographic Algorithms · Using Rivest-Shamir-Adleman When using RSA for digital signatures, and for transporting encryption session keys (and similar keys), a different key pair is used for digital signatures and transporting encryption session keys. Use of cryptography" [ref=e707]:
+                  - paragraph [ref=e708]:
+                    - text: ASD-Approved Cryptographic Algorithms
+                    - generic [ref=e709]: · Using Rivest-Shamir-Adleman
+                  - paragraph [ref=e710]: When using RSA for digital signatures, and for transporting encryption session keys (and similar keys), a different key pair is used for digital signatures and transporting encryption session keys.
+                  - paragraph [ref=e711]: Use of cryptography
+                - cell "Partial" [ref=e712]:
+                  - generic [ref=e713]: Partial
+                - cell [ref=e714]:
+                  - button "Add notes" [ref=e715]:
+                    - img [ref=e716]
+              - row "Not Started ISM-0479 A.8.24 Security ASD-Approved Cryptographic Algorithms · Using symmetric cryptographic algorithms Symmetric cryptographic algorithms are not used in Electronic Codebook Mode. Use of cryptography Partial" [ref=e719]:
+                - cell "Not Started" [ref=e720]:
+                  - combobox "Status for ISM-0479" [ref=e721] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-0479 A.8.24 Security" [ref=e722]:
+                  - button "ISM-0479" [ref=e723]
+                  - paragraph [ref=e724]: A.8.24
+                  - paragraph [ref=e725]: Security
+                - cell "ASD-Approved Cryptographic Algorithms · Using symmetric cryptographic algorithms Symmetric cryptographic algorithms are not used in Electronic Codebook Mode. Use of cryptography" [ref=e726]:
+                  - paragraph [ref=e727]:
+                    - text: ASD-Approved Cryptographic Algorithms
+                    - generic [ref=e728]: · Using symmetric cryptographic algorithms
+                  - paragraph [ref=e729]: Symmetric cryptographic algorithms are not used in Electronic Codebook Mode.
+                  - paragraph [ref=e730]: Use of cryptography
+                - cell "Partial" [ref=e731]:
+                  - generic [ref=e732]: Partial
+                - cell [ref=e733]:
+                  - button "Add notes" [ref=e734]:
+                    - img [ref=e735]
+              - row "Not Started ISM-0994 A.8.24 Security ASD-Approved Cryptographic Algorithms · Asymmetric cryptographic algorithms ECDH is used in preference to DH. Use of cryptography Partial" [ref=e738]:
+                - cell "Not Started" [ref=e739]:
+                  - combobox "Status for ISM-0994" [ref=e740] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-0994 A.8.24 Security" [ref=e741]:
+                  - button "ISM-0994" [ref=e742]
+                  - paragraph [ref=e743]: A.8.24
+                  - paragraph [ref=e744]: Security
+                - cell "ASD-Approved Cryptographic Algorithms · Asymmetric cryptographic algorithms ECDH is used in preference to DH. Use of cryptography" [ref=e745]:
+                  - paragraph [ref=e746]:
+                    - text: ASD-Approved Cryptographic Algorithms
+                    - generic [ref=e747]: · Asymmetric cryptographic algorithms
+                  - paragraph [ref=e748]: ECDH is used in preference to DH.
+                  - paragraph [ref=e749]: Use of cryptography
+                - cell "Partial" [ref=e750]:
+                  - generic [ref=e751]: Partial
+                - cell [ref=e752]:
+                  - button "Add notes" [ref=e753]:
+                    - img [ref=e754]
+              - row "Not Started ISM-1446 A.8.24 Security ASD-Approved Cryptographic Algorithms · Using Elliptic Curve Cryptography When using elliptic curve cryptography, a suitable curve from NIST SP 800-186 is used. Use of cryptography Partial" [ref=e757]:
+                - cell "Not Started" [ref=e758]:
+                  - combobox "Status for ISM-1446" [ref=e759] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-1446 A.8.24 Security" [ref=e760]:
+                  - button "ISM-1446" [ref=e761]
+                  - paragraph [ref=e762]: A.8.24
+                  - paragraph [ref=e763]: Security
+                - cell "ASD-Approved Cryptographic Algorithms · Using Elliptic Curve Cryptography When using elliptic curve cryptography, a suitable curve from NIST SP 800-186 is used. Use of cryptography" [ref=e764]:
+                  - paragraph [ref=e765]:
+                    - text: ASD-Approved Cryptographic Algorithms
+                    - generic [ref=e766]: · Using Elliptic Curve Cryptography
+                  - paragraph [ref=e767]: When using elliptic curve cryptography, a suitable curve from NIST SP 800-186 is used.
+                  - paragraph [ref=e768]: Use of cryptography
+                - cell "Partial" [ref=e769]:
+                  - generic [ref=e770]: Partial
+                - cell [ref=e771]:
+                  - button "Add notes" [ref=e772]:
+                    - img [ref=e773]
+              - row "Not Started ISM-1629 A.8.24 Security ASD-Approved Cryptographic Algorithms · Using Diffie-Hellman When using DH for agreeing on encryption session keys, a modulus and associated parameters are selected according to NIST SP 800-56A Rev. 3. Use of cryptography Partial" [ref=e776]:
+                - cell "Not Started" [ref=e777]:
+                  - combobox "Status for ISM-1629" [ref=e778] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-1629 A.8.24 Security" [ref=e779]:
+                  - button "ISM-1629" [ref=e780]
+                  - paragraph [ref=e781]: A.8.24
+                  - paragraph [ref=e782]: Security
+                - cell "ASD-Approved Cryptographic Algorithms · Using Diffie-Hellman When using DH for agreeing on encryption session keys, a modulus and associated parameters are selected according to NIST SP 800-56A Rev. 3. Use of cryptography" [ref=e783]:
+                  - paragraph [ref=e784]:
+                    - text: ASD-Approved Cryptographic Algorithms
+                    - generic [ref=e785]: · Using Diffie-Hellman
+                  - paragraph [ref=e786]: When using DH for agreeing on encryption session keys, a modulus and associated parameters are selected according to NIST SP 800-56A Rev. 3.
+                  - paragraph [ref=e787]: Use of cryptography
+                - cell "Partial" [ref=e788]:
+                  - generic [ref=e789]: Partial
+                - cell [ref=e790]:
+                  - button "Add notes" [ref=e791]:
+                    - img [ref=e792]
+              - row "Not Started ISM-1759 A.8.24 Security ASD-Approved Cryptographic Algorithms · Using Diffie-Hellman When using DH for agreeing on encryption session keys, a modulus of at least 3072 bits is used, preferably 3072 bits. Use of cryptography Partial" [ref=e795]:
+                - cell "Not Started" [ref=e796]:
+                  - combobox "Status for ISM-1759" [ref=e797] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-1759 A.8.24 Security" [ref=e798]:
+                  - button "ISM-1759" [ref=e799]
+                  - paragraph [ref=e800]: A.8.24
+                  - paragraph [ref=e801]: Security
+                - cell "ASD-Approved Cryptographic Algorithms · Using Diffie-Hellman When using DH for agreeing on encryption session keys, a modulus of at least 3072 bits is used, preferably 3072 bits. Use of cryptography" [ref=e802]:
+                  - paragraph [ref=e803]:
+                    - text: ASD-Approved Cryptographic Algorithms
+                    - generic [ref=e804]: · Using Diffie-Hellman
+                  - paragraph [ref=e805]: When using DH for agreeing on encryption session keys, a modulus of at least 3072 bits is used, preferably 3072 bits.
+                  - paragraph [ref=e806]: Use of cryptography
+                - cell "Partial" [ref=e807]:
+                  - generic [ref=e808]: Partial
+                - cell [ref=e809]:
+                  - button "Add notes" [ref=e810]:
+                    - img [ref=e811]
+              - row "Not Started ISM-1761 A.8.24 Security ASD-Approved Cryptographic Algorithms · Using Elliptic Curve Diffie-Hellman When using ECDH for agreeing on encryption session keys, NIST P-256, P-384 or P-521 curves are used, preferably the NIST P-384 curve. Use of cryptography Partial" [ref=e814]:
+                - cell "Not Started" [ref=e815]:
+                  - combobox "Status for ISM-1761" [ref=e816] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-1761 A.8.24 Security" [ref=e817]:
+                  - button "ISM-1761" [ref=e818]
+                  - paragraph [ref=e819]: A.8.24
+                  - paragraph [ref=e820]: Security
+                - cell "ASD-Approved Cryptographic Algorithms · Using Elliptic Curve Diffie-Hellman When using ECDH for agreeing on encryption session keys, NIST P-256, P-384 or P-521 curves are used, preferably the NIST P-384 curve. Use of cryptography" [ref=e821]:
+                  - paragraph [ref=e822]:
+                    - text: ASD-Approved Cryptographic Algorithms
+                    - generic [ref=e823]: · Using Elliptic Curve Diffie-Hellman
+                  - paragraph [ref=e824]: When using ECDH for agreeing on encryption session keys, NIST P-256, P-384 or P-521 curves are used, preferably the NIST P-384 curve.
+                  - paragraph [ref=e825]: Use of cryptography
+                - cell "Partial" [ref=e826]:
+                  - generic [ref=e827]: Partial
+                - cell [ref=e828]:
+                  - button "Add notes" [ref=e829]:
+                    - img [ref=e830]
+              - row "Not Started ISM-1762 A.8.24 Security ASD-Approved Cryptographic Algorithms · Using Elliptic Curve Diffie-Hellman When using ECDH for agreeing on encryption session keys, NIST P-384 or P-521 curves are used, preferably the NIST P-384 curve. Use of cryptography Partial" [ref=e833]:
+                - cell "Not Started" [ref=e834]:
+                  - combobox "Status for ISM-1762" [ref=e835] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-1762 A.8.24 Security" [ref=e836]:
+                  - button "ISM-1762" [ref=e837]
+                  - paragraph [ref=e838]: A.8.24
+                  - paragraph [ref=e839]: Security
+                - cell "ASD-Approved Cryptographic Algorithms · Using Elliptic Curve Diffie-Hellman When using ECDH for agreeing on encryption session keys, NIST P-384 or P-521 curves are used, preferably the NIST P-384 curve. Use of cryptography" [ref=e840]:
+                  - paragraph [ref=e841]:
+                    - text: ASD-Approved Cryptographic Algorithms
+                    - generic [ref=e842]: · Using Elliptic Curve Diffie-Hellman
+                  - paragraph [ref=e843]: When using ECDH for agreeing on encryption session keys, NIST P-384 or P-521 curves are used, preferably the NIST P-384 curve.
+                  - paragraph [ref=e844]: Use of cryptography
+                - cell "Partial" [ref=e845]:
+                  - generic [ref=e846]: Partial
+                - cell [ref=e847]:
+                  - button "Add notes" [ref=e848]:
+                    - img [ref=e849]
+              - row "Not Started ISM-1763 A.8.24 Security ASD-Approved Cryptographic Algorithms · Using the Elliptic Curve Digital Signature Algorithm When using ECDSA for digital signatures, NIST P-256, P-384 or P-521 curves are used, preferably the NIST P-384 curve. Use of cryptography Partial" [ref=e852]:
+                - cell "Not Started" [ref=e853]:
+                  - combobox "Status for ISM-1763" [ref=e854] [cursor=pointer]:
+                    - option "Not Started" [selected]
+                    - option "In Progress"
+                    - option "Implemented"
+                    - option "Accepted Risk"
+                - cell "ISM-1763 A.8.24 Security" [ref=e855]:
+                  - button "ISM-1763" [ref=e856]
+                  - paragraph [ref=e857]: A.8.24
+                  - paragraph [ref=e858]: Security
+                - cell "ASD-Approved Cryptographic Algorithms · Using the Elliptic Curve Digital Signature Algorithm When using ECDSA for digital signatures, NIST P-256, P-384 or P-521 curves are used, preferably the NIST P-384 curve. Use of cryptography" [ref=e859]:
+                  - paragraph [ref=e860]:
+                    - text: ASD-Approved Cryptographic Algorithms
+                    - generic [ref=e861]: · Using the Elliptic Curve Digital Signature Algorithm
+                  - paragraph [ref=e862]: When using ECDSA for digital signatures, NIST P-256, P-384 or P-521 curves are used, preferably the NIST P-384 curve.
+                  - paragraph [ref=e863]: Use of cryptography
+                - cell "Partial" [ref=e864]:
+                  - generic [ref=e865]: Partial
+                - cell [ref=e866]:
+                  - button "Add notes" [ref=e867]:
+                    - img [ref=e868]
+          - generic [ref=e871]:
+            - paragraph [ref=e872]: 1–25 of 780
+            - generic [ref=e873]:
+              - button "Previous page" [disabled] [ref=e874]: ‹ Prev
+              - generic [ref=e875]: 1 / 32
+              - button "Next page" [ref=e876]: Next ›
+        - generic [ref=e877]:
+          - generic [ref=e879]: Not Started
+          - generic [ref=e881]: In Progress
+          - generic [ref=e883]: Implemented
+          - generic [ref=e885]: Accepted Risk

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Info, X, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useStore, useFilteredControls, AWS_SERVICES, AZURE_SERVICES, ISM_GUIDELINES, SERVICE_CATEGORIES } from '@/store/useStore';
+import { useStore, useFilteredControls, AWS_SERVICES, AZURE_SERVICES, ISM_GUIDELINES, SERVICE_CATEGORIES, ISO_TO_ISM_COUNT } from '@/store/useStore';
 import { Badge } from '@/components/ui/Badge';
 import { ServiceChip } from '@/components/ServiceChip';
 import { EmptyState } from '@/components/ui/EmptyState';
@@ -65,18 +65,20 @@ export function CrossReference() {
       <div>
         <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">Cross-Reference View</h2>
         <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
-          ISM ↔ ISO 27001 side-by-side mapping — {filtered.length} controls
+          {filters.framework === 'ISO 27001'
+            ? `ISO 27001 view — ${filtered.length} unique ISO controls`
+            : `ISM ↔ ISO 27001 side-by-side mapping — ${filtered.length} controls`}
         </p>
       </div>
 
       {/* Filters */}
       <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-          {/* Framework: re-sorts results, does not reduce rows */}
+          {/* Framework: ISM = 780 rows, ISO = deduplicated ~240 rows */}
           <div className="flex flex-col gap-1">
             <div className="flex items-center gap-1">
               <label className="text-xs font-medium text-slate-500 dark:text-slate-400">Framework</label>
-              <span title="All controls are dual-mapped to ISM and ISO 27001. Selecting a framework re-sorts results by that framework's structure." className="cursor-help">
+              <span title="ISM: one row per ISM control. ISO 27001: deduplicated to one row per unique ISO control." className="cursor-help">
                 <Info className="w-3 h-3 text-slate-400" />
               </span>
             </div>
@@ -87,9 +89,14 @@ export function CrossReference() {
             >
               {['All', 'ISM', 'ISO 27001'].map((o) => <option key={o} value={o}>{o}</option>)}
             </select>
-            {filters.framework !== 'All' && (
+            {filters.framework === 'ISO 27001' && (
+              <p className="text-xs text-indigo-600 dark:text-indigo-400">
+                {filtered.length} unique ISO controls
+              </p>
+            )}
+            {filters.framework === 'ISM' && (
               <p className="text-xs text-blue-600 dark:text-blue-400">
-                Sorted by {filters.framework === 'ISM' ? 'ISM guideline' : 'ISO control ID'}
+                Sorted by ISM guideline
               </p>
             )}
           </div>
@@ -133,7 +140,15 @@ export function CrossReference() {
               <table className="w-full text-sm min-w-[900px]">
                 <thead>
                   <tr className="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700">
-                    {[
+                    {(filters.framework === 'ISO 27001' ? [
+                      'ISO Control',
+                      'ISO Control Name',
+                      'ISM Controls',
+                      'ISO Theme',
+                      'AWS Service(s)',
+                      'Azure Service(s)',
+                      'Category',
+                    ] : [
                       'ISM Control ID',
                       'ISM Guideline / Section',
                       'ISM Description',
@@ -142,7 +157,7 @@ export function CrossReference() {
                       'AWS Service(s)',
                       'Azure Service(s)',
                       'Category',
-                    ].map((h) => (
+                    ]).map((h) => (
                       <th key={h} className="px-3 py-3 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide whitespace-nowrap">
                         {h}
                       </th>
@@ -152,35 +167,57 @@ export function CrossReference() {
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
                   {pageRows.map((c: Control, idx: number) => (
                     <tr
-                      key={`${c.control_id}-${idx}`}
+                      key={`${filters.framework === 'ISO 27001' ? c.iso_control_id : c.control_id}-${idx}`}
                       className="hover:bg-blue-50/50 dark:hover:bg-slate-700/50 cursor-pointer transition-colors"
                       onClick={() => setSelectedControl(c)}
                     >
-                      {/* ISM Control ID */}
-                      <td className="px-3 py-3">
-                        <div className="flex flex-col gap-1">
-                          <span className="font-mono text-xs font-medium text-slate-700 dark:text-slate-300">{c.control_id}</span>
-                          <Badge className={COVERAGE_COLOURS[c.coverage_status]}>{c.coverage_status}</Badge>
-                        </div>
-                      </td>
-                      {/* ISM Guideline / Section */}
-                      <td className="px-3 py-3 text-xs max-w-[120px]">
-                        <div className="text-slate-600 dark:text-slate-400 truncate" title={c.ism_guideline}>
-                          {c.ism_guideline.replace('Guidelines for ', '')}
-                        </div>
-                        <div className="text-slate-400 dark:text-slate-500 truncate text-xs" title={c.ism_section}>
-                          {c.ism_section}
-                        </div>
-                      </td>
-                      {/* ISM Description */}
-                      <td className="px-3 py-3 text-xs text-slate-600 dark:text-slate-400 max-w-xs">
-                        <p className="line-clamp-3">{c.ism_description}</p>
-                      </td>
-                      {/* ISO 27001 */}
-                      <td className="px-3 py-3 max-w-[140px]">
-                        <div className="font-medium text-xs text-slate-700 dark:text-slate-300 whitespace-nowrap">{c.iso_control_id}</div>
-                        <div className="text-xs text-slate-400 dark:text-slate-500 line-clamp-2">{c.iso_control_name}</div>
-                      </td>
+                      {filters.framework === 'ISO 27001' ? (
+                        <>
+                          {/* ISO Control ID */}
+                          <td className="px-3 py-3">
+                            <div className="flex flex-col gap-1 items-start">
+                              <span className="font-mono text-xs font-medium text-indigo-700 dark:text-indigo-300">{c.iso_control_id}</span>
+                              <Badge className={COVERAGE_COLOURS[c.coverage_status]}>{c.coverage_status}</Badge>
+                            </div>
+                          </td>
+                          {/* ISO Control Name */}
+                          <td className="px-3 py-3 text-xs max-w-[200px]">
+                            <div className="font-medium text-slate-700 dark:text-slate-300 truncate" title={c.iso_control_name}>{c.iso_control_name}</div>
+                          </td>
+                          {/* ISM Controls count */}
+                          <td className="px-3 py-3 text-xs text-slate-500 dark:text-slate-400 whitespace-nowrap">
+                            {ISO_TO_ISM_COUNT[c.iso_control_id] ?? 1} ISM control{(ISO_TO_ISM_COUNT[c.iso_control_id] ?? 1) !== 1 ? 's' : ''}
+                          </td>
+                        </>
+                      ) : (
+                        <>
+                          {/* ISM Control ID */}
+                          <td className="px-3 py-3">
+                            <div className="flex flex-col gap-1 items-start">
+                              <span className="font-mono text-xs font-medium text-slate-700 dark:text-slate-300">{c.control_id}</span>
+                              <Badge className={COVERAGE_COLOURS[c.coverage_status]}>{c.coverage_status}</Badge>
+                            </div>
+                          </td>
+                          {/* ISM Guideline / Section */}
+                          <td className="px-3 py-3 text-xs max-w-[120px]">
+                            <div className="text-slate-600 dark:text-slate-400 truncate" title={c.ism_guideline}>
+                              {c.ism_guideline.replace('Guidelines for ', '')}
+                            </div>
+                            <div className="text-slate-400 dark:text-slate-500 truncate text-xs" title={c.ism_section}>
+                              {c.ism_section}
+                            </div>
+                          </td>
+                          {/* ISM Description */}
+                          <td className="px-3 py-3 text-xs text-slate-600 dark:text-slate-400 max-w-xs">
+                            <p className="line-clamp-3">{c.ism_description}</p>
+                          </td>
+                          {/* ISO 27001 */}
+                          <td className="px-3 py-3 max-w-[140px]">
+                            <div className="font-medium text-xs text-slate-700 dark:text-slate-300 whitespace-nowrap">{c.iso_control_id}</div>
+                            <div className="text-xs text-slate-400 dark:text-slate-500 line-clamp-2">{c.iso_control_name}</div>
+                          </td>
+                        </>
+                      )}
                       {/* ISO Theme */}
                       <td className="px-3 py-3 whitespace-nowrap">
                         <Badge className={ISO_THEME_COLOURS[c.iso_theme]}>{c.iso_theme}</Badge>

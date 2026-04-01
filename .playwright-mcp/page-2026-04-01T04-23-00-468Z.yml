@@ -1,0 +1,503 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - img [ref=e6]
+      - generic [ref=e8]: CloudComply
+    - navigation [ref=e9]:
+      - generic [ref=e10]:
+        - link "Dashboard" [ref=e11] [cursor=pointer]:
+          - /url: /
+          - img [ref=e12]
+          - generic [ref=e17]: Dashboard
+        - link "Mapping Table" [ref=e18] [cursor=pointer]:
+          - /url: /mapping
+          - img [ref=e19]
+          - generic [ref=e21]: Mapping Table
+        - link "CSP Coverage" [ref=e22] [cursor=pointer]:
+          - /url: /csp-coverage
+          - img [ref=e23]
+          - generic [ref=e25]: CSP Coverage
+        - link "Cross-Reference" [ref=e26] [cursor=pointer]:
+          - /url: /cross-reference
+          - img [ref=e27]
+          - generic [ref=e32]: Cross-Reference
+        - link "AI & Containers" [ref=e33] [cursor=pointer]:
+          - /url: /ai-containers
+          - img [ref=e34]
+          - generic [ref=e46]: AI & Containers
+        - link "Implementation" [ref=e47] [cursor=pointer]:
+          - /url: /implementation
+          - img [ref=e48]
+          - generic [ref=e52]: Implementation
+      - link "About" [ref=e54] [cursor=pointer]:
+        - /url: /about
+        - img [ref=e55]
+        - generic [ref=e57]: About
+    - generic [ref=e58]:
+      - paragraph [ref=e59]: Sources
+      - link "ISM (cyber.gov.au)" [ref=e60] [cursor=pointer]:
+        - /url: https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/ism
+      - link "ISO 27001 (iso.org)" [ref=e61] [cursor=pointer]:
+        - /url: https://www.iso.org/standard/27001
+      - link "AWS Compliance" [ref=e62] [cursor=pointer]:
+        - /url: https://aws.amazon.com/compliance
+      - link "Azure Trust Centre" [ref=e63] [cursor=pointer]:
+        - /url: https://www.microsoft.com/en-us/trust-center
+  - generic [ref=e64]:
+    - banner [ref=e65]:
+      - generic [ref=e67]: "ISM: March 2026 | ISO 27001:2022"
+      - generic [ref=e68]:
+        - generic [ref=e69]: Australian ISM & ISO 27001 Cloud Compliance Mapper
+        - button "Toggle dark mode" [ref=e70]:
+          - img [ref=e71]
+    - main [ref=e73]:
+      - generic [ref=e74]:
+        - generic [ref=e75]:
+          - img [ref=e76]
+          - paragraph [ref=e78]: "AI/ML compliance controls covering Amazon Bedrock, SageMaker, Azure OpenAI, Azure Machine Learning, and related services. Highlights controls unique to AI workloads under ISM March 2026: general-purpose AI usage policies, model integrity, prompt injection defence, inference logging, data residency, and content filtering. The shared responsibility matrix shows what you own versus what AWS and Azure handle."
+        - generic [ref=e79]:
+          - generic [ref=e80]:
+            - heading "AI & Container Compliance" [level=2] [ref=e81]
+            - paragraph [ref=e82]: Dedicated compliance view for AI/ML and container service controls — ISM March 2026
+          - button "Export AI Controls CSV" [ref=e83]:
+            - img [ref=e84]
+            - text: Export AI Controls CSV
+        - generic [ref=e87]:
+          - button "AI / ML Services(15)" [ref=e88]:
+            - text: AI / ML Services
+            - generic [ref=e89]: (15)
+          - button "Container Services(98)" [ref=e90]:
+            - text: Container Services
+            - generic [ref=e91]: (98)
+        - generic [ref=e93]:
+          - generic [ref=e94]:
+            - generic [ref=e95]:
+              - generic [ref=e96]: Framework
+              - 'generic "ISM: one row per ISM control. ISO 27001: deduplicated to one row per unique ISO control." [ref=e97]':
+                - img [ref=e98]
+            - combobox [ref=e100]:
+              - option "Both" [selected]
+              - option "ISM"
+              - option "ISO 27001"
+          - generic [ref=e101]:
+            - generic [ref=e102]: Coverage
+            - combobox [ref=e103]:
+              - option "All" [selected]
+              - option "Covered"
+              - option "Partial"
+              - option "Gap"
+          - generic [ref=e104]:
+            - generic [ref=e105]: ISM Guideline
+            - combobox [ref=e106]:
+              - option "All" [selected]
+              - option "Guidelines for communications systems"
+              - option "Guidelines for cryptography"
+              - option "Guidelines for cyber security documentation"
+              - option "Guidelines for cyber security incidents"
+              - option "Guidelines for cyber security roles"
+              - option "Guidelines for data transfers"
+              - option "Guidelines for database systems"
+              - option "Guidelines for email"
+              - option "Guidelines for evaluated products"
+              - option "Guidelines for gateways"
+              - option "Guidelines for networking"
+              - option "Guidelines for personnel security"
+              - option "Guidelines for physical security"
+              - option "Guidelines for procurement and outsourcing"
+              - option "Guidelines for software development"
+              - option "Guidelines for system hardening"
+              - option "Guidelines for system management"
+              - option "Guidelines for system monitoring"
+          - generic [ref=e107]:
+            - generic [ref=e108]: Responsibility
+            - combobox [ref=e109]:
+              - option "All" [selected]
+              - option "Customer"
+              - option "Shared"
+              - option "Provider"
+          - generic [ref=e110]:
+            - generic [ref=e111]: Cloud
+            - combobox [ref=e112]:
+              - option "All" [selected]
+              - option "AWS"
+              - option "Azure"
+        - generic [ref=e113]:
+          - heading "Shared Responsibility Matrix — AI / ML" [level=3] [ref=e115]
+          - table [ref=e117]:
+            - rowgroup [ref=e118]:
+              - row "Control Area Customer AWS Azure" [ref=e119]:
+                - columnheader "Control Area" [ref=e120]
+                - columnheader "Customer" [ref=e121]
+                - columnheader "AWS" [ref=e122]
+                - columnheader "Azure" [ref=e123]
+            - rowgroup [ref=e124]:
+              - row "Access Control (Endpoints) Enforce IAM policies, API keys, network restrictions Bedrock IAM enforcement Entra ID RBAC for OpenAI" [ref=e125]:
+                - cell "Access Control (Endpoints)" [ref=e126]
+                - cell "Enforce IAM policies, API keys, network restrictions" [ref=e127]
+                - cell "Bedrock IAM enforcement" [ref=e128]
+                - cell "Entra ID RBAC for OpenAI" [ref=e129]
+              - row "Inference Logging Configure logging destinations, set retention CloudTrail API logs Azure Monitor diagnostic settings" [ref=e130]:
+                - cell "Inference Logging" [ref=e131]
+                - cell "Configure logging destinations, set retention" [ref=e132]
+                - cell "CloudTrail API logs" [ref=e133]
+                - cell "Azure Monitor diagnostic settings" [ref=e134]
+              - row "Data Residency Select AU regions, enforce via policy ap-southeast-2 endpoint configuration australiaeast region selection" [ref=e135]:
+                - cell "Data Residency" [ref=e136]
+                - cell "Select AU regions, enforce via policy" [ref=e137]
+                - cell "ap-southeast-2 endpoint configuration" [ref=e138]
+                - cell "australiaeast region selection" [ref=e139]
+              - row "Content Filtering Configure guardrails and content policies Bedrock Guardrails setup AI Content Safety policy configuration" [ref=e140]:
+                - cell "Content Filtering" [ref=e141]
+                - cell "Configure guardrails and content policies" [ref=e142]
+                - cell "Bedrock Guardrails setup" [ref=e143]
+                - cell "AI Content Safety policy configuration" [ref=e144]
+              - row "Model Integrity Training data validation, SBOM, provenance SageMaker ML Lineage Tracking Azure ML Model Registry" [ref=e145]:
+                - cell "Model Integrity" [ref=e146]
+                - cell "Training data validation, SBOM, provenance" [ref=e147]
+                - cell "SageMaker ML Lineage Tracking" [ref=e148]
+                - cell "Azure ML Model Registry" [ref=e149]
+              - row "General-Purpose AI Usage Policy Document approved use cases, prohibited inputs AWS Organizations SCPs Azure Policy + Entra ID Conditional Access" [ref=e150]:
+                - cell "General-Purpose AI Usage Policy" [ref=e151]
+                - cell "Document approved use cases, prohibited inputs" [ref=e152]
+                - cell "AWS Organizations SCPs" [ref=e153]
+                - cell "Azure Policy + Entra ID Conditional Access" [ref=e154]
+              - row "Third-Party Model Risk Risk assess each model, document approvals Marketplace compliance reports via Artifact AI Foundry model cards review" [ref=e155]:
+                - cell "Third-Party Model Risk" [ref=e156]
+                - cell "Risk assess each model, document approvals" [ref=e157]
+                - cell "Marketplace compliance reports via Artifact" [ref=e158]
+                - cell "AI Foundry model cards review" [ref=e159]
+              - row "Prompt Injection Defence Input validation, hardening, adversarial testing Bedrock Guardrails (partial) Content Safety (partial)" [ref=e160]:
+                - cell "Prompt Injection Defence" [ref=e161]
+                - cell "Input validation, hardening, adversarial testing" [ref=e162]
+                - cell "Bedrock Guardrails (partial)" [ref=e163]
+                - cell "Content Safety (partial)" [ref=e164]
+        - generic [ref=e165]:
+          - generic [ref=e166]:
+            - heading "AI / ML Control Records" [level=3] [ref=e167]
+            - generic [ref=e168]: 15 of 15 shown
+          - table [ref=e170]:
+            - rowgroup [ref=e171]:
+              - row "Control ID ISM Guideline / Section Description AWS Services Azure Services Responsibility Coverage" [ref=e172]:
+                - columnheader "Control ID" [ref=e173]
+                - columnheader "ISM Guideline / Section" [ref=e174]
+                - columnheader "Description" [ref=e175]
+                - columnheader "AWS Services" [ref=e176]
+                - columnheader "Azure Services" [ref=e177]
+                - columnheader "Responsibility" [ref=e178]
+                - columnheader "Coverage" [ref=e179]
+            - rowgroup [ref=e180]:
+              - row "ISM-2074 personnel security Access to systems and their resources A general-purpose artificial intelligence usage policy is developed, implemented and maintained. Bedrock SageMaker +2 Azure OpenAI Azure ML +2 Shared Gap" [ref=e181] [cursor=pointer]:
+                - cell "ISM-2074" [ref=e182]
+                - cell "personnel security Access to systems and their resources" [ref=e183]:
+                  - generic "Guidelines for personnel security" [ref=e184]: personnel security
+                  - generic "Access to systems and their resources" [ref=e185]
+                - cell "A general-purpose artificial intelligence usage policy is developed, implemented and maintained." [ref=e186]:
+                  - paragraph [ref=e187]: A general-purpose artificial intelligence usage policy is developed, implemented and maintained.
+                - cell "Bedrock SageMaker +2" [ref=e188]:
+                  - generic [ref=e189]:
+                    - generic [ref=e190]: Bedrock
+                    - generic [ref=e191]: SageMaker
+                    - generic [ref=e192]: "+2"
+                - cell "Azure OpenAI Azure ML +2" [ref=e193]:
+                  - generic [ref=e194]:
+                    - generic [ref=e195]: Azure OpenAI
+                    - generic [ref=e196]: Azure ML
+                    - generic [ref=e197]: "+2"
+                - cell "Shared" [ref=e198]:
+                  - generic [ref=e199]: Shared
+                - cell "Gap" [ref=e200]:
+                  - generic [ref=e201]: Gap
+              - row "ISM-2084 software development Artificial intelligence application development Artificial intelligence-specific documentation, including model and system cards (or equivalent artefacts), is used to document model characteristics, system architectures, use cases and security risks. Bedrock SageMaker +2 Azure OpenAI Azure ML +2 Shared Partial" [ref=e202] [cursor=pointer]:
+                - cell "ISM-2084" [ref=e203]
+                - cell "software development Artificial intelligence application development" [ref=e204]:
+                  - generic "Guidelines for software development" [ref=e205]: software development
+                  - generic "Artificial intelligence application development" [ref=e206]
+                - cell "Artificial intelligence-specific documentation, including model and system cards (or equivalent artefacts), is used to document model characteristics, system architectures, use cases and security risks." [ref=e207]:
+                  - paragraph [ref=e208]: Artificial intelligence-specific documentation, including model and system cards (or equivalent artefacts), is used to document model characteristics, system architectures, use cases and security risks.
+                - cell "Bedrock SageMaker +2" [ref=e209]:
+                  - generic [ref=e210]:
+                    - generic [ref=e211]: Bedrock
+                    - generic [ref=e212]: SageMaker
+                    - generic [ref=e213]: "+2"
+                - cell "Azure OpenAI Azure ML +2" [ref=e214]:
+                  - generic [ref=e215]:
+                    - generic [ref=e216]: Azure OpenAI
+                    - generic [ref=e217]: Azure ML
+                    - generic [ref=e218]: "+2"
+                - cell "Shared" [ref=e219]:
+                  - generic [ref=e220]: Shared
+                - cell "Partial" [ref=e221]:
+                  - generic [ref=e222]: Partial
+              - row "ISM-2072 software development Artificial intelligence application development Artificial intelligence models are stored in a non-executable file format that does not allow arbitrary code execution. Bedrock SageMaker +2 Azure OpenAI Azure ML +2 Shared Partial" [ref=e223] [cursor=pointer]:
+                - cell "ISM-2072" [ref=e224]
+                - cell "software development Artificial intelligence application development" [ref=e225]:
+                  - generic "Guidelines for software development" [ref=e226]: software development
+                  - generic "Artificial intelligence application development" [ref=e227]
+                - cell "Artificial intelligence models are stored in a non-executable file format that does not allow arbitrary code execution." [ref=e228]:
+                  - paragraph [ref=e229]: Artificial intelligence models are stored in a non-executable file format that does not allow arbitrary code execution.
+                - cell "Bedrock SageMaker +2" [ref=e230]:
+                  - generic [ref=e231]:
+                    - generic [ref=e232]: Bedrock
+                    - generic [ref=e233]: SageMaker
+                    - generic [ref=e234]: "+2"
+                - cell "Azure OpenAI Azure ML +2" [ref=e235]:
+                  - generic [ref=e236]:
+                    - generic [ref=e237]: Azure OpenAI
+                    - generic [ref=e238]: Azure ML
+                    - generic [ref=e239]: "+2"
+                - cell "Shared" [ref=e240]:
+                  - generic [ref=e241]: Shared
+                - cell "Partial" [ref=e242]:
+                  - generic [ref=e243]: Partial
+              - row "ISM-2085 software development Artificial intelligence application development The exposure of exact artificial intelligence model confidence scores in API responses or user interfaces is prevented. Bedrock SageMaker +2 Azure OpenAI Azure ML +2 Shared Partial" [ref=e244] [cursor=pointer]:
+                - cell "ISM-2085" [ref=e245]
+                - cell "software development Artificial intelligence application development" [ref=e246]:
+                  - generic "Guidelines for software development" [ref=e247]: software development
+                  - generic "Artificial intelligence application development" [ref=e248]
+                - cell "The exposure of exact artificial intelligence model confidence scores in API responses or user interfaces is prevented." [ref=e249]:
+                  - paragraph [ref=e250]: The exposure of exact artificial intelligence model confidence scores in API responses or user interfaces is prevented.
+                - cell "Bedrock SageMaker +2" [ref=e251]:
+                  - generic [ref=e252]:
+                    - generic [ref=e253]: Bedrock
+                    - generic [ref=e254]: SageMaker
+                    - generic [ref=e255]: "+2"
+                - cell "Azure OpenAI Azure ML +2" [ref=e256]:
+                  - generic [ref=e257]:
+                    - generic [ref=e258]: Azure OpenAI
+                    - generic [ref=e259]: Azure ML
+                    - generic [ref=e260]: "+2"
+                - cell "Shared" [ref=e261]:
+                  - generic [ref=e262]: Shared
+                - cell "Partial" [ref=e263]:
+                  - generic [ref=e264]: Partial
+              - row "ISM-2103 software development Artificial intelligence application development Organisational data generated, collected or processed by artificial intelligence applications is not used for training, fine-tuning or improving artificial intelligence models unless informed and explicit consent has been obtained from data owners in advance. Bedrock SageMaker +2 Azure OpenAI Azure ML +2 Shared Partial" [ref=e265] [cursor=pointer]:
+                - cell "ISM-2103" [ref=e266]
+                - cell "software development Artificial intelligence application development" [ref=e267]:
+                  - generic "Guidelines for software development" [ref=e268]: software development
+                  - generic "Artificial intelligence application development" [ref=e269]
+                - cell "Organisational data generated, collected or processed by artificial intelligence applications is not used for training, fine-tuning or improving artificial intelligence models unless informed and explicit consent has been obtained from data owners in advance." [ref=e270]:
+                  - paragraph [ref=e271]: Organisational data generated, collected or processed by artificial intelligence applications is not used for training, fine-tuning or improving artificial intelligence models unless informed and explicit consent has been obtained from data owners in advance.
+                - cell "Bedrock SageMaker +2" [ref=e272]:
+                  - generic [ref=e273]:
+                    - generic [ref=e274]: Bedrock
+                    - generic [ref=e275]: SageMaker
+                    - generic [ref=e276]: "+2"
+                - cell "Azure OpenAI Azure ML +2" [ref=e277]:
+                  - generic [ref=e278]:
+                    - generic [ref=e279]: Azure OpenAI
+                    - generic [ref=e280]: Azure ML
+                    - generic [ref=e281]: "+2"
+                - cell "Shared" [ref=e282]:
+                  - generic [ref=e283]: Shared
+                - cell "Partial" [ref=e284]:
+                  - generic [ref=e285]: Partial
+              - row "ISM-2086 software development Artificial intelligence application development The source and integrity of artificial intelligence models, structures and weights are verified. Bedrock SageMaker +2 Azure OpenAI Azure ML +2 Shared Partial" [ref=e286] [cursor=pointer]:
+                - cell "ISM-2086" [ref=e287]
+                - cell "software development Artificial intelligence application development" [ref=e288]:
+                  - generic "Guidelines for software development" [ref=e289]: software development
+                  - generic "Artificial intelligence application development" [ref=e290]
+                - cell "The source and integrity of artificial intelligence models, structures and weights are verified." [ref=e291]:
+                  - paragraph [ref=e292]: The source and integrity of artificial intelligence models, structures and weights are verified.
+                - cell "Bedrock SageMaker +2" [ref=e293]:
+                  - generic [ref=e294]:
+                    - generic [ref=e295]: Bedrock
+                    - generic [ref=e296]: SageMaker
+                    - generic [ref=e297]: "+2"
+                - cell "Azure OpenAI Azure ML +2" [ref=e298]:
+                  - generic [ref=e299]:
+                    - generic [ref=e300]: Azure OpenAI
+                    - generic [ref=e301]: Azure ML
+                    - generic [ref=e302]: "+2"
+                - cell "Shared" [ref=e303]:
+                  - generic [ref=e304]: Shared
+                - cell "Partial" [ref=e305]:
+                  - generic [ref=e306]: Partial
+              - row "ISM-2087 software development Artificial intelligence application development The source and integrity of training data for artificial intelligence models is verified. Bedrock SageMaker +2 Azure OpenAI Azure ML +2 Shared Partial" [ref=e307] [cursor=pointer]:
+                - cell "ISM-2087" [ref=e308]
+                - cell "software development Artificial intelligence application development" [ref=e309]:
+                  - generic "Guidelines for software development" [ref=e310]: software development
+                  - generic "Artificial intelligence application development" [ref=e311]
+                - cell "The source and integrity of training data for artificial intelligence models is verified." [ref=e312]:
+                  - paragraph [ref=e313]: The source and integrity of training data for artificial intelligence models is verified.
+                - cell "Bedrock SageMaker +2" [ref=e314]:
+                  - generic [ref=e315]:
+                    - generic [ref=e316]: Bedrock
+                    - generic [ref=e317]: SageMaker
+                    - generic [ref=e318]: "+2"
+                - cell "Azure OpenAI Azure ML +2" [ref=e319]:
+                  - generic [ref=e320]:
+                    - generic [ref=e321]: Azure OpenAI
+                    - generic [ref=e322]: Azure ML
+                    - generic [ref=e323]: "+2"
+                - cell "Shared" [ref=e324]:
+                  - generic [ref=e325]: Shared
+                - cell "Partial" [ref=e326]:
+                  - generic [ref=e327]: Partial
+              - row "ISM-2088 software development Artificial intelligence application development Data validation and verification techniques are used to ensure the reliability and accuracy of training data used by artificial intelligence models. Bedrock SageMaker +2 Azure OpenAI Azure ML +2 Shared Partial" [ref=e328] [cursor=pointer]:
+                - cell "ISM-2088" [ref=e329]
+                - cell "software development Artificial intelligence application development" [ref=e330]:
+                  - generic "Guidelines for software development" [ref=e331]: software development
+                  - generic "Artificial intelligence application development" [ref=e332]
+                - cell "Data validation and verification techniques are used to ensure the reliability and accuracy of training data used by artificial intelligence models." [ref=e333]:
+                  - paragraph [ref=e334]: Data validation and verification techniques are used to ensure the reliability and accuracy of training data used by artificial intelligence models.
+                - cell "Bedrock SageMaker +2" [ref=e335]:
+                  - generic [ref=e336]:
+                    - generic [ref=e337]: Bedrock
+                    - generic [ref=e338]: SageMaker
+                    - generic [ref=e339]: "+2"
+                - cell "Azure OpenAI Azure ML +2" [ref=e340]:
+                  - generic [ref=e341]:
+                    - generic [ref=e342]: Azure OpenAI
+                    - generic [ref=e343]: Azure ML
+                    - generic [ref=e344]: "+2"
+                - cell "Shared" [ref=e345]:
+                  - generic [ref=e346]: Shared
+                - cell "Partial" [ref=e347]:
+                  - generic [ref=e348]: Partial
+              - row "ISM-2089 software development Artificial intelligence application development Artificial intelligence model performance metrics are monitored and anomalies are investigated. Bedrock SageMaker +2 Azure OpenAI Azure ML +2 Shared Partial" [ref=e349] [cursor=pointer]:
+                - cell "ISM-2089" [ref=e350]
+                - cell "software development Artificial intelligence application development" [ref=e351]:
+                  - generic "Guidelines for software development" [ref=e352]: software development
+                  - generic "Artificial intelligence application development" [ref=e353]
+                - cell "Artificial intelligence model performance metrics are monitored and anomalies are investigated." [ref=e354]:
+                  - paragraph [ref=e355]: Artificial intelligence model performance metrics are monitored and anomalies are investigated.
+                - cell "Bedrock SageMaker +2" [ref=e356]:
+                  - generic [ref=e357]:
+                    - generic [ref=e358]: Bedrock
+                    - generic [ref=e359]: SageMaker
+                    - generic [ref=e360]: "+2"
+                - cell "Azure OpenAI Azure ML +2" [ref=e361]:
+                  - generic [ref=e362]:
+                    - generic [ref=e363]: Azure OpenAI
+                    - generic [ref=e364]: Azure ML
+                    - generic [ref=e365]: "+2"
+                - cell "Shared" [ref=e366]:
+                  - generic [ref=e367]: Shared
+                - cell "Partial" [ref=e368]:
+                  - generic [ref=e369]: Partial
+              - row "ISM-2090 software development Artificial intelligence application development Rate limiting is applied to inference queries for artificial intelligence models. Bedrock SageMaker +2 Azure OpenAI Azure ML +2 Shared Partial" [ref=e370] [cursor=pointer]:
+                - cell "ISM-2090" [ref=e371]
+                - cell "software development Artificial intelligence application development" [ref=e372]:
+                  - generic "Guidelines for software development" [ref=e373]: software development
+                  - generic "Artificial intelligence application development" [ref=e374]
+                - cell "Rate limiting is applied to inference queries for artificial intelligence models." [ref=e375]:
+                  - paragraph [ref=e376]: Rate limiting is applied to inference queries for artificial intelligence models.
+                - cell "Bedrock SageMaker +2" [ref=e377]:
+                  - generic [ref=e378]:
+                    - generic [ref=e379]: Bedrock
+                    - generic [ref=e380]: SageMaker
+                    - generic [ref=e381]: "+2"
+                - cell "Azure OpenAI Azure ML +2" [ref=e382]:
+                  - generic [ref=e383]:
+                    - generic [ref=e384]: Azure OpenAI
+                    - generic [ref=e385]: Azure ML
+                    - generic [ref=e386]: "+2"
+                - cell "Shared" [ref=e387]:
+                  - generic [ref=e388]: Shared
+                - cell "Partial" [ref=e389]:
+                  - generic [ref=e390]: Partial
+              - row "ISM-2091 software development Artificial intelligence application development Resource limits are enforced for artificial intelligence models. Bedrock SageMaker +2 Azure OpenAI Azure ML +2 Shared Partial" [ref=e391] [cursor=pointer]:
+                - cell "ISM-2091" [ref=e392]
+                - cell "software development Artificial intelligence application development" [ref=e393]:
+                  - generic "Guidelines for software development" [ref=e394]: software development
+                  - generic "Artificial intelligence application development" [ref=e395]
+                - cell "Resource limits are enforced for artificial intelligence models." [ref=e396]:
+                  - paragraph [ref=e397]: Resource limits are enforced for artificial intelligence models.
+                - cell "Bedrock SageMaker +2" [ref=e398]:
+                  - generic [ref=e399]:
+                    - generic [ref=e400]: Bedrock
+                    - generic [ref=e401]: SageMaker
+                    - generic [ref=e402]: "+2"
+                - cell "Azure OpenAI Azure ML +2" [ref=e403]:
+                  - generic [ref=e404]:
+                    - generic [ref=e405]: Azure OpenAI
+                    - generic [ref=e406]: Azure ML
+                    - generic [ref=e407]: "+2"
+                - cell "Shared" [ref=e408]:
+                  - generic [ref=e409]: Shared
+                - cell "Partial" [ref=e410]:
+                  - generic [ref=e411]: Partial
+              - row "ISM-2092 software development Artificial intelligence application development Access control policies are implemented to enforce fine-grained permissions for artificial intelligence applications. Bedrock SageMaker +2 Azure OpenAI Azure ML +2 Shared Partial" [ref=e412] [cursor=pointer]:
+                - cell "ISM-2092" [ref=e413]
+                - cell "software development Artificial intelligence application development" [ref=e414]:
+                  - generic "Guidelines for software development" [ref=e415]: software development
+                  - generic "Artificial intelligence application development" [ref=e416]
+                - cell "Access control policies are implemented to enforce fine-grained permissions for artificial intelligence applications." [ref=e417]:
+                  - paragraph [ref=e418]: Access control policies are implemented to enforce fine-grained permissions for artificial intelligence applications.
+                - cell "Bedrock SageMaker +2" [ref=e419]:
+                  - generic [ref=e420]:
+                    - generic [ref=e421]: Bedrock
+                    - generic [ref=e422]: SageMaker
+                    - generic [ref=e423]: "+2"
+                - cell "Azure OpenAI Azure ML +2" [ref=e424]:
+                  - generic [ref=e425]:
+                    - generic [ref=e426]: Azure OpenAI
+                    - generic [ref=e427]: Azure ML
+                    - generic [ref=e428]: "+2"
+                - cell "Shared" [ref=e429]:
+                  - generic [ref=e430]: Shared
+                - cell "Partial" [ref=e431]:
+                  - generic [ref=e432]: Partial
+              - row "ISM-2093 software development Artificial intelligence application development Role-based access controls are implemented for artificial intelligence applications to restrict access to sensitive data. Bedrock SageMaker +2 Azure OpenAI Azure ML +2 Shared Partial" [ref=e433] [cursor=pointer]:
+                - cell "ISM-2093" [ref=e434]
+                - cell "software development Artificial intelligence application development" [ref=e435]:
+                  - generic "Guidelines for software development" [ref=e436]: software development
+                  - generic "Artificial intelligence application development" [ref=e437]
+                - cell "Role-based access controls are implemented for artificial intelligence applications to restrict access to sensitive data." [ref=e438]:
+                  - paragraph [ref=e439]: Role-based access controls are implemented for artificial intelligence applications to restrict access to sensitive data.
+                - cell "Bedrock SageMaker +2" [ref=e440]:
+                  - generic [ref=e441]:
+                    - generic [ref=e442]: Bedrock
+                    - generic [ref=e443]: SageMaker
+                    - generic [ref=e444]: "+2"
+                - cell "Azure OpenAI Azure ML +2" [ref=e445]:
+                  - generic [ref=e446]:
+                    - generic [ref=e447]: Azure OpenAI
+                    - generic [ref=e448]: Azure ML
+                    - generic [ref=e449]: "+2"
+                - cell "Shared" [ref=e450]:
+                  - generic [ref=e451]: Shared
+                - cell "Partial" [ref=e452]:
+                  - generic [ref=e453]: Partial
+              - row "ISM-1924 software development Artificial intelligence application development Generative artificial intelligence applications evaluate user prompts to detect and mitigate adversarial inputs or suffixes designed to elicit unintended behaviour or assist in the generation of sensitive or harmful content. Bedrock SageMaker +2 Azure OpenAI Azure ML +2 Shared Partial" [ref=e454] [cursor=pointer]:
+                - cell "ISM-1924" [ref=e455]
+                - cell "software development Artificial intelligence application development" [ref=e456]:
+                  - generic "Guidelines for software development" [ref=e457]: software development
+                  - generic "Artificial intelligence application development" [ref=e458]
+                - cell "Generative artificial intelligence applications evaluate user prompts to detect and mitigate adversarial inputs or suffixes designed to elicit unintended behaviour or assist in the generation of sensitive or harmful content." [ref=e459]:
+                  - paragraph [ref=e460]: Generative artificial intelligence applications evaluate user prompts to detect and mitigate adversarial inputs or suffixes designed to elicit unintended behaviour or assist in the generation of sensitive or harmful content.
+                - cell "Bedrock SageMaker +2" [ref=e461]:
+                  - generic [ref=e462]:
+                    - generic [ref=e463]: Bedrock
+                    - generic [ref=e464]: SageMaker
+                    - generic [ref=e465]: "+2"
+                - cell "Azure OpenAI Azure ML +2" [ref=e466]:
+                  - generic [ref=e467]:
+                    - generic [ref=e468]: Azure OpenAI
+                    - generic [ref=e469]: Azure ML
+                    - generic [ref=e470]: "+2"
+                - cell "Shared" [ref=e471]:
+                  - generic [ref=e472]: Shared
+                - cell "Partial" [ref=e473]:
+                  - generic [ref=e474]: Partial
+              - row "ISM-2094 software development Artificial intelligence application development Content filtering is implemented by artificial intelligence applications to detect and block sensitive data exposure and improper output. Bedrock SageMaker +2 Azure OpenAI Azure ML +2 Shared Partial" [ref=e475] [cursor=pointer]:
+                - cell "ISM-2094" [ref=e476]
+                - cell "software development Artificial intelligence application development" [ref=e477]:
+                  - generic "Guidelines for software development" [ref=e478]: software development
+                  - generic "Artificial intelligence application development" [ref=e479]
+                - cell "Content filtering is implemented by artificial intelligence applications to detect and block sensitive data exposure and improper output." [ref=e480]:
+                  - paragraph [ref=e481]: Content filtering is implemented by artificial intelligence applications to detect and block sensitive data exposure and improper output.
+                - cell "Bedrock SageMaker +2" [ref=e482]:
+                  - generic [ref=e483]:
+                    - generic [ref=e484]: Bedrock
+                    - generic [ref=e485]: SageMaker
+                    - generic [ref=e486]: "+2"
+                - cell "Azure OpenAI Azure ML +2" [ref=e487]:
+                  - generic [ref=e488]:
+                    - generic [ref=e489]: Azure OpenAI
+                    - generic [ref=e490]: Azure ML
+                    - generic [ref=e491]: "+2"
+                - cell "Shared" [ref=e492]:
+                  - generic [ref=e493]: Shared
+                - cell "Partial" [ref=e494]:
+                  - generic [ref=e495]: Partial

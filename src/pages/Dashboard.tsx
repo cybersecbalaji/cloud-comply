@@ -1,12 +1,16 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import {
   PieChart, Pie, Cell, Tooltip, ResponsiveContainer,
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend,
 } from 'recharts';
-import { Info } from 'lucide-react';
+import { Info, ArrowRight, ClipboardCheck } from 'lucide-react';
 import { useStore, SERVICE_CATEGORIES } from '@/store/useStore';
+import { useImplementation } from '@/store/useImplementation';
 import { StatCard } from '@/components/ui/StatCard';
 import { CHART_COLOURS, MACRO_THEME_MAP, CATEGORY_CHART_COLOURS } from '@/lib/utils';
+import type { ImplementationStatus } from '@/types';
+
+const IMPL_STATUSES: ImplementationStatus[] = ['Not Started', 'In Progress', 'Implemented', 'Accepted Risk'];
 
 // Short labels for the ISM guideline bar chart (strip "Guidelines for ")
 function shortGuideline(g: string) {
@@ -15,6 +19,7 @@ function shortGuideline(g: string) {
 
 export function Dashboard() {
   const { controls, setFilter } = useStore();
+  const { statuses, scope } = useImplementation();
   const navigate = useNavigate();
 
   const covered = controls.filter((c) => c.coverage_status === 'Covered').length;
@@ -57,6 +62,15 @@ export function Dashboard() {
     count: controls.filter((c) => c.service_category === cat).length,
   })).filter((d) => d.count > 0).sort((a, b) => b.count - a.count);
 
+  // Implementation posture data
+  const trackedIds = Object.keys(statuses);
+  const trackedCount = trackedIds.length;
+  const implCounts: Record<ImplementationStatus, number> = {
+    'Not Started': 0, 'In Progress': 0, 'Implemented': 0, 'Accepted Risk': 0,
+  };
+  trackedIds.forEach((id) => { implCounts[statuses[id].status]++; });
+  const implementedPct = trackedCount ? Math.round((implCounts['Implemented'] / trackedCount) * 100) : 0;
+
   function quickFilter(status: string) {
     setFilter('coverageStatus', status as 'Covered' | 'Partial' | 'Gap');
     navigate('/mapping');
@@ -92,6 +106,87 @@ export function Dashboard() {
         <StatCard label="Partial Coverage" value={partial} colour="text-amber-600 dark:text-amber-400" subtext={`${controls.length ? Math.round((partial / controls.length) * 100) : 0}% of total`} accentClass="border-l-4 border-l-amber-500" />
         <StatCard label="Gaps" value={gaps} colour="text-red-600 dark:text-red-400" subtext={`${controls.length ? Math.round((gaps / controls.length) * 100) : 0}% of total`} accentClass="border-l-4 border-l-red-500" />
       </div>
+
+      {/* ── Implementation Posture ───────────────────────────────────────────── */}
+      {trackedCount > 0 ? (
+        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 space-y-3">
+          <div className="flex items-center justify-between flex-wrap gap-2">
+            <div>
+              <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-300">
+                Your Implementation Posture
+              </h3>
+              <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">
+                {trackedCount} controls tracked
+                {' · '}{scope.framework ?? 'Both'} · {scope.csp}
+                {scope.services.length > 0 && ` · ${scope.services.length} services in scope`}
+              </p>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-2xl font-bold text-green-600 dark:text-green-400">{implementedPct}%</span>
+              <span className="text-xs text-slate-400 dark:text-slate-500">implemented</span>
+              <Link
+                to="/implementation"
+                className="flex items-center gap-1 px-3 py-1.5 min-h-[36px] text-xs font-medium rounded-lg bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
+              >
+                Open Tracker <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Stacked bar */}
+          <div className="flex h-3.5 rounded-full overflow-hidden w-full bg-slate-100 dark:bg-slate-700 gap-px">
+            {implCounts['Implemented'] > 0 && (
+              <div style={{ width: `${(implCounts['Implemented'] / trackedCount) * 100}%` }} className="bg-green-500 transition-all" />
+            )}
+            {implCounts['Accepted Risk'] > 0 && (
+              <div style={{ width: `${(implCounts['Accepted Risk'] / trackedCount) * 100}%` }} className="bg-violet-400 transition-all" />
+            )}
+            {implCounts['In Progress'] > 0 && (
+              <div style={{ width: `${(implCounts['In Progress'] / trackedCount) * 100}%` }} className="bg-amber-400 transition-all" />
+            )}
+            {implCounts['Not Started'] > 0 && (
+              <div style={{ width: `${(implCounts['Not Started'] / trackedCount) * 100}%` }} className="bg-slate-300 dark:bg-slate-600 transition-all" />
+            )}
+          </div>
+
+          {/* Legend */}
+          <div className="flex flex-wrap gap-x-5 gap-y-1">
+            {IMPL_STATUSES.map((s) => (
+              <div key={s} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400">
+                <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${
+                  s === 'Implemented' ? 'bg-green-500' :
+                  s === 'In Progress' ? 'bg-amber-400' :
+                  s === 'Accepted Risk' ? 'bg-violet-400' :
+                  'bg-slate-300 dark:bg-slate-600'
+                }`} />
+                {s} <span className="font-semibold">{implCounts[s]}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/20 rounded-xl border border-blue-100 dark:border-blue-900/50 p-5">
+          <div className="flex items-start gap-4">
+            <ClipboardCheck className="w-8 h-8 text-blue-500 shrink-0 mt-0.5" />
+            <div className="flex-1 min-w-0">
+              <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-200 mb-1">
+                Track your implementation posture
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mb-3">
+                Select the services you deploy, then mark each control as{' '}
+                <span className="font-medium">Not Started → In Progress → Implemented</span>.
+                Your progress appears here and is saved in your browser.
+              </p>
+              <Link
+                to="/implementation"
+                className="inline-flex items-center gap-1.5 px-4 py-2 min-h-[44px] bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                Get Started <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Charts row */}
       <div className="grid md:grid-cols-2 gap-4">

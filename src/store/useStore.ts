@@ -96,9 +96,7 @@ export function useFilteredControls() {
       return true;
     });
 
-    // Framework selection changes sort order so results are grouped by that
-    // framework's structure. All controls in this dataset satisfy both frameworks,
-    // so the filter does not reduce rows — it reorganises them.
+    // ISM: sort by guideline → section → control_id
     if (filters.framework === 'ISM') {
       return [...filtered].sort((a, b) =>
         a.ism_guideline.localeCompare(b.ism_guideline) ||
@@ -106,10 +104,17 @@ export function useFilteredControls() {
         a.control_id.localeCompare(b.control_id)
       );
     }
+    // ISO 27001: sort then deduplicate — one representative row per unique ISO control
     if (filters.framework === 'ISO 27001') {
-      return [...filtered].sort((a, b) =>
+      const sorted = [...filtered].sort((a, b) =>
         a.iso_control_id.localeCompare(b.iso_control_id, undefined, { numeric: true })
       );
+      const seen = new Set<string>();
+      return sorted.filter((c) => {
+        if (seen.has(c.iso_control_id)) return false;
+        seen.add(c.iso_control_id);
+        return true;
+      });
     }
     return filtered;
   }));
@@ -129,6 +134,12 @@ export const AZURE_SERVICES = Array.from(_azureSet).sort();
 
 // Derive sorted unique guideline names
 export const ISM_GUIDELINES = ['All', ...Array.from(new Set(_controls.map((c) => c.ism_guideline))).sort()];
+
+// Pre-computed ISO control_id → count of ISM controls that map to it
+export const ISO_TO_ISM_COUNT: Record<string, number> = {};
+_controls.forEach((c) => {
+  ISO_TO_ISM_COUNT[c.iso_control_id] = (ISO_TO_ISM_COUNT[c.iso_control_id] ?? 0) + 1;
+});
 
 // Derive sorted unique service categories
 export const SERVICE_CATEGORIES = ['All', ...Array.from(new Set(_controls.map((c) => c.service_category))).sort()];
