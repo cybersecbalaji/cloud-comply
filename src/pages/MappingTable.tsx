@@ -93,7 +93,7 @@ export function MappingTable() {
         <div>
           <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">Mapping Table</h2>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
-            {filtered.length} control{filtered.length !== 1 ? 's' : ''} shown
+            {filtered.length} control{filtered.length !== 1 ? 's' : ''} shown · Click any row to view details
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -216,19 +216,22 @@ export function MappingTable() {
                         {h}
                       </th>
                     ))}
+                    <th className="w-8" />
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
                   {pageRows.map((c: Control, idx: number) => (
                     <tr
                       key={`${filters.framework === 'ISO 27001' ? c.iso_control_id : c.control_id}-${idx}`}
-                      className="hover:bg-blue-50/50 dark:hover:bg-slate-700/50 cursor-pointer transition-colors"
+                      className="hover:bg-blue-50/50 dark:hover:bg-slate-700/50 cursor-pointer transition-colors group"
                       onClick={() => setSelectedControl(c)}
                     >
                       {filters.framework === 'ISO 27001' ? (
                         <>
-                          <td className="px-3 py-2.5 font-mono text-xs font-medium text-indigo-700 dark:text-indigo-300 whitespace-nowrap">
-                            {c.iso_control_id}
+                          <td className="px-3 py-2.5 whitespace-nowrap">
+                            <span className="inline-flex items-center font-mono text-xs font-semibold text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700/50 rounded px-1.5 py-0.5 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-800/40 transition-colors">
+                              {c.iso_control_id}
+                            </span>
                           </td>
                           <td className="px-3 py-2.5 max-w-[200px]">
                             <div className="text-xs font-medium text-slate-700 dark:text-slate-300 truncate" title={c.iso_control_name}>{c.iso_control_name}</div>
@@ -240,8 +243,10 @@ export function MappingTable() {
                         </>
                       ) : (
                         <>
-                          <td className="px-3 py-2.5 font-mono text-xs font-medium text-slate-700 dark:text-slate-300 whitespace-nowrap">
-                            {c.control_id}
+                          <td className="px-3 py-2.5 whitespace-nowrap">
+                            <span className="inline-flex items-center font-mono text-xs font-semibold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700/50 rounded px-1.5 py-0.5 group-hover:bg-blue-100 dark:group-hover:bg-blue-800/40 transition-colors">
+                              {c.control_id}
+                            </span>
                           </td>
                           <td className="px-3 py-2.5 text-slate-600 dark:text-slate-400 max-w-[160px]">
                             <div className="truncate text-xs" title={c.ism_guideline}>
@@ -298,6 +303,9 @@ export function MappingTable() {
                       </td>
                       <td className="px-3 py-2.5 whitespace-nowrap">
                         <Badge className={COVERAGE_COLOURS[c.coverage_status]}>{c.coverage_status}</Badge>
+                      </td>
+                      <td className="px-3 py-2.5 w-8 text-right">
+                        <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600 opacity-0 group-hover:opacity-100 transition-opacity" />
                       </td>
                     </tr>
                   ))}

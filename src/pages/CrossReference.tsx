@@ -67,7 +67,7 @@ export function CrossReference() {
         <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
           {filters.framework === 'ISO 27001'
             ? `ISO 27001 view — ${filtered.length} unique ISO controls`
-            : `ISM ↔ ISO 27001 side-by-side mapping — ${filtered.length} controls`}
+            : `ISM ↔ ISO 27001 side-by-side mapping — ${filtered.length} controls`}{' · Click any row to view details'}
         </p>
       </div>
 
@@ -162,13 +162,14 @@ export function CrossReference() {
                         {h}
                       </th>
                     ))}
+                    <th className="w-8" />
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
                   {pageRows.map((c: Control, idx: number) => (
                     <tr
                       key={`${filters.framework === 'ISO 27001' ? c.iso_control_id : c.control_id}-${idx}`}
-                      className="hover:bg-blue-50/50 dark:hover:bg-slate-700/50 cursor-pointer transition-colors"
+                      className="hover:bg-blue-50/50 dark:hover:bg-slate-700/50 cursor-pointer transition-colors group"
                       onClick={() => setSelectedControl(c)}
                     >
                       {filters.framework === 'ISO 27001' ? (
@@ -176,7 +177,7 @@ export function CrossReference() {
                           {/* ISO Control ID */}
                           <td className="px-3 py-3">
                             <div className="flex flex-col gap-1 items-start">
-                              <span className="font-mono text-xs font-medium text-indigo-700 dark:text-indigo-300">{c.iso_control_id}</span>
+                              <span className="inline-flex items-center font-mono text-xs font-semibold text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700/50 rounded px-1.5 py-0.5 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-800/40 transition-colors">{c.iso_control_id}</span>
                               <Badge className={COVERAGE_COLOURS[c.coverage_status]}>{c.coverage_status}</Badge>
                             </div>
                           </td>
@@ -194,7 +195,7 @@ export function CrossReference() {
                           {/* ISM Control ID */}
                           <td className="px-3 py-3">
                             <div className="flex flex-col gap-1 items-start">
-                              <span className="font-mono text-xs font-medium text-slate-700 dark:text-slate-300">{c.control_id}</span>
+                              <span className="inline-flex items-center font-mono text-xs font-semibold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700/50 rounded px-1.5 py-0.5 group-hover:bg-blue-100 dark:group-hover:bg-blue-800/40 transition-colors">{c.control_id}</span>
                               <Badge className={COVERAGE_COLOURS[c.coverage_status]}>{c.coverage_status}</Badge>
                             </div>
                           </td>
@@ -249,6 +250,9 @@ export function CrossReference() {
                         <Badge className={SERVICE_COLOURS[c.service_category] || 'bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-300'}>
                           {c.service_category}
                         </Badge>
+                      </td>
+                      <td className="px-3 py-3 w-8 text-right">
+                        <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600 opacity-0 group-hover:opacity-100 transition-opacity" />
                       </td>
                     </tr>
                   ))}

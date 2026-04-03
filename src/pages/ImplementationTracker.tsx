@@ -1,6 +1,6 @@
 import { useState, useMemo, useRef, useCallback } from 'react';
 import {
-  Info, ChevronDown, ChevronUp, Upload, Download, Trash2,
+  Info, ChevronDown, ChevronUp, ChevronRight, Upload, Download, Trash2,
   FileJson, FileText, SlidersHorizontal, X, NotebookPen,
 } from 'lucide-react';
 import { useStore } from '@/store/useStore';
@@ -593,7 +593,7 @@ export function ImplementationTracker() {
         <div className="flex flex-wrap gap-2 items-center">
           <span className="text-xs text-slate-400 dark:text-slate-500 mr-auto">
             {filteredControls.length} control{filteredControls.length !== 1 ? 's' : ''} shown
-            {trackedCount > 0 && <> · {trackedCount} tracked</>}
+            {trackedCount > 0 && <> · {trackedCount} tracked</>} · Click → or control ID to view details
           </span>
 
           {/* Import */}
@@ -701,6 +701,7 @@ export function ImplementationTracker() {
                   <th className="text-center px-4 py-3 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide w-16">
                     Notes
                   </th>
+                  <th className="w-8" />
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-slate-700/60">
@@ -713,10 +714,11 @@ export function ImplementationTracker() {
                   return (
                     <tr
                       key={key}
-                      className="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors"
+                      className="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors group cursor-pointer"
+                      onClick={() => setSelectedControl(c)}
                     >
                       {/* Status select */}
-                      <td className="px-4 py-3 align-top">
+                      <td className="px-4 py-3 align-top" onClick={(e) => e.stopPropagation()}>
                         <select
                           value={status}
                           onChange={(e) => handleStatusChange(key, e.target.value as ImplementationStatus)}
@@ -745,7 +747,7 @@ export function ImplementationTracker() {
                           <>
                             <button
                               onClick={() => setSelectedControl(c)}
-                              className="font-mono text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline text-left"
+                              className="inline-flex items-center font-mono text-xs font-semibold text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700/50 rounded px-1.5 py-0.5 hover:bg-indigo-100 dark:hover:bg-indigo-800/40 transition-colors"
                             >
                               {c.iso_control_id}
                             </button>
@@ -759,7 +761,7 @@ export function ImplementationTracker() {
                           <>
                             <button
                               onClick={() => setSelectedControl(c)}
-                              className="font-mono text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline text-left"
+                              className="inline-flex items-center font-mono text-xs font-semibold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700/50 rounded px-1.5 py-0.5 hover:bg-blue-100 dark:hover:bg-blue-800/40 transition-colors"
                             >
                               {c.control_id}
                             </button>
@@ -813,12 +815,21 @@ export function ImplementationTracker() {
                       </td>
 
                       {/* Notes */}
-                      <td className="px-4 py-3 align-top text-center">
+                      <td className="px-4 py-3 align-top text-center" onClick={(e) => e.stopPropagation()}>
                         <NotesCell
                           controlId={key}
                           notes={rec?.notes ?? ''}
                           onSave={handleNotesSave}
                         />
+                      </td>
+                      <td className="px-3 py-3 w-8 text-right align-top">
+                        <button
+                          onClick={() => setSelectedControl(c)}
+                          className="opacity-0 group-hover:opacity-100 transition-opacity"
+                          aria-label="View control details"
+                        >
+                          <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600" />
+                        </button>
                       </td>
                     </tr>
                   );
