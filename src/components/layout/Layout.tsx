@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { Sidebar } from './Sidebar';
 import { Header } from './Header';
 import { ControlDetailPanel } from '@/components/ControlDetailPanel';
+import { FeedbackWidget } from '@/components/FeedbackWidget';
 
 export function Layout() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -17,6 +18,7 @@ export function Layout() {
         </main>
       </div>
       <ControlDetailPanel />
+      <FeedbackWidget />
     </div>
   );
 }

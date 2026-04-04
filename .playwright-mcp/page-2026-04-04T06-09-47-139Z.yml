@@ -1,0 +1,218 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - generic [ref=e5]:
+        - img [ref=e6]
+        - generic [ref=e8]: CloudComply
+      - navigation [ref=e9]:
+        - generic [ref=e10]:
+          - link "Dashboard" [ref=e11] [cursor=pointer]:
+            - /url: /
+            - img [ref=e12]
+            - generic [ref=e17]: Dashboard
+          - link "Mapping Table" [ref=e18] [cursor=pointer]:
+            - /url: /mapping
+            - img [ref=e19]
+            - generic [ref=e21]: Mapping Table
+          - link "CSP Coverage" [ref=e22] [cursor=pointer]:
+            - /url: /csp-coverage
+            - img [ref=e23]
+            - generic [ref=e25]: CSP Coverage
+          - link "Cross-Reference" [ref=e26] [cursor=pointer]:
+            - /url: /cross-reference
+            - img [ref=e27]
+            - generic [ref=e32]: Cross-Reference
+          - link "AI & Containers" [ref=e33] [cursor=pointer]:
+            - /url: /ai-containers
+            - img [ref=e34]
+            - generic [ref=e46]: AI & Containers
+          - link "Implementation" [ref=e47] [cursor=pointer]:
+            - /url: /implementation
+            - img [ref=e48]
+            - generic [ref=e52]: Implementation
+        - link "About" [ref=e54] [cursor=pointer]:
+          - /url: /about
+          - img [ref=e55]
+          - generic [ref=e57]: About
+      - generic [ref=e58]:
+        - paragraph [ref=e59]: Sources
+        - link "ISM (cyber.gov.au)" [ref=e60] [cursor=pointer]:
+          - /url: https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/ism
+        - link "ISO 27001 (iso.org)" [ref=e61] [cursor=pointer]:
+          - /url: https://www.iso.org/standard/27001
+        - link "AWS Compliance" [ref=e62] [cursor=pointer]:
+          - /url: https://aws.amazon.com/compliance
+        - link "Azure Trust Centre" [ref=e63] [cursor=pointer]:
+          - /url: https://www.microsoft.com/en-us/trust-center
+    - generic [ref=e64]:
+      - banner [ref=e65]:
+        - generic [ref=e67]: "ISM: March 2026 | ISO 27001:2022"
+        - generic [ref=e68]:
+          - generic [ref=e69]: Australian ISM & ISO 27001 Cloud Compliance Mapper
+          - button "Toggle dark mode" [ref=e70]:
+            - img [ref=e71]
+      - main [ref=e73]:
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - img [ref=e76]
+            - paragraph [ref=e78]: High-level compliance coverage summary across all 780 mapped ISM (March 2026) and ISO 27001:2022 controls for AWS and Azure. Use the charts and quick filters to spot coverage gaps, then jump straight to the filtered Mapping Table for details.
+          - generic [ref=e79]:
+            - heading "Dashboard" [level=2] [ref=e80]
+            - paragraph [ref=e81]: Australian ISM & ISO 27001:2022 Cloud Compliance Overview
+          - generic [ref=e82]:
+            - generic [ref=e83]:
+              - paragraph [ref=e84]: Total Controls
+              - paragraph [ref=e85]: "780"
+              - paragraph [ref=e86]: ISM + ISO 27001 mapped
+            - generic [ref=e87]:
+              - paragraph [ref=e88]: Covered
+              - paragraph [ref=e89]: "87"
+              - paragraph [ref=e90]: 11% of total
+            - generic [ref=e91]:
+              - paragraph [ref=e92]: Partial Coverage
+              - paragraph [ref=e93]: "568"
+              - paragraph [ref=e94]: 73% of total
+            - generic [ref=e95]:
+              - paragraph [ref=e96]: Gaps
+              - paragraph [ref=e97]: "125"
+              - paragraph [ref=e98]: 16% of total
+          - generic [ref=e100]:
+            - img [ref=e101]
+            - generic [ref=e105]:
+              - heading "Track your implementation posture" [level=3] [ref=e106]
+              - paragraph [ref=e107]: Select the services you deploy, then mark each control as Not Started → In Progress → Implemented. Your progress appears here and is saved in your browser.
+              - link "Get Started" [ref=e108] [cursor=pointer]:
+                - /url: /implementation
+                - text: Get Started
+                - img [ref=e109]
+          - generic [ref=e111]:
+            - generic [ref=e112]:
+              - heading "Coverage Breakdown" [level=3] [ref=e113]
+              - application [ref=e116]
+              - generic [ref=e117]:
+                - generic [ref=e118]: Covered (87)
+                - generic [ref=e120]: Partial (568)
+                - generic [ref=e122]: Gap (125)
+            - generic [ref=e124]:
+              - heading "Coverage by Theme" [level=3] [ref=e125]
+              - generic [ref=e127]:
+                - list [ref=e129]:
+                  - listitem [ref=e130]:
+                    - img "Covered legend icon" [ref=e131]
+                    - text: Covered
+                  - listitem [ref=e133]:
+                    - img "Gap legend icon" [ref=e134]
+                    - text: Gap
+                  - listitem [ref=e136]:
+                    - img "Partial legend icon" [ref=e137]
+                    - text: Partial
+                - application [ref=e139]:
+                  - generic [ref=e150]:
+                    - generic [ref=e151]:
+                      - generic [ref=e153]: "0"
+                      - generic [ref=e155]: "150"
+                      - generic [ref=e157]: "300"
+                      - generic [ref=e159]: "450"
+                      - generic [ref=e161]: "600"
+                    - generic [ref=e162]:
+                      - generic [ref=e164]: TechnicalControls
+                      - generic [ref=e166]: Governance &People
+                      - generic [ref=e168]: Network &Comms
+          - generic [ref=e169]:
+            - heading "Controls by ISM Guideline (Top 12)" [level=3] [ref=e170]
+            - paragraph [ref=e171]: Stacked by coverage status — sorted by total control count
+            - generic [ref=e173]:
+              - list [ref=e175]:
+                - listitem [ref=e176]:
+                  - img "Covered legend icon" [ref=e177]
+                  - text: Covered
+                - listitem [ref=e179]:
+                  - img "Gap legend icon" [ref=e180]
+                  - text: Gap
+                - listitem [ref=e182]:
+                  - img "Partial legend icon" [ref=e183]
+                  - text: Partial
+              - application [ref=e185]:
+                - generic [ref=e196]:
+                  - generic [ref=e197]:
+                    - generic [ref=e199]: "0"
+                    - generic [ref=e201]: "55"
+                    - generic [ref=e203]: "110"
+                    - generic [ref=e205]: "165"
+                    - generic [ref=e207]: "220"
+                  - generic [ref=e208]:
+                    - generic [ref=e210]: system hardening
+                    - generic [ref=e212]: softwaredevelopment
+                    - generic [ref=e214]: cryptography
+                    - generic [ref=e216]: systemmanagement
+                    - generic [ref=e218]: gateways
+                    - generic [ref=e220]: personnelsecurity
+                    - generic [ref=e222]: procurement andoutsourcing
+                    - generic [ref=e224]: networking
+                    - generic [ref=e226]: email
+                    - generic [ref=e228]: cyber securityincidents
+                    - generic [ref=e230]: physical security
+                    - generic [ref=e232]: systemmonitoring
+          - generic [ref=e233]:
+            - heading "Controls by Service Category" [level=3] [ref=e234]
+            - application [ref=e237]:
+              - generic [ref=e248]:
+                - generic [ref=e249]:
+                  - generic [ref=e251]: Compute
+                  - generic [ref=e253]: Security
+                  - generic [ref=e255]: DevOps
+                  - generic [ref=e257]: Gateway
+                  - generic [ref=e259]: Network
+                  - generic [ref=e261]: Identity
+                  - generic [ref=e263]: Email
+                  - generic [ref=e265]: AI/ML
+                  - generic [ref=e267]: Storage
+                  - generic [ref=e269]: Containers
+                - generic [ref=e270]:
+                  - generic [ref=e272]: "0"
+                  - generic [ref=e274]: "60"
+                  - generic [ref=e276]: "120"
+                  - generic [ref=e278]: "180"
+                  - generic [ref=e280]: "240"
+            - paragraph [ref=e281]: Click a bar to filter Mapping Table by category
+          - generic [ref=e282]:
+            - heading "Quick Filters" [level=3] [ref=e283]
+            - generic [ref=e284]:
+              - button "View Covered Controls" [ref=e285]
+              - button "View Partial Controls" [ref=e286]
+              - button "View Gap Controls" [ref=e287]
+              - button "Compute" [ref=e288]
+              - button "Security" [ref=e289]
+              - button "DevOps" [ref=e290]
+              - button "Governance" [ref=e291]
+              - button "Gateway" [ref=e292]
+              - button "Network" [ref=e293]
+              - button "Identity" [ref=e294]
+              - button "Email" [ref=e295]
+    - button "Open feedback form" [ref=e296]:
+      - img [ref=e297]
+      - text: Feedback
+    - dialog "Feedback form" [ref=e299]:
+      - generic [ref=e300]:
+        - generic [ref=e301]:
+          - img [ref=e302]
+          - generic [ref=e304]: Share Feedback
+        - button "Close feedback form" [ref=e305]:
+          - img [ref=e306]
+      - generic [ref=e310]:
+        - generic [ref=e311]:
+          - generic [ref=e312]: Name
+          - textbox "Name" [ref=e313]:
+            - /placeholder: Your name
+        - generic [ref=e314]:
+          - generic [ref=e315]: Email
+          - textbox "Email" [ref=e316]:
+            - /placeholder: you@example.com
+        - generic [ref=e317]:
+          - generic [ref=e318]: Feedback
+          - textbox "Feedback" [ref=e319]:
+            - /placeholder: Tell us what you think...
+        - button "Send Feedback" [ref=e320]:
+          - img [ref=e321]
+          - text: Send Feedback
+  - generic [ref=e324]: "60"
