@@ -26,4 +26,5 @@ dist-ssr
 .vercel
 
 # Local Claude context — keep out of git/Vercel
+CLAUDE.md
 CLAUDE.local.md
